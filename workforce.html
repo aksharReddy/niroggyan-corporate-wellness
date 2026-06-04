@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.remove('light');document.documentElement.classList.add('dark');}})()</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workforce Risk Profiling | NirogGyan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container-low":"#f2f4f6","on-primary":"#ffffff","on-surface":"#191c1e",
+          "surface-tint":"#4a5f83","on-error":"#ffffff","surface-container":"#eceef0",
+          "surface":"#f7f9fb","surface-container-lowest":"#ffffff","tertiary":"#00170c",
+          "secondary-fixed-dim":"#d2bbff","secondary-fixed":"#eaddff","inverse-surface":"#2d3133",
+          "outline":"#74777f","on-tertiary-fixed-variant":"#005236","background":"#f7f9fb",
+          "on-primary-fixed-variant":"#32476a","on-primary-container":"#798fb5",
+          "tertiary-fixed-dim":"#4edea3","on-surface-variant":"#44474e",
+          "on-secondary-fixed-variant":"#5a00c6","primary-fixed-dim":"#b2c7f1",
+          "on-tertiary-fixed":"#002113","surface-variant":"#e0e3e5",
+          "inverse-on-surface":"#eff1f3","primary-fixed":"#d6e3ff",
+          "error-container":"#ffdad6","surface-dim":"#d8dadc","primary-container":"#0f2748",
+          "on-secondary-fixed":"#25005a","primary":"#00122c","on-tertiary-container":"#00a270",
+          "surface-container-high":"#e6e8ea","on-tertiary":"#ffffff","secondary":"#712ae2",
+          "inverse-primary":"#b2c7f1","surface-bright":"#f7f9fb","on-primary-fixed":"#011b3c",
+          "on-error-container":"#93000a","tertiary-container":"#002e1d","on-background":"#191c1e",
+          "on-secondary":"#ffffff","outline-variant":"#c4c6cf","error":"#ba1a1a",
+          "secondary-container":"#8a4cfc","on-secondary-container":"#fffbff",
+          "surface-container-highest":"#e0e3e5","tertiary-fixed":"#6ffbbe",
+          "green-custom":"#10B981","navy-custom":"#0F2748",
+          "amber-custom":"#F59E0B","red-custom":"#EF4444","purple-custom":"#7C3AED"
+        },
+        borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+        spacing:{"gutter":"1.5rem","stack-sm":"0.5rem","container-max":"1440px","stack-md":"1rem","stack-lg":"2rem","margin-x":"2rem"},
+        fontFamily:{"title-lg":["Inter"],"headline-sm":["Inter"],"display-lg":["Inter"],"headline-lg-mobile":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"display-sm":["Inter"],"body-md":["Inter"],"label-md":["Inter"]},
+        fontSize:{
+          "title-lg":["18px",{"lineHeight":"28px","fontWeight":"600"}],
+          "headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],
+          "display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],
+          "headline-lg":["30px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"600"}],
+          "label-sm":["11px",{"lineHeight":"16px","fontWeight":"600"}],
+          "headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],
+          "body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],
+          "display-sm":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],
+          "body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],
+          "label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+/* ── Theme Variables ── */
+:root {
+  --bg:#f7f9fb; --surface:#ffffff; --surf-low:#f2f4f6; --surf-mid:#eceef0;
+  --surf-high:#e6e8ea; --text:#191c1e; --muted:#44474e; --border:#c4c6cf;
+  --border-strong:#74777f; --primary:#00122c; --primary-m:#0f2748;
+  --nav-bg:rgba(247,249,251,0.97);
+  --card-shadow:0 1px 3px rgba(15,39,72,0.05),0 10px 15px -3px rgba(15,39,72,0.03);
+  --card-shadow-hover:0 4px 6px rgba(15,39,72,0.07),0 20px 40px -8px rgba(15,39,72,0.08);
+}
+html.dark {
+  --bg:#0d1117; --surface:#161b22; --surf-low:#21262d; --surf-mid:#1c2128;
+  --surf-high:#2d333b; --text:#e6edf3; --muted:#8b949e; --border:#30363d;
+  --border-strong:#484f58; --primary:#b2c7f1; --primary-m:#d6e3ff;
+  --nav-bg:rgba(13,17,23,0.97);
+  --card-shadow:0 1px 3px rgba(0,0,0,0.4),0 8px 24px -4px rgba(0,0,0,0.3);
+  --card-shadow-hover:0 4px 6px rgba(0,0,0,0.4),0 20px 40px -8px rgba(0,0,0,0.5);
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;transition:background .35s,color .35s;}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;display:inline-block;vertical-align:middle;}
+
+/* ── Dark overrides ── */
+html.dark header{background-color:var(--nav-bg)!important;border-color:var(--border)!important;}
+html.dark .card{background:var(--surface)!important;border-color:var(--border)!important;}
+html.dark .bg-white{background:var(--surface)!important;}
+html.dark .bg-surface-container-lowest{background:var(--surface)!important;}
+html.dark .bg-surface-container-low{background:var(--surf-low)!important;}
+html.dark .bg-surface-container{background:var(--surf-mid)!important;}
+html.dark .bg-surface-container-high{background:var(--surf-high)!important;}
+html.dark .bg-surface,.dark .bg-background{background:var(--bg)!important;}
+html.dark .border-outline-variant{border-color:var(--border)!important;}
+html.dark .text-on-surface{color:var(--text)!important;}
+html.dark .text-on-surface-variant{color:var(--muted)!important;}
+html.dark .text-primary{color:var(--primary)!important;}
+html.dark footer{background:var(--surface)!important;border-color:var(--border)!important;}
+html.dark .dist-grid{stroke:var(--surf-high);}
+html.dark .zone-divider{stroke:var(--border);}
+html.dark .chart-axis{stroke:var(--border);}
+
+/* ── Layout ── */
+.card{background:var(--surface);border:1px solid var(--border);box-shadow:var(--card-shadow);border-radius:1.25rem;transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s ease,border-color .3s ease;}
+.card:hover{transform:translateY(-3px);box-shadow:var(--card-shadow-hover);}
+.section-module{background:var(--surface);border:1px solid var(--border);border-radius:1.5rem;padding:2rem;box-shadow:var(--card-shadow);}
+.section-chip{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:3px 10px;border-radius:999px;}
+
+/* ── Nav ── */
+.ultra-soft-shadow{box-shadow:0 1px 3px rgba(15,39,72,.05),0 10px 15px -3px rgba(15,39,72,.03);}
+@keyframes live-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.5);}}
+.live-pulse-dot{animation:live-pulse 1.8s ease-in-out infinite;}
+
+/* ── KPI Cards ── */
+.kpi-card{transition:box-shadow .3s ease,transform .3s ease;}
+.kpi-glow-green:hover{box-shadow:0 0 40px rgba(16,185,129,.25),0 8px 24px rgba(16,185,129,.1);transform:translateY(-4px);}
+.kpi-glow-amber:hover{box-shadow:0 0 40px rgba(245,158,11,.22),0 8px 24px rgba(245,158,11,.08);transform:translateY(-4px);}
+.kpi-glow-red:hover{box-shadow:0 0 40px rgba(239,68,68,.22),0 8px 24px rgba(239,68,68,.08);transform:translateY(-4px);}
+.kpi-glow-navy:hover{box-shadow:0 0 40px rgba(15,39,72,.35),0 8px 24px rgba(15,39,72,.12);transform:translateY(-4px);}
+
+/* ── Chart animations ── */
+@keyframes drawLine{from{stroke-dashoffset:2200;}to{stroke-dashoffset:0;}}
+@keyframes fadeZone{from{opacity:0;}to{opacity:1;}}
+@keyframes growBar{from{width:0!important;}to{}}
+@keyframes scaleBubble{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes countUp{from{opacity:0;}to{opacity:1;}}
+
+.curve-line{stroke-dasharray:2200;stroke-dashoffset:2200;}
+.curve-line.animated{animation:drawLine 1.8s cubic-bezier(.22,1,.36,1) forwards;}
+.zone-fill{opacity:0;transition:opacity .6s ease;}
+.zone-fill.animated{opacity:1;}
+.bar-animated{width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1);}
+.bubble{transform-origin:center;transform:scale(0);opacity:0;transition:transform .6s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;}
+.bubble.pop{transform:scale(1);opacity:1;}
+.anim-fade-up{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+.anim-fade-up.visible{opacity:1;transform:none;}
+
+/* ── Tooltips ── */
+.bubble-wrap{position:relative;}
+.bubble-wrap .tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) scale(.9);background:var(--primary-m);color:#fff;font-size:11px;font-weight:600;white-space:nowrap;padding:6px 10px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity .2s ease,transform .2s ease;z-index:10;}
+.bubble-wrap:hover .tip{opacity:1;transform:translateX(-50%) scale(1);}
+.bubble-wrap .tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--primary-m);}
+
+/* ── Bar hover ── */
+.risk-bar-row{cursor:default;}
+.risk-bar-row:hover .risk-bar-fill{filter:brightness(1.1);}
+.risk-bar-fill{transition:filter .2s ease;}
+
+/* ── Persona cards ── */
+.persona-card{transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s ease;}
+.persona-card:hover{transform:translateY(-5px);}
+
+/* ── Matrix quadrants ── */
+.matrix-item{transition:transform .2s ease,box-shadow .2s ease;}
+.matrix-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.12);}
+
+/* ── Cohort table ── */
+.cohort-row{transition:background .2s ease;}
+.cohort-row:hover{background:var(--surf-low);}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--surf-low);}
+::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:10px;}
+
+/* ── Dark specific ── */
+html.dark .persona-card{border-color:var(--border);}
+html.dark .matrix-quad{border-color:var(--border);}
+</style>
+</head>
+
+<body class="text-on-surface font-body-md selection:bg-secondary/20">
+
+<!-- ═══ HEADER (exact from index.html — Workforce active) ═══ -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-x h-20 bg-surface/95 backdrop-blur-sm border-b border-outline-variant shadow-sm">
+  <div class="flex items-center gap-6">
+    <div class="flex flex-col">
+      <span class="font-display-sm text-display-sm font-bold text-primary">NirogGyan</span>
+      <span class="font-label-md text-label-md tracking-[0.2em] text-on-surface-variant uppercase -mt-1">CORPORATE WELLNESS</span>
+    </div>
+    <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-green-custom/10 border border-green-custom/20 rounded-full">
+      <div class="w-2 h-2 bg-green-custom rounded-full live-pulse-dot"></div>
+      <span class="font-label-md text-label-md text-green-custom font-bold">Live Data</span>
+    </div>
+  </div>
+  <nav class="hidden md:flex items-center gap-4">
+    <a class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="index.html">Dashboard</a>
+    <a class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="ai_insights.html">AI Strategic Insights</a>
+    <a class="px-4 py-2 text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md transition-all" href="workforce.html">Workforce Risk Profiling</a>
+  </nav>
+    <div class="flex items-center gap-4">
+    <div class="hidden lg:flex items-center gap-2 px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant ultra-soft-shadow">
+      <span class="material-symbols-outlined text-primary scale-75">analytics</span>
+      <span class="font-label-md text-label-md text-on-surface-variant">Acme Corp Ltd. Q2 Profile</span>
+    </div>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()" class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]" aria-label="Toggle dark mode">
+      <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]">
+      <span class="material-symbols-outlined">present_to_all</span>
+    </button>
+    <button onclick="exportPage()" class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]" title="Export report">
+      <span class="material-symbols-outlined">download</span>
+    </button>
+    <button class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:shadow-lg transition-all active:scale-[0.98]">
+      Start Tour
+    </button>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main class="max-w-container-max mx-auto px-margin-x py-10 space-y-8">
+
+  <!-- Page Hero -->
+  <div class="anim-fade-up flex flex-col md:flex-row md:items-end justify-between gap-6 pb-2">
+    <div>
+      <div class="section-chip mb-2" style="background:rgba(113,42,226,.08);color:#5a00c6;">Workforce Intelligence · Q2 2024</div>
+      <h1 class="text-[32px] font-extrabold tracking-tight leading-tight" style="color:var(--text);">Workforce Risk Profiling</h1>
+      <p class="text-[14px] mt-1" style="color:var(--muted);">Anonymized cohort health analysis across 548 employees · Last updated June 2024</p>
+    </div>
+    <div class="flex gap-3 flex-shrink-0">
+      <select id="dept-filter" onchange="applyFilter()" class="px-4 py-2 rounded-xl text-[12px] font-semibold border transition-all" style="background:var(--surface);border-color:var(--border);color:var(--text);">
+        <option value="all">All Departments</option>
+        <option value="ops">Operations</option>
+        <option value="eng">Engineering</option>
+        <option value="sales">Sales</option>
+        <option value="mkt">Marketing</option>
+        <option value="hr">HR &amp; Legal</option>
+      </select>
+      <button onclick="exportPage()" class="flex items-center gap-2 px-5 py-2 rounded-xl text-[12px] font-bold text-white transition-all hover:opacity-90 active:scale-[0.98]" style="background:var(--primary-m);">
+        <span class="material-symbols-outlined text-[16px]">download</span>Export Report
+      </button>
+    </div>
+  </div>
+
+  <!-- ─── SECTION 1: KPI Overview ─── -->
+  <section class="anim-fade-up">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-1 h-10 rounded-full bg-secondary flex-shrink-0"></div>
+      <div>
+        <div class="section-chip mb-0.5" style="background:rgba(113,42,226,.08);color:#5a00c6;">01 · OVERVIEW</div>
+        <h2 class="text-[20px] font-bold" style="color:var(--text);">Workforce Risk Overview</h2>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- Low Risk -->
+      <div class="card kpi-card kpi-glow-green p-6 flex flex-col">
+        <div class="flex justify-between items-start mb-5">
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center" style="background:rgba(16,185,129,.1);">
+            <span class="material-symbols-outlined text-green-custom text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">verified_user</span>
+          </div>
+          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(16,185,129,.1);color:#059669;">↑ +3% QoQ</div>
+        </div>
+        <p class="text-[11px] font-bold uppercase tracking-[.15em] mb-1" style="color:var(--muted);">Low Risk Employees</p>
+        <div class="flex items-end gap-2 mb-1">
+          <span class="text-[42px] font-extrabold leading-none tabular-nums text-green-custom" data-count="62" data-suffix="%">0%</span>
+        </div>
+        <p class="text-[12px] mb-4" style="color:var(--muted);">340 employees · All markers optimal</p>
+        <div class="h-2 w-full rounded-full overflow-hidden mt-auto" style="background:var(--surf-mid);">
+          <div class="h-full rounded-full bar-animated" style="--tw:62%;background:#10B981;" data-w="62%"></div>
+        </div>
+      </div>
+
+      <!-- Monitoring -->
+      <div class="card kpi-card kpi-glow-amber p-6 flex flex-col">
+        <div class="flex justify-between items-start mb-5">
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center" style="background:rgba(245,158,11,.1);">
+            <span class="material-symbols-outlined text-amber-custom text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">monitoring</span>
+          </div>
+          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(245,158,11,.1);color:#b45309;">→ Stable</div>
+        </div>
+        <p class="text-[11px] font-bold uppercase tracking-[.15em] mb-1" style="color:var(--muted);">Monitoring Required</p>
+        <div class="flex items-end gap-2 mb-1">
+          <span class="text-[42px] font-extrabold leading-none tabular-nums text-amber-custom" data-count="26" data-suffix="%">0%</span>
+        </div>
+        <p class="text-[12px] mb-4" style="color:var(--muted);">143 employees · 1–2 borderline markers</p>
+        <div class="h-2 w-full rounded-full overflow-hidden mt-auto" style="background:var(--surf-mid);">
+          <div class="h-full rounded-full bar-animated" style="--tw:26%;background:#F59E0B;" data-w="26%"></div>
+        </div>
+      </div>
+
+      <!-- High Risk -->
+      <div class="card kpi-card kpi-glow-red p-6 flex flex-col">
+        <div class="flex justify-between items-start mb-5">
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center bg-error-container">
+            <span class="material-symbols-outlined text-on-error-container text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">warning</span>
+          </div>
+          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container text-on-error-container">↑ Needs Action</div>
+        </div>
+        <p class="text-[11px] font-bold uppercase tracking-[.15em] mb-1" style="color:var(--muted);">High Risk Employees</p>
+        <div class="flex items-end gap-2 mb-1">
+          <span class="text-[42px] font-extrabold leading-none tabular-nums text-error" data-count="12" data-suffix="%">0%</span>
+        </div>
+        <p class="text-[12px] mb-4" style="color:var(--muted);">65 employees · Immediate intervention</p>
+        <div class="h-2 w-full rounded-full overflow-hidden mt-auto" style="background:var(--surf-mid);">
+          <div class="h-full rounded-full bar-animated bg-error" style="--tw:12%;" data-w="12%"></div>
+        </div>
+      </div>
+
+      <!-- Wellness Score -->
+      <div class="card kpi-card kpi-glow-navy p-6 flex flex-col" style="background:var(--primary-m);">
+        <div class="flex justify-between items-start mb-5">
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center bg-white/10">
+            <span class="material-symbols-outlined text-white text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">favorite</span>
+          </div>
+          <div class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/15 text-white">A- Grade</div>
+        </div>
+        <p class="text-[11px] font-bold uppercase tracking-[.15em] mb-1 text-white/60">Avg Wellness Score</p>
+        <div class="flex items-end gap-2 mb-1">
+          <span class="text-[42px] font-extrabold leading-none tabular-nums text-white" data-count="78" data-suffix="">0</span>
+          <span class="text-[20px] font-normal text-white/40 pb-1">/100</span>
+        </div>
+        <p class="text-[12px] mb-4 text-white/50">548 employees assessed · Q2 2024</p>
+        <div class="h-2 w-full rounded-full overflow-hidden mt-auto bg-white/20">
+          <div class="h-full rounded-full bar-animated bg-amber-custom" style="--tw:78%;" data-w="78%"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2: Risk Distribution Chart ─── -->
+  <section class="section-module anim-fade-up">
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-7 pb-6" style="border-bottom:1px solid var(--border);">
+      <div class="flex items-center gap-4">
+        <div class="w-1 h-12 rounded-full bg-secondary flex-shrink-0"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,.1);">
+          <span class="material-symbols-outlined text-secondary text-[22px]">area_chart</span>
+        </div>
+        <div>
+          <div class="section-chip mb-1" style="background:rgba(113,42,226,.08);color:#5a00c6;">02 · DISTRIBUTION</div>
+          <h2 class="text-[20px] font-bold" style="color:var(--text);">Workforce Risk Distribution</h2>
+          <p class="text-[13px] mt-0.5" style="color:var(--muted);">Health score density across 548 employees · Peak cluster: 68–76 score range</p>
+        </div>
+      </div>
+      <!-- Legend -->
+      <div class="flex flex-wrap gap-4 flex-shrink-0 items-center">
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-custom inline-block"></span><span class="text-[12px] font-semibold" style="color:var(--muted);">At Risk (0–59)</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-custom inline-block"></span><span class="text-[12px] font-semibold" style="color:var(--muted);">Monitor (60–79)</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-green-custom inline-block"></span><span class="text-[12px] font-semibold" style="color:var(--muted);">Optimal (80–100)</span></div>
+      </div>
+    </div>
+
+    <div class="select-none">
+      <!-- Chart layout: Y-axis + chart area -->
+      <div class="flex items-stretch gap-1">
+        <!-- Y-axis ticks + rotated label -->
+        <div class="flex-shrink-0 relative" style="width:48px;">
+          <div class="absolute left-0 right-0 top-0" style="bottom:0;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:8px;height:260px;">
+            <span class="text-[11px] font-semibold tabular-nums" style="color:var(--muted);">160</span>
+            <span class="text-[11px] font-semibold tabular-nums" style="color:var(--muted);">120</span>
+            <span class="text-[11px] font-semibold tabular-nums" style="color:var(--muted);">80</span>
+            <span class="text-[11px] font-semibold tabular-nums" style="color:var(--muted);">40</span>
+            <span class="text-[11px] font-semibold tabular-nums" style="color:var(--muted);">0</span>
+          </div>
+        </div>
+
+        <!-- Chart area: SVG + HTML label overlays -->
+        <div class="flex-1 relative" style="height:260px;">
+          <!-- SVG: curves, fills, axes, grid — NO text inside SVG -->
+          <svg id="dist-chart" viewBox="0 0 1000 300" preserveAspectRatio="none" class="absolute inset-0 w-full h-full">
+            <defs>
+              <clipPath id="cr"><rect x="0" y="0" width="600" height="300"/></clipPath>
+              <clipPath id="cm"><rect x="600" y="0" width="200" height="300"/></clipPath>
+              <clipPath id="co"><rect x="800" y="0" width="200" height="300"/></clipPath>
+              <linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EF4444" stop-opacity=".22"/><stop offset="100%" stop-color="#EF4444" stop-opacity=".01"/></linearGradient>
+              <linearGradient id="gm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F59E0B" stop-opacity=".28"/><stop offset="100%" stop-color="#F59E0B" stop-opacity=".01"/></linearGradient>
+              <linearGradient id="go" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#10B981" stop-opacity=".22"/><stop offset="100%" stop-color="#10B981" stop-opacity=".01"/></linearGradient>
+            </defs>
+            <!-- Grid lines -->
+            <line x1="0" y1="75" x2="1000" y2="75" stroke="#c4c6cf" stroke-width=".6" stroke-dasharray="4 5" opacity=".5" class="dist-grid"/>
+            <line x1="0" y1="150" x2="1000" y2="150" stroke="#c4c6cf" stroke-width=".6" stroke-dasharray="4 5" opacity=".5" class="dist-grid"/>
+            <line x1="0" y1="225" x2="1000" y2="225" stroke="#c4c6cf" stroke-width=".6" stroke-dasharray="4 5" opacity=".5" class="dist-grid"/>
+            <!-- Zone fills -->
+            <path clip-path="url(#cr)" d="M0,300 L0,292 C100,290 200,275 320,240 S440,165 520,110 S580,68 600,55 L600,300Z" fill="url(#gr)" class="zone-fill" id="zr"/>
+            <path clip-path="url(#cm)" d="M600,300 L600,55 C630,35 660,18 700,8 S740,12 760,22 S780,38 800,58 L800,300Z" fill="url(#gm)" class="zone-fill" id="zm"/>
+            <path clip-path="url(#co)" d="M800,300 L800,58 C820,72 850,95 880,130 S930,185 970,240 S990,278 1000,292 L1000,300Z" fill="url(#go)" class="zone-fill" id="zo"/>
+            <!-- Curve -->
+            <path id="dist-curve" d="M0,292 C100,290 200,275 320,240 S440,165 520,110 S580,68 600,55 S640,25 700,8 S760,18 800,58 S850,115 900,170 S960,245 1000,292" fill="none" stroke="#0F2748" stroke-width="2.5" stroke-linecap="round" class="curve-line"/>
+            <!-- Zone dividers -->
+            <line x1="600" y1="0" x2="600" y2="300" stroke="#c4c6cf" stroke-dasharray="5 4" stroke-width="1.2" opacity=".55" class="zone-divider"/>
+            <line x1="800" y1="0" x2="800" y2="300" stroke="#c4c6cf" stroke-dasharray="5 4" stroke-width="1.2" opacity=".55" class="zone-divider"/>
+            <!-- Axes -->
+            <line x1="0" y1="0" x2="0" y2="300" stroke="#c4c6cf" stroke-width="1" class="chart-axis"/>
+            <line x1="0" y1="300" x2="1000" y2="300" stroke="#c4c6cf" stroke-width="1" class="chart-axis"/>
+            <!-- Peak dot only (no text — handled in HTML) -->
+            <circle cx="700" cy="8" r="3.5" fill="#0F2748" opacity=".75"/>
+            <line x1="700" y1="12" x2="700" y2="36" stroke="#0F2748" stroke-width="1" stroke-dasharray="3 2" opacity=".4"/>
+          </svg>
+
+          <!-- HTML label overlays (no distortion) -->
+          <div class="absolute inset-0 pointer-events-none">
+            <!-- Peak label -->
+            <div class="absolute text-center" style="left:70%;top:14%;transform:translateX(-50%);">
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-md" style="background:rgba(15,39,72,.07);color:var(--primary);">Peak: Score 70</span>
+            </div>
+            <!-- High Risk label -->
+            <div class="absolute text-center" style="left:30%;bottom:8%;transform:translateX(-50%);">
+              <div class="text-[15px] font-extrabold tabular-nums text-red-custom">12%</div>
+              <div class="text-[10px] font-semibold mt-0.5" style="color:var(--muted);">High Risk</div>
+            </div>
+            <!-- Monitor label -->
+            <div class="absolute text-center" style="left:70%;top:55%;transform:translate(-50%,-50%);">
+              <div class="text-[15px] font-extrabold tabular-nums text-amber-custom">26%</div>
+              <div class="text-[10px] font-semibold mt-0.5" style="color:var(--muted);">Monitor</div>
+            </div>
+            <!-- Optimal label -->
+            <div class="absolute text-center" style="left:90%;bottom:8%;transform:translateX(-50%);">
+              <div class="text-[15px] font-extrabold tabular-nums text-green-custom">62%</div>
+              <div class="text-[10px] font-semibold mt-0.5" style="color:var(--muted);">Optimal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- X-axis: score labels aligned to chart area -->
+      <div class="flex justify-between mt-2 text-[11px] font-medium" style="padding-left:49px;color:var(--muted);">
+        <span>0</span><span>20</span><span>40</span>
+        <span class="font-bold text-red-custom">60</span>
+        <span>70</span>
+        <span class="font-bold text-green-custom">80</span>
+        <span>90</span><span>100</span>
+      </div>
+      <div class="text-center mt-2 text-[10px] font-bold uppercase tracking-[.18em]" style="color:var(--muted);">NirogGyan Health Score (0–100)</div>
+
+      <!-- AI Insight -->
+      <div class="mt-5 p-4 rounded-2xl flex items-start gap-3" style="background:rgba(113,42,226,.04);border:1px solid rgba(113,42,226,.12);">
+        <span class="material-symbols-outlined text-secondary text-[18px] mt-0.5 flex-shrink-0" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">auto_awesome</span>
+        <p class="text-[13px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--primary);">AI Insight:</span> Distribution is left-skewed — 38% of the workforce scores below 75, indicating that metabolic and nutritional deficiencies are suppressing the organisational mean. Targeted interventions on Lipid Profile and Vitamin D could shift the peak above score 78.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3: Priority Interventions + Bubble Chart ─── -->
+  <div class="grid lg:grid-cols-3 gap-6 anim-fade-up items-start">
+
+    <!-- Priority Interventions -->
+    <div class="section-module flex flex-col gap-5">
+      <div class="flex items-center gap-3 pb-5" style="border-bottom:1px solid var(--border);">
+        <div class="w-1 h-10 rounded-full bg-error flex-shrink-0"></div>
+        <div>
+          <div class="section-chip mb-0.5" style="background:rgba(186,26,26,.08);color:#93000a;">03 · ALERTS</div>
+          <h2 class="text-[18px] font-bold" style="color:var(--text);">Priority Interventions</h2>
+        </div>
+        <div class="ml-auto w-8 h-8 rounded-full bg-error flex items-center justify-center flex-shrink-0">
+          <span class="text-white text-[11px] font-bold">2</span>
+        </div>
+      </div>
+
+      <!-- Alert 1 -->
+      <div class="rounded-2xl overflow-hidden border-l-4 border-l-error" style="background:var(--surf-low);border:1px solid var(--border);border-left:4px solid #ba1a1a;">
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl bg-error-container flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-on-error-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">warning</span>
+            </div>
+            <div>
+              <h4 class="text-[14px] font-bold" style="color:var(--text);">Operations Risk Spike</h4>
+              <p class="text-[11px] font-semibold text-error">Cardiovascular Markers · Critical</p>
+            </div>
+          </div>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:var(--muted);">A <span class="font-bold" style="color:var(--text);">40% surge</span> in elevated Lipid Profiles detected in Operations vs. last quarter. Correlates with night shift patterns and elevated stress markers.</p>
+          <div class="p-3 rounded-xl" style="background:rgba(186,26,26,.06);border:1px solid rgba(186,26,26,.15);">
+            <p class="text-[10px] font-bold uppercase tracking-[.15em] text-error mb-1">Recommended Action</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Subsidize cardiac-specific screening packages and schedule on-site health camp within 30 days.</p>
+          </div>
+          <div class="mt-3">
+            <span class="text-[10px] font-semibold uppercase tracking-wide" style="color:var(--muted);">Affects approximately 54 employees</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert 2 -->
+      <div class="rounded-2xl overflow-hidden" style="background:var(--surf-low);border:1px solid var(--border);border-left:4px solid #F59E0B;">
+        <div class="p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,.12);">
+              <span class="material-symbols-outlined text-amber-custom text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">wb_sunny</span>
+            </div>
+            <div>
+              <h4 class="text-[14px] font-bold" style="color:var(--text);">Engineering Deficiencies</h4>
+              <p class="text-[11px] font-semibold text-amber-custom">Vitamin D &amp; B12 · Monitor</p>
+            </div>
+          </div>
+          <p class="text-[13px] leading-relaxed mb-4" style="color:var(--muted);">Highest organizational concentration of Vitamin D deficiency (<span class="font-bold" style="color:var(--text);">65%</span>) in Engineering, linked to indoor work patterns and reduced sunlight exposure.</p>
+          <div class="p-3 rounded-xl" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);">
+            <p class="text-[10px] font-bold uppercase tracking-[.15em] text-amber-custom mb-1">Recommended Action</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Mandate on-site health screening and evaluate remote work schedules for sun-break integration.</p>
+          </div>
+          <div class="mt-3">
+            <span class="text-[10px] font-semibold uppercase tracking-wide" style="color:var(--muted);">Affects approximately 98 employees</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workforce summary stats -->
+      <div class="mt-auto grid grid-cols-2 gap-3">
+        <div class="p-3 rounded-2xl text-center" style="background:var(--surf-mid);">
+          <div class="text-[22px] font-extrabold tabular-nums" style="color:var(--primary);">548</div>
+          <div class="text-[10px] font-bold uppercase tracking-wide mt-0.5" style="color:var(--muted);">Employees Assessed</div>
+        </div>
+        <div class="p-3 rounded-2xl text-center" style="background:var(--surf-mid);">
+          <div class="text-[22px] font-extrabold tabular-nums text-secondary">5</div>
+          <div class="text-[10px] font-bold uppercase tracking-wide mt-0.5" style="color:var(--muted);">Depts Profiled</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Productivity Risk Map -->
+    <div class="section-module lg:col-span-2">
+      <div class="flex items-center justify-between gap-4 pb-5 mb-5" style="border-bottom:1px solid var(--border);">
+        <div class="flex items-center gap-3">
+          <div class="w-1 h-10 rounded-full flex-shrink-0" style="background:var(--primary-m);"></div>
+          <div>
+            <div class="section-chip mb-0.5" style="background:rgba(0,18,44,.06);color:var(--primary);">04 · RISK MAP</div>
+            <h2 class="text-[18px] font-bold" style="color:var(--text);">Productivity Risk Map</h2>
+            <p class="text-[12px]" style="color:var(--muted);">Dept headcount vs. % cohort in high-risk · Bubble size = avg risk score</p>
+          </div>
+        </div>
+        <button onclick="toggleFullscreen('bubble-chart-wrap')" class="p-2 rounded-lg transition-all hover:bg-surface-container-high" style="color:var(--muted);" title="Toggle fullscreen">
+          <span class="material-symbols-outlined text-[20px]">fullscreen</span>
+        </button>
+      </div>
+
+      <div id="bubble-chart-wrap" class="relative">
+        <!-- Y-axis ticks -->
+        <div class="absolute left-0 flex flex-col justify-between text-[11px] font-semibold text-right" style="top:0;bottom:44px;width:44px;padding-right:8px;color:var(--muted);">
+          <span>200</span><span>150</span><span>100</span><span>50</span><span>0</span>
+        </div>
+
+        <!-- Chart area -->
+        <div class="relative border-l border-b" style="margin-left:44px;height:420px;border-color:var(--border);">
+          <!-- Quadrant background fills -->
+          <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 pointer-events-none">
+            <div style="background:rgba(239,68,68,.035);border-bottom:1px dashed rgba(196,198,207,.5);border-right:1px dashed rgba(196,198,207,.5);"></div>
+            <div style="background:rgba(239,68,68,.02);border-bottom:1px dashed rgba(196,198,207,.5);"></div>
+            <div style="background:rgba(16,185,129,.03);border-right:1px dashed rgba(196,198,207,.5);"></div>
+            <div style="background:rgba(16,185,129,.015);"></div>
+          </div>
+
+          <!-- Quadrant labels — corners, concise -->
+          <div class="absolute top-3 left-4 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-error inline-block"></span>
+            <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:rgba(186,26,26,.6);">High Concern</span>
+          </div>
+          <div class="absolute top-3 right-4 flex items-center gap-1.5 justify-end">
+            <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:rgba(239,68,68,.45);">Scale Risk</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-red-custom inline-block"></span>
+          </div>
+          <div class="absolute bottom-4 left-4 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-custom inline-block"></span>
+            <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:rgba(16,185,129,.6);">Stable Core</span>
+          </div>
+          <div class="absolute bottom-4 right-4 flex items-center gap-1.5 justify-end">
+            <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:rgba(245,158,11,.6);">Growth Zone</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-custom inline-block"></span>
+          </div>
+
+          <!-- Bubbles: outer div = CSS position anchor, inner div = animated element -->
+          <!-- Position math: X% risk on 0-40 range → left = (risk/40)*100%. Y headcount on 0-200 → bottom = (hc/200)*100% -->
+          <!-- OPS: 23% risk → left=57.5%; 100 headcount → bottom=50% -->
+          <div class="bubble-wrap absolute" style="left:57.5%;bottom:50%;transform:translate(-50%,50%);">
+            <div class="bubble w-[68px] h-[68px] rounded-full flex items-center justify-center text-white text-[11px] font-bold shadow-lg cursor-default" style="background:rgba(239,68,68,.88);" data-delay="150">OPS</div>
+            <div class="tip">Operations · 100 staff · 23% high-risk</div>
+          </div>
+          <!-- ENG: 18% risk → left=45%; 150 hc → bottom=75% -->
+          <div class="bubble-wrap absolute" style="left:45%;bottom:75%;transform:translate(-50%,50%);">
+            <div class="bubble w-[78px] h-[78px] rounded-full flex items-center justify-center text-white text-[11px] font-bold shadow-lg cursor-default" style="background:rgba(245,158,11,.88);" data-delay="250">ENG</div>
+            <div class="tip">Engineering · 150 staff · 18% high-risk</div>
+          </div>
+          <!-- SALES: 10% risk → left=25%; 80 hc → bottom=40% -->
+          <div class="bubble-wrap absolute" style="left:25%;bottom:40%;transform:translate(-50%,50%);">
+            <div class="bubble w-[52px] h-[52px] rounded-full flex items-center justify-center text-white text-[11px] font-bold shadow-lg cursor-default" style="background:rgba(16,185,129,.88);" data-delay="320">SALES</div>
+            <div class="tip">Sales · 80 staff · 10% high-risk</div>
+          </div>
+          <!-- MKT: 8% risk → left=20%; 60 hc → bottom=30% -->
+          <div class="bubble-wrap absolute" style="left:20%;bottom:30%;transform:translate(-50%,50%);">
+            <div class="bubble w-[44px] h-[44px] rounded-full flex items-center justify-center text-white text-[10px] font-bold shadow-lg cursor-default" style="background:rgba(16,185,129,.85);" data-delay="390">MKT</div>
+            <div class="tip">Marketing · 60 staff · 8% high-risk</div>
+          </div>
+          <!-- HR: 5% risk → left=12.5%; 38 hc → bottom=19% -->
+          <div class="bubble-wrap absolute" style="left:12.5%;bottom:19%;transform:translate(-50%,50%);">
+            <div class="bubble w-[34px] h-[34px] rounded-full flex items-center justify-center text-white text-[9px] font-bold shadow-lg cursor-default" style="background:rgba(16,185,129,.8);" data-delay="440">HR</div>
+            <div class="tip">HR &amp; Legal · 38 staff · 5% high-risk</div>
+          </div>
+          <!-- LEGAL: 15% risk → left=37.5%; 35 hc → bottom=17.5% -->
+          <div class="bubble-wrap absolute" style="left:37.5%;bottom:17.5%;transform:translate(-50%,50%);">
+            <div class="bubble w-[38px] h-[38px] rounded-full flex items-center justify-center text-white text-[9px] font-bold shadow-lg cursor-default" style="background:rgba(245,158,11,.82);" data-delay="350">LEGAL</div>
+            <div class="tip">Legal · 35 staff · 15% high-risk</div>
+          </div>
+        </div>
+
+        <!-- X-axis -->
+        <div class="flex justify-between text-[11px] font-medium mt-2" style="margin-left:44px;color:var(--muted);">
+          <span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span>
+        </div>
+        <div class="text-center mt-2 text-[10px] font-bold uppercase tracking-[.18em]" style="color:var(--muted);">% of Department in High-Risk Zone</div>
+
+        <!-- Legend -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3" style="border-top:1px solid var(--border);">
+          <span class="text-[11px] font-semibold" style="color:var(--muted);">Bubble size reflects department headcount</span>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full" style="background:rgba(239,68,68,.8);"></div><span class="text-[11px] font-semibold" style="color:var(--muted);">High Risk</span></div>
+            <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full" style="background:rgba(245,158,11,.8);"></div><span class="text-[11px] font-semibold" style="color:var(--muted);">Monitor</span></div>
+            <div class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full" style="background:rgba(16,185,129,.8);"></div><span class="text-[11px] font-semibold" style="color:var(--muted);">Optimal</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SECTION 4: AI Personas ─── -->
+  <section class="section-module anim-fade-up">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6" style="border-bottom:1px solid var(--border);">
+      <div class="flex items-center gap-4">
+        <div class="w-1 h-12 rounded-full bg-secondary flex-shrink-0"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,.1);">
+          <span class="material-symbols-outlined text-secondary text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">groups</span>
+        </div>
+        <div>
+          <div class="section-chip mb-1" style="background:rgba(113,42,226,.08);color:#5a00c6;">05 · AI PERSONAS</div>
+          <h2 class="text-[20px] font-bold" style="color:var(--text);">AI-Generated Intervention Personas</h2>
+          <p class="text-[13px] mt-0.5" style="color:var(--muted);">Behavioral health clusters replacing standard demographics — enabling precision HR action</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-full flex-shrink-0" style="background:rgba(113,42,226,.08);border:1px solid rgba(113,42,226,.15);">
+        <span class="material-symbols-outlined text-secondary text-[15px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">auto_awesome</span>
+        <span class="text-[11px] font-bold text-secondary">3 Clusters · Updated June 2024</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Persona 1: The Sedentary Operator -->
+      <div class="persona-card rounded-2xl overflow-hidden border" style="background:var(--surf-low);border-color:var(--border);border-top:4px solid #ba1a1a;">
+        <div class="p-6">
+          <div class="flex items-start justify-between mb-5">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[.12em] bg-error-container text-on-error-container">High Priority</span>
+            <div class="text-right">
+              <div class="text-[28px] font-extrabold leading-none text-error tabular-nums">14%</div>
+              <div class="text-[11px] font-semibold" style="color:var(--muted);">of workforce</div>
+            </div>
+          </div>
+          <div class="mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-error-container flex items-center justify-center mb-3">
+              <span class="material-symbols-outlined text-on-error-container text-[24px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">chair</span>
+            </div>
+            <h4 class="text-[17px] font-bold mb-1" style="color:var(--text);">"The Sedentary Operator"</h4>
+            <p class="text-[12px]" style="color:var(--muted);">Avg. Risk Score: <strong class="text-error">52</strong> · Predominantly in Operations</p>
+          </div>
+
+          <!-- Anomaly bars -->
+          <div class="space-y-3 mb-5">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Elevated LDL</span>
+                <span class="text-[12px] font-bold text-error">68%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full bg-error rounded-full bar-animated" style="--tw:68%;" data-w="68%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">High Uric Acid</span>
+                <span class="text-[12px] font-bold text-error">42%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:42%;background:#f87171;" data-w="42%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Elevated HbA1c</span>
+                <span class="text-[12px] font-bold text-amber-custom">31%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:31%;background:#F59E0B;" data-w="31%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl" style="background:rgba(186,26,26,.06);border:1px solid rgba(186,26,26,.15);">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-error text-[15px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">lightbulb</span>
+              <span class="text-[10px] font-bold uppercase tracking-[.15em] text-error">Intervention Strategy</span>
+            </div>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Mandatory desk-ergonomic assessments and subsidized step-tracking wearables. Negotiate cardiac screening packages for the Operations cohort.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 2: The Depleted Developer -->
+      <div class="persona-card rounded-2xl overflow-hidden border" style="background:var(--surf-low);border-color:var(--border);border-top:4px solid #F59E0B;">
+        <div class="p-6">
+          <div class="flex items-start justify-between mb-5">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[.12em]" style="background:rgba(245,158,11,.12);color:#b45309;">Monitor</span>
+            <div class="text-right">
+              <div class="text-[28px] font-extrabold leading-none text-amber-custom tabular-nums">22%</div>
+              <div class="text-[11px] font-semibold" style="color:var(--muted);">of workforce</div>
+            </div>
+          </div>
+          <div class="mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-3" style="background:rgba(245,158,11,.12);">
+              <span class="material-symbols-outlined text-amber-custom text-[24px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">computer</span>
+            </div>
+            <h4 class="text-[17px] font-bold mb-1" style="color:var(--text);">"The Depleted Developer"</h4>
+            <p class="text-[12px]" style="color:var(--muted);">Avg. Risk Score: <strong class="text-amber-custom">68</strong> · Predominantly in Engineering</p>
+          </div>
+
+          <div class="space-y-3 mb-5">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Vitamin D Deficit</span>
+                <span class="text-[12px] font-bold text-amber-custom">81%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:81%;background:#F59E0B;" data-w="81%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Vitamin B12 Low</span>
+                <span class="text-[12px] font-bold text-amber-custom">55%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:55%;background:#fbbf24;" data-w="55%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Poor Sleep Score</span>
+                <span class="text-[12px] font-bold" style="color:var(--muted);">38%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:38%;background:var(--border-strong);" data-w="38%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-amber-custom text-[15px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">lightbulb</span>
+              <span class="text-[10px] font-bold uppercase tracking-[.15em] text-amber-custom">Intervention Strategy</span>
+            </div>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Organize outdoor corporate offsites. Audit cafeteria menus for B12 fortification and negotiate group supplement discounts for Engineering.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persona 3: The Resilient Executive -->
+      <div class="persona-card rounded-2xl overflow-hidden border" style="background:var(--surf-low);border-color:var(--border);border-top:4px solid #10B981;">
+        <div class="p-6">
+          <div class="flex items-start justify-between mb-5">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[.12em]" style="background:rgba(16,185,129,.12);color:#047857;">Optimal</span>
+            <div class="text-right">
+              <div class="text-[28px] font-extrabold leading-none text-green-custom tabular-nums">64%</div>
+              <div class="text-[11px] font-semibold" style="color:var(--muted);">of workforce</div>
+            </div>
+          </div>
+          <div class="mb-5">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-3" style="background:rgba(16,185,129,.12);">
+              <span class="material-symbols-outlined text-green-custom text-[24px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">workspace_premium</span>
+            </div>
+            <h4 class="text-[17px] font-bold mb-1" style="color:var(--text);">"The Resilient Executive"</h4>
+            <p class="text-[12px]" style="color:var(--muted);">Avg. Risk Score: <strong class="text-green-custom">88</strong> · Sales, Marketing, Exec</p>
+          </div>
+
+          <div class="space-y-3 mb-5">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Optimal Lipids</span>
+                <span class="text-[12px] font-bold text-green-custom">92%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:92%;background:#10B981;" data-w="92%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Healthy Glucose</span>
+                <span class="text-[12px] font-bold text-green-custom">87%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:87%;background:#34d399;" data-w="87%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[12px] font-semibold" style="color:var(--muted);">Borderline HbA1c</span>
+                <span class="text-[12px] font-bold text-amber-custom">12%</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+                <div class="h-full rounded-full bar-animated" style="--tw:12%;background:#F59E0B;" data-w="12%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl" style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.2);">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-green-custom text-[15px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">lightbulb</span>
+              <span class="text-[10px] font-bold uppercase tracking-[.15em] text-green-custom">Retention Strategy</span>
+            </div>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Maintain current wellness incentives. Deploy as "Health Champions" for company fitness challenges. Monitor HbA1c trends quarterly.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5: Clinical Risk + Intervention Matrix ─── -->
+  <div class="grid lg:grid-cols-2 gap-6 anim-fade-up">
+
+    <!-- Clinical Risk Breakdown -->
+    <div class="section-module">
+      <div class="flex items-center gap-3 pb-5 mb-5" style="border-bottom:1px solid var(--border);">
+        <div class="w-1 h-10 rounded-full bg-error flex-shrink-0"></div>
+        <div>
+          <div class="section-chip mb-0.5" style="background:rgba(186,26,26,.08);color:#93000a;">06 · CLINICAL</div>
+          <h2 class="text-[18px] font-bold" style="color:var(--text);">Clinical Risk Breakdown</h2>
+          <p class="text-[12px]" style="color:var(--muted);">% of workforce with abnormal readings per parameter</p>
+        </div>
+      </div>
+      <div class="space-y-5">
+        <!-- Vitamin D -->
+        <div class="risk-bar-row">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-amber-custom flex-shrink-0"></div>
+              <span class="text-[13px] font-semibold" style="color:var(--text);">Vitamin D Deficiency</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px]" style="color:var(--muted);">~230 employees</span>
+              <span class="text-[14px] font-bold text-amber-custom tabular-nums">42%</span>
+            </div>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:42%;background:linear-gradient(90deg,#F59E0B,#fbbf24);" data-w="42%"></div>
+          </div>
+          <p class="text-[11px] mt-1" style="color:var(--muted);">↑ Highest in Engineering (65%) and Operations (58%)</p>
+        </div>
+        <!-- Lipid Profile -->
+        <div class="risk-bar-row">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-error flex-shrink-0"></div>
+              <span class="text-[13px] font-semibold" style="color:var(--text);">Lipid Profile Abnormalities</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px]" style="color:var(--muted);">~153 employees</span>
+              <span class="text-[14px] font-bold text-error tabular-nums">28%</span>
+            </div>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:28%;background:linear-gradient(90deg,#ba1a1a,#ef4444);" data-w="28%"></div>
+          </div>
+          <p class="text-[11px] mt-1" style="color:var(--muted);">Priority intervention · Highest cardiovascular impact</p>
+        </div>
+        <!-- Anemia / CBC -->
+        <div class="risk-bar-row">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-purple-custom flex-shrink-0"></div>
+              <span class="text-[13px] font-semibold" style="color:var(--text);">Anemia / CBC Anomalies</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px]" style="color:var(--muted);">~115 employees</span>
+              <span class="text-[14px] font-bold text-purple-custom tabular-nums">21%</span>
+            </div>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:21%;background:linear-gradient(90deg,#7C3AED,#a78bfa);" data-w="21%"></div>
+          </div>
+          <p class="text-[11px] mt-1" style="color:var(--muted);">Higher in female cohorts &lt;35 · Iron supplementation recommended</p>
+        </div>
+        <!-- Vitamin B12 -->
+        <div class="risk-bar-row">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container flex-shrink-0"></div>
+              <span class="text-[13px] font-semibold" style="color:var(--text);">Vitamin B12 Deficiency</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px]" style="color:var(--muted);">~82 employees</span>
+              <span class="text-[14px] font-bold text-on-tertiary-container tabular-nums">15%</span>
+            </div>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:15%;background:linear-gradient(90deg,#00a270,#34d399);" data-w="15%"></div>
+          </div>
+          <p class="text-[11px] mt-1" style="color:var(--muted);">Predominantly Gen-Z cohort · Diet-linked deficiency pattern</p>
+        </div>
+        <!-- HbA1c -->
+        <div class="risk-bar-row">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#ea580c;"></div>
+              <span class="text-[13px] font-semibold" style="color:var(--text);">HbA1c Elevation (Pre-diabetic)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px]" style="color:var(--muted);">~66 employees</span>
+              <span class="text-[14px] font-bold tabular-nums" style="color:#ea580c;">12%</span>
+            </div>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:12%;background:linear-gradient(90deg,#ea580c,#fb923c);" data-w="12%"></div>
+          </div>
+          <p class="text-[11px] mt-1" style="color:var(--muted);">CGM pilot recommended for borderline cases in Sales dept</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Intervention Prioritization Matrix -->
+    <div class="section-module">
+      <div class="flex items-center gap-3 pb-5 mb-5" style="border-bottom:1px solid var(--border);">
+        <div class="w-1 h-10 rounded-full flex-shrink-0" style="background:var(--primary-m);"></div>
+        <div>
+          <div class="section-chip mb-0.5" style="background:rgba(0,18,44,.06);color:var(--primary);">07 · STRATEGY</div>
+          <h2 class="text-[18px] font-bold" style="color:var(--text);">Intervention Prioritization</h2>
+          <p class="text-[12px]" style="color:var(--muted);">Impact vs. effort matrix · Rank and sequence wellness initiatives</p>
+        </div>
+      </div>
+
+      <!-- 2×2 Matrix -->
+      <div class="relative" style="padding-left:52px;padding-bottom:44px;">
+        <!-- Y-axis label -->
+        <div class="absolute left-0 top-0 bottom-11 flex flex-col justify-between text-[10px] font-bold uppercase tracking-[.15em] text-right pr-2" style="width:52px;color:var(--muted);">
+          <span>High</span><span style="margin-top:auto">Low</span>
+        </div>
+        <div class="absolute text-[9px] font-bold uppercase tracking-[.2em] -rotate-90" style="left:-14px;top:50%;transform:translateY(-50%) rotate(-90deg);color:var(--muted);">Impact</div>
+
+        <!-- 4 quadrants -->
+        <div class="grid grid-cols-2 grid-rows-2 gap-0 border rounded-2xl overflow-hidden" style="border-color:var(--border);height:280px;">
+          <!-- Q1: High Impact, Low Effort → Quick Wins (top-left) -->
+          <div class="matrix-quad p-4 border-r border-b relative" style="border-color:var(--border);background:rgba(16,185,129,.04);">
+            <div class="text-[9px] font-bold uppercase tracking-[.15em] text-green-custom mb-3">⚡ Quick Wins</div>
+            <div class="space-y-2">
+              <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(16,185,129,.3);color:var(--text);">
+                Vitamin D Screening
+                <div class="text-[10px] font-normal text-green-custom">+3.2 pts · Low cost</div>
+              </div>
+              <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(16,185,129,.3);color:var(--text);">
+                B12 Awareness Drive
+                <div class="text-[10px] font-normal text-green-custom">+1.8 pts · Minimal effort</div>
+              </div>
+            </div>
+          </div>
+          <!-- Q2: High Impact, High Effort → Strategic Bets (top-right) -->
+          <div class="matrix-quad p-4 border-b relative" style="border-color:var(--border);background:rgba(59,130,246,.04);">
+            <div class="text-[9px] font-bold uppercase tracking-[.15em] mb-3" style="color:#3b82f6;">🎯 Strategic Bets</div>
+            <div class="space-y-2">
+              <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(59,130,246,.3);color:var(--text);">
+                Lipid Management Program
+                <div class="text-[10px] font-normal" style="color:#3b82f6;">+4.1 pts · High ROI</div>
+              </div>
+              <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(59,130,246,.3);color:var(--text);">
+                Stress Reduction Program
+                <div class="text-[10px] font-normal" style="color:#3b82f6;">+2.4 pts · Multi-quarter</div>
+              </div>
+            </div>
+          </div>
+          <!-- Q3: Low Impact, Low Effort → Minor Tasks (bottom-left) -->
+          <div class="matrix-quad p-4 border-r relative" style="border-color:var(--border);background:rgba(245,158,11,.03);">
+            <div class="text-[9px] font-bold uppercase tracking-[.15em] text-amber-custom mb-3">✓ Minor Tasks</div>
+            <div class="space-y-2">
+              <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(245,158,11,.25);color:var(--text);">
+                Hydration Campaign
+                <div class="text-[10px] font-normal text-amber-custom">+0.8 pts · Week 1</div>
+              </div>
+            </div>
+          </div>
+          <!-- Q4: Low Impact, High Effort → Large Scale (bottom-right) -->
+          <div class="matrix-quad p-4 relative" style="background:rgba(239,68,68,.03);">
+            <div class="text-[9px] font-bold uppercase tracking-[.15em] text-red-custom mb-3">⚠ De-prioritize</div>
+            <div class="space-y-2">
+              <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(239,68,68,.2);color:var(--text);">
+                Annual Health Drive
+                <div class="text-[10px] font-normal text-red-custom">Low incremental ROI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- X-axis labels -->
+        <div class="absolute bottom-0 left-0 right-0 flex justify-between px-0 text-[10px] font-bold uppercase tracking-[.15em]" style="padding-left:52px;color:var(--muted);">
+          <span>Low</span><span>Effort →</span><span>High</span>
+        </div>
+      </div>
+
+      <!-- Matrix note -->
+      <div class="mt-4 p-3 rounded-xl text-[12px] leading-relaxed" style="background:var(--surf-low);color:var(--muted);">
+        <strong style="color:var(--text);">Recommendation:</strong> Lead with Quick Wins in Q3 to demonstrate ROI, then activate Strategic Bets with full budget approval in Q4.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SECTION 6: High-Risk Cohort Explorer ─── -->
+  <section class="section-module anim-fade-up">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6" style="border-bottom:1px solid var(--border);">
+      <div class="flex items-center gap-4">
+        <div class="w-1 h-12 rounded-full bg-error flex-shrink-0"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 bg-error-container">
+          <span class="material-symbols-outlined text-on-error-container text-[22px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">manage_search</span>
+        </div>
+        <div>
+          <div class="section-chip mb-1" style="background:rgba(186,26,26,.08);color:#93000a;">08 · COHORT EXPLORER</div>
+          <h2 class="text-[20px] font-bold" style="color:var(--text);">High-Risk Cohort Explorer</h2>
+          <p class="text-[13px] mt-0.5" style="color:var(--muted);">Department and demographic breakdown of elevated-risk employee groups</p>
+        </div>
+      </div>
+      <button onclick="exportPage()" class="flex items-center gap-2 px-4 py-2 rounded-xl text-[12px] font-semibold transition-all flex-shrink-0" style="background:var(--surf-low);border:1px solid var(--border);color:var(--text);">
+        <span class="material-symbols-outlined text-[16px]">download</span>Export Table
+      </button>
+    </div>
+
+    <!-- Summary cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="p-4 rounded-2xl text-center" style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);">
+        <div class="text-[28px] font-extrabold text-error tabular-nums" data-count="65" data-suffix="">0</div>
+        <div class="text-[11px] font-bold uppercase tracking-wide mt-1" style="color:var(--muted);">Total High-Risk</div>
+      </div>
+      <div class="p-4 rounded-2xl text-center" style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);">
+        <div class="text-[28px] font-extrabold text-error tabular-nums" data-count="23" data-suffix="%">0%</div>
+        <div class="text-[11px] font-bold uppercase tracking-wide mt-1" style="color:var(--muted);">Highest Dept %</div>
+      </div>
+      <div class="p-4 rounded-2xl text-center" style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);">
+        <div class="text-[28px] font-extrabold text-green-custom tabular-nums" data-count="5" data-suffix="%">0%</div>
+        <div class="text-[11px] font-bold uppercase tracking-wide mt-1" style="color:var(--muted);">Lowest Dept %</div>
+      </div>
+      <div class="p-4 rounded-2xl text-center" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);">
+        <div class="text-[28px] font-extrabold text-amber-custom tabular-nums" data-count="3" data-suffix="">0</div>
+        <div class="text-[11px] font-bold uppercase tracking-wide mt-1" style="color:var(--muted);">Active Alerts</div>
+      </div>
+    </div>
+
+    <!-- Cohort Table -->
+    <div class="overflow-x-auto rounded-2xl border" style="border-color:var(--border);">
+      <table class="w-full">
+        <thead>
+          <tr style="background:var(--surf-low);border-bottom:2px solid var(--border);">
+            <th class="text-left px-5 py-3.5 text-[11px] font-bold uppercase tracking-[.15em]" style="color:var(--muted);">Cohort</th>
+            <th class="text-right px-5 py-3.5 text-[11px] font-bold uppercase tracking-[.15em]" style="color:var(--muted);">Headcount</th>
+            <th class="text-right px-5 py-3.5 text-[11px] font-bold uppercase tracking-[.15em]" style="color:var(--muted);">% At Risk</th>
+            <th class="px-5 py-3.5 text-[11px] font-bold uppercase tracking-[.15em]" style="color:var(--muted);">Risk Bar</th>
+            <th class="px-5 py-3.5 text-[11px] font-bold uppercase tracking-[.15em]" style="color:var(--muted);">Primary Risk Driver</th>
+            <th class="px-5 py-3.5 text-[11px] font-bold uppercase tracking-[.15em]" style="color:var(--muted);">Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cohort-row border-b" style="border-color:var(--border);">
+            <td class="px-5 py-4"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl bg-error-container flex items-center justify-center"><span class="material-symbols-outlined text-on-error-container text-[15px]">factory</span></div><div><div class="text-[13px] font-bold" style="color:var(--text);">Operations Team</div><div class="text-[11px]" style="color:var(--muted);">Industrial unit</div></div></div></td>
+            <td class="px-5 py-4 text-right text-[14px] font-bold tabular-nums" style="color:var(--text);">100</td>
+            <td class="px-5 py-4 text-right text-[14px] font-extrabold text-error tabular-nums">23%</td>
+            <td class="px-5 py-4 w-32"><div class="h-2 rounded-full overflow-hidden" style="background:var(--surf-high);"><div class="h-full bg-error rounded-full bar-animated" style="--tw:23%;width:0" data-w="23%"></div></div></td>
+            <td class="px-5 py-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container text-on-error-container">Lipid Profile</span></td>
+            <td class="px-5 py-4"><span class="px-3 py-1.5 rounded-lg text-[11px] font-bold text-white bg-error inline-block">Urgent</span></td>
+          </tr>
+          <tr class="cohort-row border-b" style="border-color:var(--border);">
+            <td class="px-5 py-4"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(245,158,11,.12);"><span class="material-symbols-outlined text-amber-custom text-[15px]">person</span></div><div><div class="text-[13px] font-bold" style="color:var(--text);">Employees &gt;45 Years</div><div class="text-[11px]" style="color:var(--muted);">Senior talent pool</div></div></div></td>
+            <td class="px-5 py-4 text-right text-[14px] font-bold tabular-nums" style="color:var(--text);">87</td>
+            <td class="px-5 py-4 text-right text-[14px] font-extrabold text-amber-custom tabular-nums">21%</td>
+            <td class="px-5 py-4 w-32"><div class="h-2 rounded-full overflow-hidden" style="background:var(--surf-high);"><div class="h-full rounded-full bar-animated" style="--tw:21%;background:#F59E0B;width:0;" data-w="21%"></div></div></td>
+            <td class="px-5 py-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(245,158,11,.12);color:#b45309;">HbA1c</span></td>
+            <td class="px-5 py-4"><span class="px-3 py-1.5 rounded-lg text-[11px] font-bold text-white inline-block" style="background:#D97706;">Monitor</span></td>
+          </tr>
+          <tr class="cohort-row border-b" style="border-color:var(--border);">
+            <td class="px-5 py-4"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(113,42,226,.1);"><span class="material-symbols-outlined text-secondary text-[15px]">computer</span></div><div><div class="text-[13px] font-bold" style="color:var(--text);">Engineering</div><div class="text-[11px]" style="color:var(--muted);">Technical workforce</div></div></div></td>
+            <td class="px-5 py-4 text-right text-[14px] font-bold tabular-nums" style="color:var(--text);">150</td>
+            <td class="px-5 py-4 text-right text-[14px] font-extrabold text-secondary tabular-nums">18%</td>
+            <td class="px-5 py-4 w-32"><div class="h-2 rounded-full overflow-hidden" style="background:var(--surf-high);"><div class="h-full rounded-full bar-animated bg-secondary" style="--tw:18%;width:0;" data-w="18%"></div></div></td>
+            <td class="px-5 py-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(113,42,226,.1);color:#5a00c6;">Vitamin D</span></td>
+            <td class="px-5 py-4"><span class="px-3 py-1.5 rounded-lg text-[11px] font-bold text-white bg-secondary inline-block">Plan</span></td>
+          </tr>
+          <tr class="cohort-row border-b" style="border-color:var(--border);">
+            <td class="px-5 py-4"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(239,68,68,.08);"><span class="material-symbols-outlined text-red-custom text-[15px]">groups</span></div><div><div class="text-[13px] font-bold" style="color:var(--text);">Pune Office</div><div class="text-[11px]" style="color:var(--muted);">Location cluster</div></div></div></td>
+            <td class="px-5 py-4 text-right text-[14px] font-bold tabular-nums" style="color:var(--text);">72</td>
+            <td class="px-5 py-4 text-right text-[14px] font-extrabold text-red-custom tabular-nums">18%</td>
+            <td class="px-5 py-4 w-32"><div class="h-2 rounded-full overflow-hidden" style="background:var(--surf-high);"><div class="h-full bg-red-custom rounded-full bar-animated" style="--tw:18%;width:0;" data-w="18%"></div></div></td>
+            <td class="px-5 py-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container text-on-error-container">Multi-factor</span></td>
+            <td class="px-5 py-4"><span class="px-3 py-1.5 rounded-lg text-[11px] font-bold text-white bg-error inline-block">Urgent</span></td>
+          </tr>
+          <tr class="cohort-row border-b" style="border-color:var(--border);">
+            <td class="px-5 py-4"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(16,185,129,.1);"><span class="material-symbols-outlined text-green-custom text-[15px]">trending_up</span></div><div><div class="text-[13px] font-bold" style="color:var(--text);">Sales Force</div><div class="text-[11px]" style="color:var(--muted);">Revenue team</div></div></div></td>
+            <td class="px-5 py-4 text-right text-[14px] font-bold tabular-nums" style="color:var(--text);">80</td>
+            <td class="px-5 py-4 text-right text-[14px] font-extrabold text-green-custom tabular-nums">10%</td>
+            <td class="px-5 py-4 w-32"><div class="h-2 rounded-full overflow-hidden" style="background:var(--surf-high);"><div class="h-full bg-green-custom rounded-full bar-animated" style="--tw:10%;width:0;" data-w="10%"></div></div></td>
+            <td class="px-5 py-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(16,185,129,.1);color:#047857;">HbA1c mild</span></td>
+            <td class="px-5 py-4"><span class="px-3 py-1.5 rounded-lg text-[11px] font-bold inline-block" style="background:var(--surf-high);color:var(--text);">Watch</span></td>
+          </tr>
+          <tr class="cohort-row">
+            <td class="px-5 py-4"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(16,185,129,.1);"><span class="material-symbols-outlined text-green-custom text-[15px]">verified</span></div><div><div class="text-[13px] font-bold" style="color:var(--text);">HR &amp; Legal</div><div class="text-[11px]" style="color:var(--muted);">Support functions</div></div></div></td>
+            <td class="px-5 py-4 text-right text-[14px] font-bold tabular-nums" style="color:var(--text);">38</td>
+            <td class="px-5 py-4 text-right text-[14px] font-extrabold text-green-custom tabular-nums">5%</td>
+            <td class="px-5 py-4 w-32"><div class="h-2 rounded-full overflow-hidden" style="background:var(--surf-high);"><div class="h-full bg-green-custom rounded-full bar-animated" style="--tw:5%;width:0;" data-w="5%"></div></div></td>
+            <td class="px-5 py-4"><span class="px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(16,185,129,.1);color:#047857;">Vitamin D low</span></td>
+            <td class="px-5 py-4"><span class="px-3 py-1.5 rounded-lg text-[11px] font-bold inline-block" style="background:var(--surf-high);color:var(--text);">Maintain</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="mt-16 border-t bg-white py-12" style="border-color:var(--border);">
+  <div class="max-w-container-max mx-auto px-margin-x flex flex-col md:flex-row justify-between items-center gap-8">
+    <div>
+      <p class="text-[22px] font-extrabold mb-1" style="color:var(--primary);">NirogGyan</p>
+      <p class="text-[12px]" style="color:var(--muted);">© 2024 Corporate Health Intelligence · Data-driven wellness excellence.</p>
+    </div>
+    <div class="flex gap-3">
+      <button class="flex items-center gap-2 px-5 py-2.5 border rounded-xl text-[12px] font-semibold transition-all hover:bg-surface-container-low" style="border-color:var(--border);color:var(--text);">
+        <span class="material-symbols-outlined text-[16px]">description</span>Export Raw Data
+      </button>
+      <button class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[12px] font-semibold text-white transition-all hover:opacity-90 active:scale-[0.98]" style="background:var(--primary-m);">
+        <span class="material-symbols-outlined text-[16px]">auto_graph</span>Generate Leadership Summary
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+// ── Dark Mode (identical to index.html + ai_insights) ──
+function toggleDarkMode() {
+  const html = document.documentElement;
+  const isDark = html.classList.contains('dark');
+  if (isDark) {
+    html.classList.replace('dark','light');
+    localStorage.setItem('theme','light');
+    document.getElementById('theme-icon').textContent = 'dark_mode';
+  } else {
+    html.classList.replace('light','dark');
+    localStorage.setItem('theme','dark');
+    document.getElementById('theme-icon').textContent = 'light_mode';
+  }
+}
+document.addEventListener('keydown', e => {
+  if ((e.metaKey||e.ctrlKey) && e.key==='d') { e.preventDefault(); toggleDarkMode(); }
+});
+
+// ── Export ──
+function exportPage() {
+  window.print();
+}
+
+// ── Fullscreen ──
+function toggleFullscreen(id) {
+  const el = document.getElementById(id);
+  if (!document.fullscreenElement) {
+    el.requestFullscreen && el.requestFullscreen();
+  } else {
+    document.exitFullscreen && document.exitFullscreen();
+  }
+}
+
+// ── Filter (placeholder functional feedback) ──
+function applyFilter() {
+  const dept = document.getElementById('dept-filter').value;
+  const label = dept === 'all' ? 'All Departments' : dept.toUpperCase();
+  // Visual feedback
+  const rows = document.querySelectorAll('.cohort-row');
+  rows.forEach(r => r.style.opacity = dept === 'all' ? '1' : '0.5');
+}
+
+// ── Count-up animation ──
+function countUp(el, target, suffix, duration) {
+  const start = performance.now();
+  function tick(ts) {
+    const p = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+// ── Bar animation — sets width via inline style (no !important conflict) ──
+function animateBars(container) {
+  container.querySelectorAll('.bar-animated').forEach((bar, i) => {
+    // Read target from data-w attribute (most reliable) or --tw CSS var
+    const target = bar.dataset.w || getComputedStyle(bar).getPropertyValue('--tw').trim() || '0%';
+    // Force start at 0, then animate after a staggered delay
+    bar.style.width = '0';
+    bar.style.transition = 'none';
+    setTimeout(() => {
+      bar.style.transition = 'width 1.2s cubic-bezier(.22,1,.36,1)';
+      bar.style.width = target;
+    }, 80 + i * 70);
+  });
+}
+
+// ── Distribution chart animation ──
+function animateDistChart() {
+  const curve = document.getElementById('dist-curve');
+  if (!curve) return;
+  curve.classList.add('animated');
+  setTimeout(() => {
+    document.getElementById('zr')?.classList.add('animated');
+    setTimeout(() => {
+      document.getElementById('zm')?.classList.add('animated');
+      setTimeout(() => document.getElementById('zo')?.classList.add('animated'), 250);
+    }, 250);
+  }, 700);
+}
+
+// ── Bubble animation — targets inner .bubble elements (not the positioning wrapper) ──
+function animateBubbles(container) {
+  container.querySelectorAll('.bubble').forEach(b => {
+    const delay = parseInt(b.dataset.delay || 0);
+    b.style.transform = 'scale(0)';
+    b.style.opacity = '0';
+    setTimeout(() => {
+      b.style.transition = 'transform 0.6s cubic-bezier(.34,1.56,.64,1), opacity 0.4s ease';
+      b.style.transform = 'scale(1)';
+      b.style.opacity = '1';
+    }, delay);
+  });
+}
+
+// ── Section entrance observer ──
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    // 1. Fade-in the section
+    el.classList.add('visible');
+    // 2. Animate all bars inside
+    animateBars(el);
+    // 3. Animate bubbles inside
+    animateBubbles(el);
+    // 4. Count-up any [data-count] elements
+    el.querySelectorAll('[data-count]').forEach(counter => {
+      countUp(counter, parseInt(counter.dataset.count), counter.dataset.suffix || '', 1400);
+    });
+    io.unobserve(el);
+  });
+}, { threshold: 0.08 });
+
+// ── Distribution chart observer (separate — outside anim-fade-up) ──
+const distObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { animateDistChart(); distObs.disconnect(); }
+}, { threshold: 0.15 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Sync dark mode icon
+  const isDark = document.documentElement.classList.contains('dark');
+  document.getElementById('theme-icon').textContent = isDark ? 'light_mode' : 'dark_mode';
+
+  // Ensure all bar-animated elements start at width:0 before observer fires
+  document.querySelectorAll('.bar-animated').forEach(bar => { bar.style.width = '0'; });
+  // Ensure all bubbles start hidden
+  document.querySelectorAll('.bubble').forEach(b => { b.style.transform = 'scale(0)'; b.style.opacity = '0'; });
+
+  // Observe all fade-up sections
+  document.querySelectorAll('.anim-fade-up').forEach(el => io.observe(el));
+
+  // Observe distribution chart SVG
+  const distChart = document.getElementById('dist-chart');
+  if (distChart) distObs.observe(distChart);
+});
+</script>
+</body>
+</html>

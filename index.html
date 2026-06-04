@@ -1,0 +1,2273 @@
+<html class="light" lang="en">
+  <head>
+    <script>
+      (function () {
+        var t = localStorage.getItem("theme");
+        if (t === "dark") {
+          document.documentElement.classList.remove("light");
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dashboard | NirogGyan Corporate Wellness</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e0e3e5",
+              "primary-fixed-dim": "#b2c7f1",
+              "on-background": "#191c1e",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed-variant": "#32476a",
+              "on-secondary-fixed-variant": "#5a00c6",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface-container-highest": "#e0e3e5",
+              "on-surface": "#191c1e",
+              background: "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#2d3133",
+              "on-tertiary-fixed": "#002113",
+              "surface-dim": "#d8dadc",
+              secondary: "#712ae2",
+              "on-secondary-fixed": "#25005a",
+              "on-primary-container": "#798fb5",
+              error: "#ba1a1a",
+              "tertiary-fixed-dim": "#4edea3",
+              "on-surface-variant": "#44474e",
+              "inverse-primary": "#b2c7f1",
+              "secondary-container": "#8a4cfc",
+              "on-primary-fixed": "#011b3c",
+              "on-tertiary-container": "#00a270",
+              "secondary-fixed": "#eaddff",
+              outline: "#74777f",
+              "on-secondary": "#ffffff",
+              "surface-container": "#eceef0",
+              "surface-container-high": "#e6e8ea",
+              surface: "#f7f9fb",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#6ffbbe",
+              primary: "#00122c",
+              "surface-tint": "#4a5f83",
+              "inverse-on-surface": "#eff1f3",
+              "tertiary-container": "#002e1d",
+              "surface-bright": "#f7f9fb",
+              "primary-container": "#0f2748",
+              "outline-variant": "#c4c6cf",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#005236",
+              "secondary-fixed-dim": "#d2bbff",
+              "on-secondary-container": "#fffbff",
+              tertiary: "#00170c",
+              "navy-custom": "#0F2748",
+              "purple-custom": "#7C3AED",
+              "green-custom": "#10B981",
+              "amber-custom": "#F59E0B",
+              "red-custom": "#EF4444",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              gutter: "1.5rem",
+              "container-max": "1440px",
+              "stack-md": "1rem",
+              "stack-lg": "2rem",
+              "margin-x": "2rem",
+              "stack-sm": "0.5rem",
+            },
+            fontFamily: {
+              "label-sm": ["Inter"],
+              "headline-sm": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-lg": ["Inter"],
+              "display-lg": ["Inter"],
+              "label-md": ["Inter"],
+              "title-lg": ["Inter"],
+              "display-sm": ["Inter"],
+            },
+            fontSize: {
+              "label-sm": ["11px", { lineHeight: "16px", fontWeight: "600" }],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "600" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-lg": [
+                "30px",
+                {
+                  lineHeight: "38px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "title-lg": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "display-sm": [
+                "36px",
+                {
+                  lineHeight: "44px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .ultra-soft-shadow {
+        box-shadow:
+          0px 1px 3px rgba(15, 39, 72, 0.05),
+          0px 10px 15px -3px rgba(15, 39, 72, 0.03);
+      }
+      .action-center-elevation {
+        box-shadow: 0 20px 50px -12px rgba(0, 18, 44, 0.5);
+      }
+      @keyframes gauge-dash {
+        from {
+          stroke-dashoffset: var(--initial-dashoffset, 251.2);
+        }
+        to {
+          stroke-dashoffset: var(--target-dashoffset);
+        }
+      }
+      .animate-gauge {
+        animation: gauge-dash 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      }
+      @keyframes needle-swing {
+        from {
+          transform: rotate(-90deg);
+        }
+        to {
+          transform: rotate(var(--target-rotate));
+        }
+      }
+      .animate-needle {
+        transform-origin: 50% 90%;
+        animation: needle-swing 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      }
+      .fade-update {
+        animation: fadeIn 400ms ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes staggeredSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-stagger-1 {
+        animation: staggeredSlideUp 600ms ease-out 100ms both;
+      }
+      .animate-stagger-2 {
+        animation: staggeredSlideUp 600ms ease-out 200ms both;
+      }
+      .animate-stagger-3 {
+        animation: staggeredSlideUp 600ms ease-out 300ms both;
+      }
+      .timeline-line {
+        position: absolute;
+        left: 11px;
+        top: 16px;
+        bottom: 16px;
+        width: 2px;
+        background-color: rgba(255, 255, 255, 0.1);
+        z-index: 0;
+      }
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2374777f' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+      }
+      .glass-container {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 3s linear infinite;
+      }
+
+      /* ── Tour Styles ── */
+      .tour-panel {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.58);
+        z-index: 9000;
+        pointer-events: auto;
+        transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      #tour-ring {
+        position: fixed;
+        z-index: 9001;
+        pointer-events: none;
+        border: 2.5px solid #7c3aed;
+        box-shadow:
+          0 0 0 4px rgba(124, 58, 237, 0.18),
+          0 8px 32px rgba(124, 58, 237, 0.25);
+        border-radius: 20px;
+        transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        display: none;
+      }
+      #tour-tooltip {
+        position: fixed;
+        z-index: 9002;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.22),
+          0 4px 16px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+        width: 340px;
+        display: none;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+      }
+      #tour-tooltip .tour-arrow {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: #fff;
+        transform: rotate(45deg);
+      }
+      #tour-tooltip.arrow-top .tour-arrow {
+        top: -6px;
+        left: 50%;
+        margin-left: -6px;
+        box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.06);
+      }
+      #tour-tooltip.arrow-bottom .tour-arrow {
+        bottom: -6px;
+        left: 50%;
+        margin-left: -6px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.06);
+      }
+      #tour-tooltip.arrow-left .tour-arrow {
+        left: -6px;
+        top: 50%;
+        margin-top: -6px;
+        box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.06);
+      }
+      #tour-tooltip.arrow-right .tour-arrow {
+        right: -6px;
+        top: 50%;
+        margin-top: -6px;
+        box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.06);
+      }
+      .tour-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #e0e3e5;
+        transition: background 0.2s;
+        display: inline-block;
+      }
+      .tour-dot.active {
+        background: #7c3aed;
+      }
+      body.tour-active {
+        overflow: hidden;
+      }
+      .dark #tour-tooltip {
+        background: #1e2640;
+        color: #e2e8f0;
+      }
+      .dark .tour-panel {
+        background: rgba(0, 0, 0, 0.72);
+      }
+
+      /* ── NEW STYLES ── */
+
+      /* Live data pulse */
+      @keyframes live-pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.5);
+        }
+      }
+      .live-pulse-dot {
+        animation: live-pulse 1.8s ease-in-out infinite;
+      }
+
+      /* KPI color-matched hover glows (replaces generic translate) */
+      .kpi-card {
+        transition:
+          box-shadow 0.3s ease,
+          transform 0.3s ease;
+      }
+      .kpi-glow-green:hover {
+        box-shadow:
+          0 0 40px rgba(16, 185, 129, 0.28),
+          0 8px 24px rgba(16, 185, 129, 0.1);
+        transform: translateY(-4px);
+      }
+      .kpi-glow-navy:hover {
+        box-shadow:
+          0 0 40px rgba(15, 39, 72, 0.35),
+          0 8px 24px rgba(15, 39, 72, 0.12);
+        transform: translateY(-4px);
+      }
+      .kpi-glow-red:hover {
+        box-shadow:
+          0 0 40px rgba(239, 68, 68, 0.22),
+          0 8px 24px rgba(239, 68, 68, 0.08);
+        transform: translateY(-4px);
+      }
+      .kpi-glow-amber:hover {
+        box-shadow:
+          0 0 40px rgba(245, 158, 11, 0.22),
+          0 8px 24px rgba(245, 158, 11, 0.08);
+        transform: translateY(-4px);
+      }
+
+      /* Animated gradient for Action Center header */
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .action-center-header-gradient {
+        background: linear-gradient(
+          -45deg,
+          #00122c,
+          #0a1f42,
+          #1a0a5e,
+          #0f3460,
+          #00122c
+        );
+        background-size: 400% 400%;
+        animation: gradient-shift 10s ease infinite;
+      }
+
+      /* Toast */
+      #toast-notification {
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+      }
+
+      /* Dark mode overrides */
+      .dark body {
+        background-color: #0f1117;
+        color: #e2e8f0;
+      }
+      .dark header {
+        background-color: rgba(15, 17, 23, 0.97) !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+      .dark .bg-surface-container-lowest {
+        background-color: #1a2035 !important;
+      }
+      .dark .bg-surface-container {
+        background-color: #1e2640 !important;
+      }
+      .dark .bg-surface-container-high {
+        background-color: #232d4a !important;
+      }
+      .dark .bg-surface,
+      .dark .bg-surface-bright {
+        background-color: #0f1117 !important;
+      }
+      .dark .text-primary {
+        color: #c5d8f6 !important;
+      }
+      .dark .text-on-surface {
+        color: #e2e8f0 !important;
+      }
+      .dark .text-on-surface-variant {
+        color: #94a3b8 !important;
+      }
+      .dark .border-outline-variant {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .dark .risk-card-low {
+        background-color: rgba(16, 185, 129, 0.07) !important;
+      }
+      .dark .risk-card-medium {
+        background-color: rgba(245, 158, 11, 0.07) !important;
+      }
+      .dark .risk-card-high {
+        background-color: rgba(239, 68, 68, 0.07) !important;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed min-h-screen"
+  >
+    <!-- ── Tour Elements ── -->
+    <div
+      id="tour-ov-top"
+      class="tour-panel"
+      style="display: none; top: 0; left: 0; right: 0"
+    ></div>
+    <div
+      id="tour-ov-bottom"
+      class="tour-panel"
+      style="display: none; bottom: 0; left: 0; right: 0"
+    ></div>
+    <div
+      id="tour-ov-left"
+      class="tour-panel"
+      style="display: none; left: 0; top: 0; bottom: 0"
+    ></div>
+    <div
+      id="tour-ov-right"
+      class="tour-panel"
+      style="display: none; right: 0; top: 0; bottom: 0"
+    ></div>
+    <div id="tour-ring"></div>
+
+    <div id="tour-tooltip">
+      <div class="tour-arrow"></div>
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <div
+            class="w-7 h-7 rounded-lg flex items-center justify-center"
+            style="background: rgba(124, 58, 237, 0.1)"
+          >
+            <span
+              class="material-symbols-outlined text-purple-custom text-[15px]"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >tour</span
+            >
+          </div>
+          <span
+            id="tour-step-label"
+            class="text-[11px] font-bold uppercase tracking-widest text-purple-custom"
+            >Step 1 of 7</span
+          >
+        </div>
+        <button
+          onclick="endTour()"
+          class="text-[18px] text-on-surface-variant hover:text-primary leading-none"
+        >
+          ×
+        </button>
+      </div>
+      <!-- Content -->
+      <h4 id="tour-title" class="font-bold text-[16px] text-primary mb-2"></h4>
+      <p
+        id="tour-desc"
+        class="text-[13px] text-on-surface-variant leading-relaxed"
+      ></p>
+      <!-- Dots -->
+      <div id="tour-dots" class="flex items-center gap-1.5 mt-4"></div>
+      <!-- Buttons -->
+      <div
+        class="flex items-center justify-between mt-4 pt-4"
+        style="border-top: 1px solid #e0e3e5"
+      >
+        <button
+          onclick="endTour()"
+          class="text-[12px] font-semibold text-on-surface-variant hover:text-primary transition-colors"
+        >
+          Skip tour
+        </button>
+        <div class="flex gap-2">
+          <button
+            id="tour-back-btn"
+            onclick="tourStep(-1)"
+            class="px-4 py-2 text-[12px] font-bold text-primary border border-outline-variant rounded-xl hover:bg-surface-container-low transition-all"
+          >
+            Back
+          </button>
+          <button
+            id="tour-next-btn"
+            onclick="tourStep(1)"
+            class="px-4 py-2 text-[12px] font-bold text-white bg-primary rounded-xl hover:opacity-90 transition-all"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div
+      id="toast-notification"
+      class="opacity-0 translate-y-4 pointer-events-none fixed bottom-8 right-8 z-[100] flex items-center gap-3 bg-primary text-on-primary px-5 py-3.5 rounded-2xl shadow-2xl"
+    >
+      <span
+        class="material-symbols-outlined text-green-custom"
+        style="font-variation-settings: &quot;FILL&quot; 1"
+        >check_circle</span
+      >
+      <span class="font-label-md font-bold" id="toast-msg"
+        >Added to HR Calendar!</span
+      >
+    </div>
+
+    <header
+      class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-x h-20 bg-surface/95 backdrop-blur-sm border-b border-outline-variant shadow-sm"
+    >
+      <div class="flex items-center gap-6">
+        <div class="flex flex-col">
+          <span class="font-display-sm text-display-sm font-bold text-primary"
+            >NirogGyan</span
+          >
+          <span
+            class="font-label-md text-label-md tracking-[0.2em] text-on-surface-variant uppercase -mt-1"
+            >CORPORATE WELLNESS</span
+          >
+        </div>
+        <!-- Live Data chip -->
+        <div
+          class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-green-custom/10 border border-green-custom/20 rounded-full"
+        >
+          <div
+            class="w-2 h-2 bg-green-custom rounded-full live-pulse-dot"
+          ></div>
+          <span class="font-label-md text-label-md text-green-custom font-bold"
+            >Live Data</span
+          >
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-4">
+        <a
+          class="px-4 py-2 text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md transition-all"
+          href="index.html"
+          >Dashboard</
+        >
+        <a
+          class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+          href="ai_insights.html"
+          >AI Strategic Insights</a
+        >
+        <a
+          class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
+          href="workforce.html"
+          >Workforce Risk Profiling</a
+        >
+      </nav>
+      <div class="flex items-center gap-4">
+        <div
+          class="hidden lg:flex items-center gap-2 px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant ultra-soft-shadow"
+        >
+          <span class="material-symbols-outlined text-primary scale-75"
+            >analytics</span
+          >
+          <span class="font-label-md text-label-md text-on-surface-variant"
+            >Acme Corp Ltd. Q2 Profile</span
+          >
+        </div>
+        <!-- Dark mode toggle -->
+        <button
+          id="dark-mode-toggle"
+          onclick="toggleDarkMode()"
+          class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]"
+          aria-label="Toggle dark mode"
+        >
+          <span class="material-symbols-outlined" id="theme-icon"
+            >dark_mode</span
+          >
+        </button>
+        <button
+          class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]"
+        >
+          <span class="material-symbols-outlined">present_to_all</span>
+        </button>
+        <button
+          class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]"
+        >
+          <span class="material-symbols-outlined">download</span>
+        </button>
+        <button
+          onclick="startTour()"
+          class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[16px]">tour</span>Start
+          Tour
+        </button>
+      </div>
+    </header>
+
+    <main class="max-w-container-max mx-auto px-margin-x py-stack-lg">
+      <section class="mb-stack-lg">
+        <h1 class="font-display-lg text-display-lg text-primary mb-2">
+          Hello, HR Team.
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+          Here is the health snapshot of your workforce based on the latest
+          wellness assessment.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <select
+            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-40 transition-all"
+          >
+            <option>Location</option>
+          </select>
+          <select
+            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-40 transition-all"
+            id="deptFilterSelect"
+            onchange="handleMainFilters()"
+          >
+            <option value="All Departments">Department</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Sales">Sales</option>
+            <option value="Operations">Operations</option>
+          </select>
+          <select
+            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-32 transition-all"
+            id="genderFilterSelect"
+            onchange="handleMainFilters()"
+          >
+            <option value="All Genders">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <select
+            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-40 transition-all"
+            id="ageFilterSelect"
+            onchange="handleMainFilters()"
+          >
+            <option value="All Ages">Age Group</option>
+            <option value="&lt;35 Years">&lt;35 Years</option>
+            <option value="35-45 Years">35-45 Years</option>
+            <option value="&gt;45 Years">&gt;45 Years</option>
+          </select>
+          <!-- Apply Filters with badge -->
+          <div class="relative inline-block">
+            <button
+              class="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold hover:shadow-lg transition-all active:scale-[0.98]"
+              onclick="handleMainFilters()"
+            >
+              Apply Filters
+            </button>
+            <span
+              id="filter-badge"
+              class="hidden absolute -top-2 -right-2 min-w-[20px] h-5 bg-red-custom text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1"
+              >0</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- KPI Section -->
+      <section
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-10"
+      >
+        <!-- KPI 1: Health Index — green glow -->
+        <div
+          id="tour-kpi-health"
+          class="relative bg-surface-container-lowest p-6 rounded-[24px] border border-outline-variant ultra-soft-shadow kpi-card kpi-glow-green overflow-hidden flex flex-col items-center"
+        >
+          <div class="w-full flex justify-between items-start mb-4">
+            <div class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-green-custom fill-current"
+                >favorite</span
+              >
+              <span
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-semibold"
+                >Health Index</span
+              >
+            </div>
+            <span
+              class="bg-green-custom text-white rounded-full text-[10px] font-bold px-3 py-1 uppercase"
+              >A-Grade</span
+            >
+          </div>
+          <div class="relative flex items-center justify-center w-40 h-40 mb-2">
+            <svg
+              class="w-full h-full transform -rotate-90"
+              viewbox="0 0 100 100"
+            >
+              <circle
+                class="text-surface-container-high"
+                cx="50"
+                cy="50"
+                fill="transparent"
+                r="40"
+                stroke="currentColor"
+                stroke-width="8"
+              ></circle>
+              <circle
+                class="text-green-custom animate-gauge"
+                cx="50"
+                cy="50"
+                fill="transparent"
+                r="40"
+                stroke="currentColor"
+                stroke-dasharray="251.2"
+                stroke-linecap="round"
+                stroke-width="8"
+                style="--target-dashoffset: calc(251.2 - (251.2 * 78) / 100)"
+              ></circle>
+            </svg>
+            <div
+              class="absolute inset-0 flex flex-col items-center justify-center"
+            >
+              <span
+                class="font-display-sm text-display-sm text-primary font-extrabold leading-none tabular-nums"
+                id="kpi-health-num"
+                >78</span
+              >
+              <span class="text-xs text-on-surface-variant font-bold"
+                >/ 100</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full mt-4 flex justify-between text-[9px] font-bold uppercase text-on-surface-variant"
+          >
+            <div class="flex flex-col items-center">
+              <span class="text-red-custom tabular-nums">0-59</span
+              ><span>Poor</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span class="text-amber-custom tabular-nums">60-74</span
+              ><span>Good</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <span class="text-green-custom tabular-nums">75-100</span
+              ><span>Optimal</span>
+            </div>
+          </div>
+          <p class="font-body-md text-on-surface-variant mt-4 font-medium">
+            Average Wellness Score
+          </p>
+        </div>
+
+        <!-- KPI 2: Evaluated — navy glow -->
+        <div
+          id="tour-kpi-evaluated"
+          class="relative bg-surface-container-lowest p-6 rounded-[24px] border border-outline-variant ultra-soft-shadow kpi-card kpi-glow-navy overflow-hidden flex flex-col"
+        >
+          <div class="w-full flex justify-between items-start mb-4">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-navy-custom"
+                >group</span
+              >
+              <span
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-semibold"
+                >Evaluated</span
+              >
+            </div>
+            <span
+              class="text-[10px] text-on-surface-variant font-bold uppercase"
+              >Q2 2024</span
+            >
+          </div>
+          <div class="flex items-center justify-between gap-4 mt-2">
+            <div
+              class="relative flex items-center justify-center w-32 h-32 flex-shrink-0"
+            >
+              <svg
+                class="w-full h-full transform -rotate-90"
+                viewbox="0 0 100 100"
+              >
+                <circle
+                  class="text-surface-container-high"
+                  cx="50"
+                  cy="50"
+                  fill="transparent"
+                  r="42"
+                  stroke="currentColor"
+                  stroke-width="12"
+                ></circle>
+                <circle
+                  class="text-navy-custom animate-gauge"
+                  cx="50"
+                  cy="50"
+                  fill="transparent"
+                  r="42"
+                  stroke="currentColor"
+                  stroke-dasharray="263.8"
+                  stroke-linecap="round"
+                  stroke-width="12"
+                  style="
+                    --target-dashoffset: calc(263.8 - (263.8 * 82) / 100);
+                    --initial-dashoffset: 263.8;
+                  "
+                ></circle>
+              </svg>
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center"
+              >
+                <span
+                  class="text-xl font-extrabold text-primary leading-none tabular-nums"
+                  id="kpi-eval-pct"
+                  >82%</span
+                >
+                <span
+                  class="text-[8px] text-on-surface-variant font-bold uppercase"
+                  >Present</span
+                >
+              </div>
+            </div>
+            <div class="flex-grow space-y-4">
+              <div>
+                <div class="flex justify-between items-end mb-1">
+                  <span
+                    class="text-[10px] text-on-surface-variant font-bold uppercase"
+                    >Total Tested</span
+                  >
+                  <span
+                    class="text-sm font-extrabold text-primary tabular-nums"
+                    id="kpi-eval-total"
+                    >449</span
+                  >
+                </div>
+                <div
+                  class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden"
+                >
+                  <div
+                    class="h-full bg-navy-custom rounded-full"
+                    style="width: 82%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-end mb-1">
+                  <span
+                    class="text-[10px] text-on-surface-variant font-bold uppercase"
+                    >Not Tested</span
+                  >
+                  <span
+                    class="text-sm font-extrabold text-primary tabular-nums"
+                    id="kpi-eval-not"
+                    >99</span
+                  >
+                </div>
+                <div
+                  class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden"
+                >
+                  <div
+                    class="h-full bg-outline-variant/30 rounded-full"
+                    style="width: 18%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-auto pt-4 flex items-center gap-1 text-amber-custom">
+            <span class="material-symbols-outlined text-sm font-bold"
+              >north_east</span
+            >
+            <span class="text-[10px] font-bold uppercase tabular-nums"
+              >13% gap to participation target</span
+            >
+          </div>
+        </div>
+
+        <!-- KPI 3: Largest Risk — red glow -->
+        <div
+          class="relative bg-surface-container-lowest p-6 rounded-[24px] border border-outline-variant ultra-soft-shadow kpi-card kpi-glow-red overflow-hidden flex flex-col items-center"
+        >
+          <div class="w-full flex justify-between items-start mb-4">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-red-custom"
+                >warning</span
+              >
+              <span
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-semibold"
+                >Largest Risk</span
+              >
+            </div>
+            <span
+              class="bg-red-custom/10 text-red-custom rounded-full text-[10px] font-bold px-3 py-1 uppercase"
+              >High</span
+            >
+          </div>
+          <div
+            class="relative w-full h-32 flex flex-col items-center justify-end"
+          >
+            <svg class="w-48 h-24" viewbox="0 0 100 50">
+              <path
+                d="M 10,45 A 40,40 0 0 1 90,45"
+                fill="none"
+                stroke="#eceef0"
+                stroke-linecap="round"
+                stroke-width="8"
+              ></path>
+              <path
+                class="animate-gauge"
+                d="M 10,45 A 40,40 0 0 1 90,45"
+                fill="none"
+                stroke="url(#riskGrad)"
+                stroke-dasharray="125.6"
+                stroke-linecap="round"
+                stroke-width="8"
+                style="
+                  --target-dashoffset: calc(125.6 - (125.6 * 40) / 100);
+                  --initial-dashoffset: 125.6;
+                "
+              ></path>
+              <defs>
+                <lineargradient id="riskGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+                  <stop offset="0%" stop-color="#10B981"></stop>
+                  <stop offset="50%" stop-color="#F59E0B"></stop>
+                  <stop offset="100%" stop-color="#EF4444"></stop>
+                </lineargradient>
+              </defs>
+              <!-- Needle: design-system navy color -->
+              <g class="animate-needle" style="--target-rotate: -18deg">
+                <line
+                  stroke="#0F2748"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  x1="50"
+                  x2="50"
+                  y1="45"
+                  y2="15"
+                ></line>
+                <circle cx="50" cy="45" fill="#0F2748" r="3"></circle>
+              </g>
+            </svg>
+            <div class="mt-2">
+              <span
+                class="text-3xl font-extrabold text-red-custom leading-none tabular-nums"
+                id="kpi-risk-num"
+                >40%</span
+              >
+            </div>
+          </div>
+          <div class="text-center mt-2">
+            <span class="font-title-lg text-primary font-semibold block"
+              >Metabolic Health</span
+            >
+            <span
+              class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tight"
+              >Highest workforce-wide risk factor</span
+            >
+            <div class="flex justify-center gap-2 mt-4">
+              <div
+                class="flex-1 bg-red-custom/5 border border-red-custom/10 rounded-xl py-2 px-3 text-center"
+              >
+                <div
+                  class="text-red-custom font-extrabold text-sm tabular-nums"
+                >
+                  18%
+                </div>
+                <div
+                  class="text-[9px] text-on-surface-variant font-bold uppercase tracking-wider"
+                >
+                  OPS
+                </div>
+              </div>
+              <div
+                class="flex-1 bg-red-custom/5 border border-red-custom/10 rounded-xl py-2 px-3 text-center"
+              >
+                <div
+                  class="text-red-custom font-extrabold text-sm tabular-nums"
+                >
+                  12%
+                </div>
+                <div
+                  class="text-[9px] text-on-surface-variant font-bold uppercase tracking-wider"
+                >
+                  SALES
+                </div>
+              </div>
+              <div
+                class="flex-1 bg-amber-custom/5 border border-amber-custom/10 rounded-xl py-2 px-3 text-center"
+              >
+                <div
+                  class="text-amber-custom font-extrabold text-sm tabular-nums"
+                >
+                  10%
+                </div>
+                <div
+                  class="text-[9px] text-on-surface-variant font-bold uppercase tracking-wider"
+                >
+                  ENG
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI 4: Priority Action — amber glow -->
+        <div
+          class="relative bg-surface-container-lowest p-6 rounded-[24px] border border-outline-variant ultra-soft-shadow kpi-card kpi-glow-amber overflow-hidden flex flex-col"
+        >
+          <div class="w-full flex justify-between items-start mb-4">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-amber-custom"
+                >offline_bolt</span
+              >
+              <span
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-semibold"
+                >Priority Action</span
+              >
+            </div>
+            <span
+              class="bg-amber-custom/10 text-amber-custom rounded-full text-[10px] font-bold px-3 py-1 uppercase"
+              >Urgent</span
+            >
+          </div>
+          <div class="flex flex-col items-center">
+            <div
+              class="relative flex items-center justify-center w-32 h-32 mb-4"
+            >
+              <svg
+                class="w-full h-full transform -rotate-90"
+                viewbox="0 0 100 100"
+              >
+                <circle
+                  class="text-surface-container-high"
+                  cx="50"
+                  cy="50"
+                  fill="transparent"
+                  r="40"
+                  stroke="currentColor"
+                  stroke-width="12"
+                ></circle>
+                <circle
+                  class="text-amber-custom animate-gauge"
+                  cx="50"
+                  cy="50"
+                  fill="transparent"
+                  r="40"
+                  stroke="currentColor"
+                  stroke-dasharray="251.2"
+                  stroke-linecap="round"
+                  stroke-width="12"
+                  style="
+                    --target-dashoffset: calc(251.2 - (251.2 * 28) / 100);
+                    --initial-dashoffset: 251.2;
+                  "
+                ></circle>
+              </svg>
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center text-center"
+              >
+                <span
+                  class="text-2xl font-extrabold text-amber-custom leading-none tabular-nums"
+                  id="kpi-prio-num"
+                  >28%</span
+                >
+                <span
+                  class="text-[8px] text-on-surface-variant font-bold uppercase mt-0.5"
+                  >at risk</span
+                >
+              </div>
+              <div class="absolute -bottom-1 -right-1">
+                <div
+                  class="w-6 h-6 border-2 border-amber-custom/20 border-t-amber-custom rounded-full animate-spin-slow"
+                ></div>
+              </div>
+            </div>
+            <h4 class="font-title-lg text-primary font-bold">Lipid Profile</h4>
+            <p
+              class="text-[10px] text-on-surface-variant text-center font-medium mb-4"
+            >
+              Most impactful intervention opportunity
+            </p>
+            <div
+              class="w-full flex justify-between px-2 pt-3 border-t border-outline-variant/30 text-[9px] font-bold uppercase"
+            >
+              <div class="text-center">
+                <span class="text-green-custom block tabular-nums">0-15%</span
+                ><span class="text-on-surface-variant/60">Safe</span>
+              </div>
+              <div class="text-center">
+                <span class="text-amber-custom block tabular-nums">16-30%</span
+                ><span class="text-on-surface-variant/60">Watch</span>
+              </div>
+              <div class="text-center">
+                <span class="text-red-custom block tabular-nums">30%+</span
+                ><span class="text-on-surface-variant/60">Act Now</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-auto pt-4 flex items-center gap-2 text-amber-custom">
+            <span class="material-symbols-outlined text-sm font-bold"
+              >bolt</span
+            >
+            <span class="text-[10px] font-bold uppercase"
+              >Intervention recommended</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Department Health Ranking -->
+      <section class="mb-stack-lg">
+        <div
+          id="tour-dept-ranking"
+          class="bg-surface-container-lowest p-8 rounded-[24px] border border-outline-variant ultra-soft-shadow"
+        >
+          <h2 class="font-headline-sm text-headline-sm text-primary mb-8">
+            Department Health Ranking
+          </h2>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
+          >
+            <!-- #1 Marketing -->
+            <div
+              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
+            >
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-base leading-none">🏆</span>
+                  <span class="font-title-lg text-primary">Marketing</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="bg-green-custom/15 text-green-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    >#1</span
+                  >
+                  <span
+                    class="font-display-sm text-green-custom font-bold tabular-nums"
+                    >84</span
+                  >
+                </div>
+              </div>
+              <div
+                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
+              >
+                <div
+                  class="h-full bg-green-custom w-[84%] rounded-full shadow-[0_0_8px_rgba(16,185,129,0.2)]"
+                ></div>
+                <span
+                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+                  title="Org. Benchmark: 75%"
+                  style="
+                    left: 75%;
+                    width: 2px;
+                    height: 14px;
+                    background: repeating-linear-gradient(
+                      to bottom,
+                      rgba(68, 71, 78, 0.7) 0px,
+                      rgba(68, 71, 78, 0.7) 3px,
+                      transparent 3px,
+                      transparent 6px
+                    );
+                    border-radius: 1px;
+                  "
+                ></span>
+              </div>
+            </div>
+
+            <!-- #2 Engineering -->
+            <div
+              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
+            >
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-lg text-primary">Engineering</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="bg-navy-custom/10 text-navy-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    >#2</span
+                  >
+                  <span
+                    class="font-display-sm text-green-custom font-bold tabular-nums"
+                    >80</span
+                  >
+                </div>
+              </div>
+              <div
+                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
+              >
+                <div
+                  class="h-full bg-green-custom w-[80%] rounded-full shadow-[0_0_8px_rgba(16,185,129,0.2)]"
+                ></div>
+                <span
+                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+                  title="Org. Benchmark: 75%"
+                  style="
+                    left: 75%;
+                    width: 2px;
+                    height: 14px;
+                    background: repeating-linear-gradient(
+                      to bottom,
+                      rgba(68, 71, 78, 0.7) 0px,
+                      rgba(68, 71, 78, 0.7) 3px,
+                      transparent 3px,
+                      transparent 6px
+                    );
+                    border-radius: 1px;
+                  "
+                ></span>
+              </div>
+            </div>
+
+            <!-- #3 Sales -->
+            <div
+              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
+            >
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-lg text-primary">Sales</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="bg-purple-custom/10 text-purple-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    >#3</span
+                  >
+                  <span
+                    class="font-display-sm text-purple-custom font-bold tabular-nums"
+                    >76</span
+                  >
+                </div>
+              </div>
+              <div
+                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
+              >
+                <div
+                  class="h-full bg-purple-custom w-[76%] rounded-full shadow-[0_0_8px_rgba(124,58,237,0.2)]"
+                ></div>
+                <span
+                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+                  title="Org. Benchmark: 75%"
+                  style="
+                    left: 75%;
+                    width: 2px;
+                    height: 14px;
+                    background: repeating-linear-gradient(
+                      to bottom,
+                      rgba(68, 71, 78, 0.7) 0px,
+                      rgba(68, 71, 78, 0.7) 3px,
+                      transparent 3px,
+                      transparent 6px
+                    );
+                    border-radius: 1px;
+                  "
+                ></span>
+              </div>
+            </div>
+
+            <!-- #4 Operations -->
+            <div
+              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
+            >
+              <div class="flex justify-between items-center mb-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-lg text-primary">Operations</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span
+                    class="bg-red-custom/10 text-red-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    >#4</span
+                  >
+                  <span
+                    class="font-display-sm text-red-custom font-bold tabular-nums"
+                    >68</span
+                  >
+                </div>
+              </div>
+              <div
+                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
+              >
+                <div
+                  class="h-full bg-red-custom w-[68%] rounded-full shadow-[0_0_8px_rgba(239,68,68,0.2)]"
+                ></div>
+                <span
+                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+                  title="Org. Benchmark: 75%"
+                  style="
+                    left: 75%;
+                    width: 2px;
+                    height: 14px;
+                    background: repeating-linear-gradient(
+                      to bottom,
+                      rgba(68, 71, 78, 0.7) 0px,
+                      rgba(68, 71, 78, 0.7) 3px,
+                      transparent 3px,
+                      transparent 6px
+                    );
+                    border-radius: 1px;
+                  "
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Workforce Summary -->
+      <section class="mb-stack-lg">
+        <div
+          id="tour-ai-summary"
+          class="bg-purple-custom/5 border border-purple-custom/20 rounded-[24px] p-6 flex items-start gap-5 ultra-soft-shadow"
+        >
+          <div
+            class="flex-shrink-0 bg-surface-container-lowest p-3 rounded-2xl shadow-sm border border-purple-custom/10"
+          >
+            <span
+              class="material-symbols-outlined text-purple-custom"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >auto_awesome</span
+            >
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-3 mb-1">
+              <h3 class="font-title-lg text-primary">AI Workforce Summary</h3>
+              <span
+                class="text-[10px] text-on-surface-variant/60 font-medium"
+                id="ai-summary-date"
+              ></span>
+            </div>
+            <p
+              class="font-body-md text-on-surface-variant leading-relaxed mt-1"
+            >
+              <span class="font-semibold text-red-custom">Operations</span> is
+              the highest-risk department with
+              <span class="font-bold text-red-custom tabular-nums">23%</span> of
+              staff showing critical cardiovascular markers — nearly double the
+              organisational average.
+              <span class="font-semibold text-primary">Engineering</span>
+              carries the highest Vitamin D deficiency burden at
+              <span class="font-bold text-primary tabular-nums">65%</span>,
+              strongly linked to indoor work patterns and limited daylight
+              exposure. Employees
+              <span class="font-semibold">aged above 45</span> present elevated
+              HbA1c and lipid abnormalities at roughly
+              <span class="font-bold tabular-nums">2×</span> the rate of younger
+              cohorts and account for the majority of High-risk classifications.
+              <span class="font-semibold">Surat</span> and
+              <span class="font-semibold">Vadodara</span> offices show a
+              multi-parameter risk cluster combining low Vitamin D, elevated
+              triglycerides, and borderline fasting glucose — flagged for
+              priority on-site screening.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Dashboard Split Section -->
+      <section
+        class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-stack-lg items-stretch"
+      >
+        <!-- Left: Clinical Health Profile -->
+        <div
+          id="tour-clinical-profile"
+          class="lg:col-span-8 bg-surface-container-lowest p-8 rounded-[24px] border border-outline-variant ultra-soft-shadow flex flex-col"
+        >
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4"
+          >
+            <div>
+              <h2 class="font-headline-lg text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined font-bold"
+                  >health_metrics</span
+                >
+                Clinical Health Profile
+              </h2>
+              <p class="font-body-md text-on-surface-variant">
+                Aggregated laboratory parameter analysis and recommended
+                interventions.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-wrap gap-2 mb-6 min-h-[32px]"
+            id="activeFilterRow"
+          ></div>
+          <div
+            class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 pb-4 border-b border-outline-variant/30"
+          >
+            <h3 class="font-title-lg text-primary font-bold">
+              Aggregated Diagnostic Profiles
+            </h3>
+            <div class="flex items-center gap-2">
+              <span class="font-label-md text-on-surface-variant mr-2"
+                >Status:</span
+              >
+              <div
+                class="inline-flex p-1 bg-surface-container rounded-lg border border-outline-variant/30"
+              >
+                <button
+                  class="status-btn active px-3 py-1.5 rounded-md font-label-md bg-primary text-on-primary transition-all"
+                  data-status="all"
+                  onclick="setStatusFilter('all')"
+                >
+                  All
+                </button>
+                <button
+                  class="status-btn px-3 py-1.5 rounded-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-all"
+                  data-status="Healthy"
+                  onclick="setStatusFilter('Healthy')"
+                >
+                  Healthy
+                </button>
+                <button
+                  class="status-btn px-3 py-1.5 rounded-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-all"
+                  data-status="Monitor"
+                  onclick="setStatusFilter('Monitor')"
+                >
+                  Monitor
+                </button>
+                <button
+                  class="status-btn px-3 py-1.5 rounded-md font-label-md text-on-surface-variant hover:bg-red-custom/5 transition-all"
+                  data-status="At Risk"
+                  onclick="setStatusFilter('At Risk')"
+                >
+                  At Risk
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6 flex-grow" id="profile-list">
+            <!-- Profiles rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Workforce Risk Profiling -->
+        <div id="tour-risk-profiling" class="lg:col-span-4 flex flex-col">
+          <div class="flex flex-col mb-6 pl-4 border-l-4 border-navy-custom">
+            <h2 class="font-headline-lg text-primary flex items-center gap-3">
+              <span class="material-symbols-outlined font-bold text-navy-custom"
+                >assignment_late</span
+              >
+              Workforce Risk Profiling
+            </h2>
+            <p class="font-body-md text-on-surface-variant mt-1">
+              Anonymized cohort tracking for active wellness monitoring.
+            </p>
+          </div>
+          <div class="flex flex-col gap-gutter flex-grow">
+            <!-- Low Risk Card -->
+            <div
+              class="risk-card-low flex-1 bg-[#F0FDF4] px-8 py-8 rounded-[24px] border-t-[8px] border-green-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-green-custom text-xl"
+                    >check_circle</span
+                  >
+                  <h3
+                    class="font-label-md text-on-surface-variant uppercase tracking-widest font-bold"
+                  >
+                    Low Clinical Risk
+                  </h3>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-[36px] font-extrabold text-primary leading-none block tabular-nums"
+                    >62%</span
+                  >
+                  <p class="text-label-sm text-on-surface-variant font-medium">
+                    Optimal Parameters
+                  </p>
+                  <p
+                    class="text-[10px] text-green-custom font-bold mt-0.5 tabular-nums"
+                  >
+                    ~278 employees
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-green-custom/10"
+                >
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Engineering</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >71%</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-green-custom/10"
+                >
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Age &lt;35</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >68%</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Female</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >65%</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Monitoring Card -->
+            <div
+              class="risk-card-medium flex-1 bg-[#FFFBEB] px-8 py-8 rounded-[24px] border-t-[8px] border-amber-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-amber-custom text-xl"
+                    >monitoring</span
+                  >
+                  <h3
+                    class="font-label-md text-on-surface-variant uppercase tracking-widest font-bold"
+                  >
+                    Monitoring Required
+                  </h3>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-[36px] font-extrabold text-primary leading-none block tabular-nums"
+                    >26%</span
+                  >
+                  <p class="text-label-sm text-on-surface-variant font-medium">
+                    1–2 Abnormal Params
+                  </p>
+                  <p
+                    class="text-[10px] text-amber-custom font-bold mt-0.5 tabular-nums"
+                  >
+                    ~117 employees
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-amber-custom/10"
+                >
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Sales</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >32%</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-amber-custom/10"
+                >
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Age 35–45</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >29%</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Hyderabad</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >28%</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- High Risk Card -->
+            <div
+              class="risk-card-high flex-1 bg-[#FEF2F2] px-8 py-8 rounded-[24px] border-t-[8px] border-red-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
+            >
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-red-custom text-xl"
+                    >warning</span
+                  >
+                  <h3
+                    class="font-label-md text-on-surface-variant uppercase tracking-widest font-bold"
+                  >
+                    High Clinical Risk
+                  </h3>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="text-[36px] font-extrabold text-primary leading-none block tabular-nums"
+                    >12%</span
+                  >
+                  <p class="text-label-sm text-on-surface-variant font-medium">
+                    Critical Alerts
+                  </p>
+                  <p
+                    class="text-[10px] text-red-custom font-bold mt-0.5 tabular-nums"
+                  >
+                    ~54 employees
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-red-custom/10"
+                >
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Operations</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >23%</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-red-custom/10"
+                >
+                  <span class="font-body-lg text-on-surface-variant"
+                    >Age &gt;45</span
+                  >
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >21%</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-body-lg text-on-surface-variant">Pune</span>
+                  <span
+                    class="font-title-lg font-bold text-primary tabular-nums"
+                    >18%</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-stack-lg pt-12 border-t border-outline-variant pb-20">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex flex-col">
+              <span class="font-title-lg font-bold text-primary"
+                >NirogGyan</span
+              >
+              <span
+                class="font-label-sm text-on-surface-variant tracking-widest uppercase"
+                >Executive Dashboard</span
+              >
+            </div>
+            <div class="h-10 w-[1px] bg-outline-variant hidden md:block"></div>
+            <p class="font-label-md text-on-surface-variant max-w-xs">
+              Data integrity protected with enterprise-grade encryption. Audited
+              Q2 2024.
+            </p>
+          </div>
+          <div
+            id="tour-export-buttons"
+            class="flex flex-wrap justify-center gap-4"
+          >
+            <button
+              class="flex items-center gap-2 px-6 py-3 border border-outline-variant rounded-xl font-label-md text-primary bg-surface-container-lowest hover:bg-surface-container-low transition-all"
+            >
+              <span class="material-symbols-outlined text-lg">description</span>
+              Download PPT
+            </button>
+            <button
+              class="flex items-center gap-2 px-6 py-3 border border-outline-variant rounded-xl font-label-md text-primary bg-surface-container-lowest hover:bg-surface-container-low transition-all"
+            >
+              <span class="material-symbols-outlined text-lg">grid_on</span>
+              Export CSV
+            </button>
+            <button
+              class="flex items-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-xl font-label-md font-bold hover:shadow-lg transition-all active:scale-[0.98]"
+            >
+              Generate Summary
+            </button>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // ── Dark mode ──────────────────────────────────────────────────────────
+      function toggleDarkMode() {
+        const html = document.documentElement;
+        const isDark = html.classList.contains("dark");
+        if (isDark) {
+          html.classList.replace("dark", "light");
+          localStorage.setItem("theme", "light");
+          document.getElementById("theme-icon").textContent = "dark_mode";
+        } else {
+          html.classList.replace("light", "dark");
+          localStorage.setItem("theme", "dark");
+          document.getElementById("theme-icon").textContent = "light_mode";
+        }
+      }
+
+      // ── Toast ──────────────────────────────────────────────────────────────
+      function showToast(message) {
+        const toast = document.getElementById("toast-notification");
+        document.getElementById("toast-msg").textContent = message;
+        toast.classList.remove(
+          "opacity-0",
+          "translate-y-4",
+          "pointer-events-none",
+        );
+        toast.classList.add("opacity-100", "translate-y-0");
+        setTimeout(() => {
+          toast.classList.add(
+            "opacity-0",
+            "translate-y-4",
+            "pointer-events-none",
+          );
+          toast.classList.remove("opacity-100", "translate-y-0");
+        }, 3000);
+      }
+
+      // ── Count-up ───────────────────────────────────────────────────────────
+      function animateCountUp(el, target, suffix, duration) {
+        if (!el) return;
+        el.classList.add("tabular-nums");
+        const start = performance.now();
+        const tick = (ts) => {
+          const p = Math.min((ts - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(ease * target) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+
+      // ── Filter count badge ─────────────────────────────────────────────────
+      function updateFilterBadge() {
+        const dept = document.getElementById("deptFilterSelect").value;
+        const gender = document.getElementById("genderFilterSelect").value;
+        const age = document.getElementById("ageFilterSelect").value;
+        let count = 0;
+        if (dept !== "All Departments") count++;
+        if (gender !== "All Genders") count++;
+        if (age !== "All Ages") count++;
+        const badge = document.getElementById("filter-badge");
+        badge.textContent = count;
+        count > 0
+          ? badge.classList.remove("hidden")
+          : badge.classList.add("hidden");
+      }
+
+      // ── Filters ────────────────────────────────────────────────────────────
+      function handleMainFilters() {
+        updateFilterBadge();
+        const dept = document.getElementById("deptFilterSelect").value;
+        const gender = document.getElementById("genderFilterSelect").value;
+        const age = document.getElementById("ageFilterSelect").value;
+
+        const container = document.getElementById("activeFilterRow");
+        let pills = [];
+        if (dept !== "All Departments")
+          pills.push({ label: dept, type: "dept" });
+        if (gender !== "All Genders")
+          pills.push({ label: gender, type: "gender" });
+        if (age !== "All Ages") pills.push({ label: age, type: "age" });
+
+        container.innerHTML = pills
+          .map(
+            (p) => `
+            <div class="flex items-center gap-1.5 px-3 py-1 bg-navy-custom/5 border border-navy-custom/20 rounded-full text-[11px] font-bold text-navy-custom fade-update">
+                ${p.label}
+                <button onclick="removeFilter('${p.type}')" class="flex items-center justify-center hover:bg-navy-custom/10 rounded-full p-0.5">
+                    <span class="material-symbols-outlined text-[14px]">close</span>
+                </button>
+            </div>
+        `,
+          )
+          .join("");
+
+        const priorityText = document.getElementById("priority-text");
+        if (
+          dept === "Engineering" &&
+          gender === "Male" &&
+          age === "<35 Years"
+        ) {
+          priorityText.innerText = "Vitamin D Optimization";
+        } else {
+          priorityText.innerText = "Lipid Profile Optimization";
+        }
+      }
+
+      function removeFilter(type) {
+        const selectId =
+          type === "dept"
+            ? "deptFilterSelect"
+            : type === "gender"
+              ? "genderFilterSelect"
+              : "ageFilterSelect";
+        document.getElementById(selectId).selectedIndex = 0;
+        handleMainFilters();
+      }
+
+      // ── Diagnostic profiles with AI interventions ─────────────────────────
+      const diagnosticProfiles = [
+        {
+          id: "vitd",
+          name: "Vitamin D",
+          desc: "Essential for bone health and immune function.",
+          pct: 42,
+          status: "At Risk",
+          icon: "wb_sunny",
+          color: "red-custom",
+          intervention:
+            "Recommend daily Vitamin D₃ (1,000–2,000 IU) supplementation and structured outdoor breaks. Partner with occupational health for a group wellness walk programme targeting the 42% affected cohort.",
+        },
+        {
+          id: "lipid",
+          name: "Lipid Profile",
+          desc: "Measures cholesterol and triglycerides in blood.",
+          pct: 28,
+          status: "At Risk",
+          icon: "heart_check",
+          color: "red-custom",
+          intervention:
+            "Deploy a cardiovascular wellness programme: collaborate with the cafeteria to reduce saturated fat content, offer statin-therapy consultations, and schedule a lipid re-test camp in 90 days.",
+        },
+        {
+          id: "cbc",
+          name: "Blood Counts (CBC)",
+          desc: "Evaluates overall health and detects anemia/infection.",
+          pct: 21,
+          status: "At Risk",
+          icon: "bloodtype",
+          color: "red-custom",
+          intervention:
+            "Screen for iron-deficiency anaemia, especially in female cohorts under 35. Introduce iron-rich food options in the cafeteria and flag severe cases for IV iron therapy.",
+        },
+        {
+          id: "hba1c",
+          name: "Diabetes Monitoring (HbA1c)",
+          desc: "Measures average blood sugar levels over 3 months.",
+          pct: 12,
+          status: "Monitor",
+          icon: "glucose",
+          color: "amber-custom",
+          intervention:
+            "Launch low-glycaemic index diet workshops and deploy CGM kits for pre-diabetic employees. Target an HbA1c reduction of ≥0.5% within 6 months for the 12% at-risk group.",
+        },
+        {
+          id: "vitb12",
+          name: "Vitamin B12",
+          desc: "Crucial for nerve tissue and red blood cell production.",
+          pct: 15,
+          status: "Monitor",
+          icon: "medication",
+          color: "amber-custom",
+          intervention:
+            "Initiate monthly on-site B12 injection camps. Provide oral methylcobalamin (1,500 µg/day) for mildly deficient employees and dietary counselling for vegetarian cohorts.",
+        },
+        {
+          id: "kidney",
+          name: "Kidney Function",
+          desc: "Evaluates organ function and mineral balance.",
+          pct: 3,
+          status: "Healthy",
+          icon: "nephrology",
+          color: "green-custom",
+          intervention:
+            "Maintain hydration-awareness campaigns. Monitor borderline-eGFR employees in the next quarterly assessment and flag any trending toward CKD for specialist referral.",
+        },
+        {
+          id: "thyroid",
+          name: "Thyroid Profile",
+          desc: "Screening for metabolic and hormonal imbalances.",
+          pct: 4,
+          status: "Healthy",
+          icon: "medical_services",
+          color: "green-custom",
+          intervention:
+            "Schedule endocrinologist consultations for borderline TSH results. Provide iodine-rich dietary guidance and re-test in 6 months to confirm treatment response.",
+        },
+        {
+          id: "liver",
+          name: "Liver Function",
+          desc: "Tests for enzymes and proteins to assess liver health.",
+          pct: 5,
+          status: "Healthy",
+          icon: "health_and_safety",
+          color: "green-custom",
+          intervention:
+            "Deploy a NAFLD prevention programme: alcohol-cessation counselling, BMI reduction targets, and liver enzyme re-testing at the next health camp.",
+        },
+      ];
+
+      let currentStatusFilter = "all";
+      let openProfileId = null;
+
+      function renderProfiles() {
+        const container = document.getElementById("profile-list");
+        if (!container) return;
+        const filtered = diagnosticProfiles.filter(
+          (p) =>
+            currentStatusFilter === "all" || p.status === currentStatusFilter,
+        );
+
+        container.innerHTML = filtered
+          .map(
+            (p) => `
+            <div class="profile-row fade-update">
+                <div class="flex items-center gap-4 mb-2 cursor-pointer select-none" onclick="toggleProfile('${p.id}')">
+                    <div class="w-10 h-10 rounded-xl bg-${p.color}/5 flex items-center justify-center text-${p.color} border border-${p.color}/10 shrink-0">
+                        <span class="material-symbols-outlined text-xl">${p.icon}</span>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <h4 class="font-title-lg text-primary font-bold text-base truncate">${p.name}</h4>
+                        <p class="text-xs text-on-surface-variant truncate">${p.desc}</p>
+                    </div>
+                    <div class="text-right shrink-0 flex items-center gap-2">
+                        <div>
+                            <span class="text-lg font-extrabold text-${p.color} tabular-nums">${p.pct}%</span>
+                            <span class="text-[9px] block font-bold text-on-surface-variant uppercase tracking-wider">${p.status === "Healthy" ? "WITHIN RANGE" : "OUT OF RANGE"}</span>
+                        </div>
+                        <span class="material-symbols-outlined text-on-surface-variant transition-transform duration-300" id="chevron-${p.id}">expand_more</span>
+                    </div>
+                </div>
+                <div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden mb-1">
+                    <div class="h-full bg-${p.color} rounded-full transition-all duration-1000 ease-out" style="width:0%" data-width="${p.pct}%"></div>
+                </div>
+                <div id="accordion-${p.id}" class="overflow-hidden transition-all duration-300" style="max-height:0;">
+                    <div class="mt-3 px-4 py-3 bg-purple-custom/5 border border-purple-custom/10 rounded-xl flex items-start gap-3">
+                        <span class="material-symbols-outlined text-purple-custom flex-shrink-0 mt-0.5" style="font-size:16px;font-variation-settings:'FILL' 1">auto_awesome</span>
+                        <p class="text-xs text-on-surface-variant leading-relaxed"><span class="font-semibold text-purple-custom">AI Recommendation:</span> ${p.intervention}</p>
+                    </div>
+                </div>
+            </div>
+        `,
+          )
+          .join("");
+
+        setTimeout(() => {
+          container.querySelectorAll("[data-width]").forEach((bar) => {
+            bar.style.width = bar.dataset.width;
+          });
+          if (openProfileId) {
+            const acc = document.getElementById(`accordion-${openProfileId}`);
+            const chv = document.getElementById(`chevron-${openProfileId}`);
+            if (acc) acc.style.maxHeight = "200px";
+            if (chv) chv.style.transform = "rotate(180deg)";
+          }
+        }, 50);
+      }
+
+      function toggleProfile(id) {
+        const isOpen = openProfileId === id;
+        if (openProfileId) {
+          const acc = document.getElementById(`accordion-${openProfileId}`);
+          const chv = document.getElementById(`chevron-${openProfileId}`);
+          if (acc) acc.style.maxHeight = "0";
+          if (chv) chv.style.transform = "";
+        }
+        openProfileId = isOpen ? null : id;
+        if (openProfileId) {
+          const acc = document.getElementById(`accordion-${openProfileId}`);
+          const chv = document.getElementById(`chevron-${openProfileId}`);
+          if (acc) acc.style.maxHeight = "200px";
+          if (chv) chv.style.transform = "rotate(180deg)";
+        }
+      }
+
+      function setStatusFilter(status) {
+        currentStatusFilter = status;
+        openProfileId = null;
+        document.querySelectorAll(".status-btn").forEach((btn) => {
+          btn.classList.remove("active", "bg-primary", "text-on-primary");
+          btn.classList.add("text-on-surface-variant");
+          if (btn.getAttribute("data-status") === status) {
+            btn.classList.add("active", "bg-primary", "text-on-primary");
+            btn.classList.remove("text-on-surface-variant");
+          }
+        });
+        renderProfiles();
+      }
+
+      // ── Init ───────────────────────────────────────────────────────────────
+      // ── Tour ─────────────────────────────────────────────────────────
+      const TOUR_STEPS = [
+        {
+          id: "tour-kpi-health",
+          placement: "bottom",
+          title: "Overall Health Index",
+          desc: "Your organisation's composite wellness score, calculated from clinical lab results across all tested employees. A score of 78 places this workforce in the A– band — healthy overall, with targeted areas for improvement.",
+        },
+        {
+          id: "tour-kpi-evaluated",
+          placement: "bottom",
+          title: "Assessment Participation",
+          desc: "82% of your workforce completed the health assessment this quarter. The 18% gap represents employees who were invited but not yet tested — improving this gives you a more complete health picture.",
+        },
+        {
+          id: "tour-dept-ranking",
+          placement: "bottom",
+          title: "Department Health Ranking",
+          desc: "Departments ranked by their average composite health score. The dotted line marks the organisational benchmark of 75 — any department below it needs a dedicated intervention plan this quarter.",
+        },
+        {
+          id: "tour-ai-summary",
+          placement: "bottom",
+          title: "AI Workforce Summary",
+          desc: "AI-generated insights that go beyond the KPI numbers — surfacing department, age, and location patterns. This tells you not just what the risk is, but where it is concentrated and why.",
+        },
+        {
+          id: "tour-clinical-profile",
+          placement: "right",
+          title: "Clinical Health Profiles",
+          desc: "Every health parameter tested, ranked by the proportion of employees with abnormal results. Click any row to expand the AI's recommended HR intervention for that specific condition.",
+        },
+        {
+          id: "tour-risk-profiling",
+          placement: "left",
+          title: "Workforce Risk Tiers",
+          desc: "Three risk bands — Low, Monitoring, and High — each broken down by department, age group, and location. Use this to identify exactly which cohorts need action and where.",
+        },
+        {
+          id: "tour-export-buttons",
+          placement: "top",
+          title: "Export & Share",
+          desc: "Generate a presentation-ready leadership summary, download the full dataset as a spreadsheet, or create a written summary — everything you need for your next board meeting.",
+        },
+      ];
+      let tourIndex = 0;
+
+      function startTour() {
+        tourIndex = 0;
+        document.body.classList.add("tour-active");
+        [
+          "tour-ov-top",
+          "tour-ov-bottom",
+          "tour-ov-left",
+          "tour-ov-right",
+        ].forEach(
+          (id) => (document.getElementById(id).style.display = "block"),
+        );
+        document.getElementById("tour-ring").style.display = "block";
+        document.getElementById("tour-tooltip").style.display = "block";
+        renderTourStep();
+      }
+
+      function endTour() {
+        document.body.classList.remove("tour-active");
+        [
+          "tour-ov-top",
+          "tour-ov-bottom",
+          "tour-ov-left",
+          "tour-ov-right",
+        ].forEach((id) => (document.getElementById(id).style.display = "none"));
+        document.getElementById("tour-ring").style.display = "none";
+        document.getElementById("tour-tooltip").style.display = "none";
+      }
+
+      function tourStep(dir) {
+        const next = tourIndex + dir;
+        if (next < 0) return;
+        if (next >= TOUR_STEPS.length) {
+          endTour();
+          return;
+        }
+        tourIndex = next;
+        renderTourStep();
+      }
+
+      function renderTourStep() {
+        const step = TOUR_STEPS[tourIndex];
+        const el = document.getElementById(step.id);
+        if (!el) return;
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => spotlightElement(el, step.placement), 300);
+        document.getElementById("tour-step-label").textContent =
+          `Step ${tourIndex + 1} of ${TOUR_STEPS.length}`;
+        document.getElementById("tour-title").textContent = step.title;
+        document.getElementById("tour-desc").textContent = step.desc;
+        document.getElementById("tour-dots").innerHTML = TOUR_STEPS.map(
+          (_, i) =>
+            `<span class="tour-dot ${i === tourIndex ? "active" : ""}"></span>`,
+        ).join("");
+        document.getElementById("tour-back-btn").style.visibility =
+          tourIndex === 0 ? "hidden" : "visible";
+        document.getElementById("tour-next-btn").textContent =
+          tourIndex === TOUR_STEPS.length - 1 ? "Got it! ✓" : "Next →";
+      }
+
+      function spotlightElement(el, placement) {
+        const GAP = 10;
+        const rect = el.getBoundingClientRect();
+        const s = (id) => document.getElementById(id);
+        s("tour-ov-top").style.cssText =
+          `display:block;position:fixed;top:0;left:0;right:0;height:${Math.max(0, rect.top - GAP)}px;background:rgba(0,0,0,0.6);z-index:9000;`;
+        s("tour-ov-bottom").style.cssText =
+          `display:block;position:fixed;left:0;right:0;top:${rect.bottom + GAP}px;bottom:0;background:rgba(0,0,0,0.6);z-index:9000;`;
+        s("tour-ov-left").style.cssText =
+          `display:block;position:fixed;left:0;top:${rect.top - GAP}px;width:${Math.max(0, rect.left - GAP)}px;height:${rect.height + GAP * 2}px;background:rgba(0,0,0,0.6);z-index:9000;`;
+        s("tour-ov-right").style.cssText =
+          `display:block;position:fixed;left:${rect.right + GAP}px;right:0;top:${rect.top - GAP}px;height:${rect.height + GAP * 2}px;background:rgba(0,0,0,0.6);z-index:9000;`;
+        const ring = s("tour-ring");
+        ring.style.cssText = `display:block;position:fixed;left:${rect.left - GAP}px;top:${rect.top - GAP}px;width:${rect.width + GAP * 2}px;height:${rect.height + GAP * 2}px;border-radius:${GAP + 16}px;border:2.5px solid #7C3AED;box-shadow:0 0 0 4px rgba(124,58,237,0.18),0 8px 32px rgba(124,58,237,0.25);z-index:9001;pointer-events:none;`;
+        positionTooltip(rect, placement);
+      }
+
+      function positionTooltip(rect, placement) {
+        const TT = document.getElementById("tour-tooltip");
+        const GAP = 20,
+          TW = 340,
+          TH = TT.offsetHeight || 240;
+        const vw = window.innerWidth,
+          vh = window.innerHeight;
+        let top, left, arrowClass;
+        const eff = (() => {
+          if (placement === "bottom" && rect.bottom + GAP + TH < vh)
+            return "bottom";
+          if (placement === "top" && rect.top - GAP - TH > 0) return "top";
+          if (placement === "right" && rect.right + GAP + TW < vw)
+            return "right";
+          if (placement === "left" && rect.left - GAP - TW > 0) return "left";
+          return rect.bottom + GAP + TH < vh ? "bottom" : "top";
+        })();
+        if (eff === "bottom") {
+          top = rect.bottom + GAP;
+          left = rect.left + rect.width / 2 - TW / 2;
+          arrowClass = "arrow-top";
+        } else if (eff === "top") {
+          top = rect.top - GAP - TH;
+          left = rect.left + rect.width / 2 - TW / 2;
+          arrowClass = "arrow-bottom";
+        } else if (eff === "right") {
+          top = rect.top + rect.height / 2 - TH / 2;
+          left = rect.right + GAP;
+          arrowClass = "arrow-left";
+        } else {
+          top = rect.top + rect.height / 2 - TH / 2;
+          left = rect.left - GAP - TW;
+          arrowClass = "arrow-right";
+        }
+        TT.style.left = Math.max(12, Math.min(left, vw - TW - 12)) + "px";
+        TT.style.top = Math.max(12, Math.min(top, vh - TH - 12)) + "px";
+        TT.className = arrowClass;
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        renderProfiles();
+
+        // Set dark mode icon to match current state
+        const isDark = document.documentElement.classList.contains("dark");
+        document.getElementById("theme-icon").textContent = isDark
+          ? "light_mode"
+          : "dark_mode";
+
+        // AI Summary generated date
+        const dateEl = document.getElementById("ai-summary-date");
+        if (dateEl) {
+          dateEl.textContent =
+            "Generated: " +
+            new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            });
+        }
+
+        // Count-up animations (slight delay so gauges start first)
+        setTimeout(() => {
+          animateCountUp(
+            document.getElementById("kpi-health-num"),
+            78,
+            "",
+            1500,
+          );
+          animateCountUp(
+            document.getElementById("kpi-eval-pct"),
+            82,
+            "%",
+            1500,
+          );
+          animateCountUp(
+            document.getElementById("kpi-eval-total"),
+            449,
+            "",
+            1500,
+          );
+          animateCountUp(document.getElementById("kpi-eval-not"), 99, "", 1500);
+          animateCountUp(
+            document.getElementById("kpi-risk-num"),
+            40,
+            "%",
+            1500,
+          );
+          animateCountUp(
+            document.getElementById("kpi-prio-num"),
+            28,
+            "%",
+            1500,
+          );
+        }, 300);
+      });
+    </script>
+  </body>
+</html>

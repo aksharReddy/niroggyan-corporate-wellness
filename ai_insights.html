@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.remove('light');document.documentElement.classList.add('dark');}})()</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Strategic Insights | NirogGyan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container-low": "#f2f4f6",
+          "on-primary": "#ffffff",
+          "on-surface": "#191c1e",
+          "surface-tint": "#4a5f83",
+          "on-error": "#ffffff",
+          "surface-container": "#eceef0",
+          "surface": "#f7f9fb",
+          "surface-container-lowest": "#ffffff",
+          "tertiary": "#00170c",
+          "secondary-fixed-dim": "#d2bbff",
+          "secondary-fixed": "#eaddff",
+          "inverse-surface": "#2d3133",
+          "outline": "#74777f",
+          "on-tertiary-fixed-variant": "#005236",
+          "background": "#f7f9fb",
+          "on-primary-fixed-variant": "#32476a",
+          "on-primary-container": "#798fb5",
+          "tertiary-fixed-dim": "#4edea3",
+          "on-surface-variant": "#44474e",
+          "on-secondary-fixed-variant": "#5a00c6",
+          "primary-fixed-dim": "#b2c7f1",
+          "on-tertiary-fixed": "#002113",
+          "surface-variant": "#e0e3e5",
+          "inverse-on-surface": "#eff1f3",
+          "primary-fixed": "#d6e3ff",
+          "error-container": "#ffdad6",
+          "surface-dim": "#d8dadc",
+          "primary-container": "#0f2748",
+          "on-secondary-fixed": "#25005a",
+          "primary": "#00122c",
+          "on-tertiary-container": "#00a270",
+          "surface-container-high": "#e6e8ea",
+          "on-tertiary": "#ffffff",
+          "secondary": "#712ae2",
+          "inverse-primary": "#b2c7f1",
+          "surface-bright": "#f7f9fb",
+          "on-primary-fixed": "#011b3c",
+          "on-error-container": "#93000a",
+          "tertiary-container": "#002e1d",
+          "on-background": "#191c1e",
+          "on-secondary": "#ffffff",
+          "outline-variant": "#c4c6cf",
+          "error": "#ba1a1a",
+          "secondary-container": "#8a4cfc",
+          "on-secondary-container": "#fffbff",
+          "surface-container-highest": "#e0e3e5",
+          "tertiary-fixed": "#6ffbbe",
+          "green-custom": "#10B981",
+          "navy-custom": "#0F2748"
+        },
+        borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        spacing: { "gutter": "1.5rem", "stack-sm": "0.5rem", "stack-lg": "2rem", "container-max": "1440px", "margin-x": "2rem", "stack-md": "1rem" },
+        fontFamily: { "title-lg": ["Inter"], "headline-sm": ["Inter"], "display-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "display-sm": ["Inter"], "body-md": ["Inter"], "label-md": ["Inter"] },
+        fontSize: {
+          "title-lg": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "600"}],
+          "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "display-sm": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  /* ─── Theme System ─── */
+  :root {
+    --bg:        #f7f9fb;
+    --surface:   #ffffff;
+    --surf-low:  #f2f4f6;
+    --surf-mid:  #eceef0;
+    --surf-high: #e6e8ea;
+    --text:      #191c1e;
+    --muted:     #44474e;
+    --border:    #c4c6cf;
+    --border-strong: #74777f;
+    --primary:   #00122c;
+    --primary-m: #0f2748;
+    --nav-bg:    rgba(247,249,251,0.97);
+    --card-shadow: 0 1px 3px rgba(15,39,72,0.06), 0 8px 24px -4px rgba(15,39,72,0.04);
+    --card-shadow-hover: 0 4px 6px rgba(15,39,72,0.06), 0 20px 40px -8px rgba(15,39,72,0.10);
+  }
+  html.dark {
+    --bg:        #0d1117;
+    --surface:   #161b22;
+    --surf-low:  #21262d;
+    --surf-mid:  #1c2128;
+    --surf-high: #2d333b;
+    --text:      #e6edf3;
+    --muted:     #8b949e;
+    --border:    #30363d;
+    --border-strong: #484f58;
+    --primary:   #b2c7f1;
+    --primary-m: #d6e3ff;
+    --nav-bg:    rgba(13,17,23,0.97);
+    --card-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 8px 24px -4px rgba(0,0,0,0.3);
+    --card-shadow-hover: 0 4px 6px rgba(0,0,0,0.4), 0 20px 40px -8px rgba(0,0,0,0.5);
+  }
+
+  /* ─── Base ─── */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block; vertical-align: middle;
+  }
+
+  /* ─── Dark mode overrides ─── */
+  html.dark nav                          { background-color: var(--nav-bg); border-color: var(--border); }
+  html.dark .bg-white                    { background-color: var(--surface) !important; }
+  html.dark .bg-surface                  { background-color: var(--bg) !important; }
+  html.dark .bg-surface-container-lowest { background-color: var(--surface) !important; }
+  html.dark .bg-surface-container-low    { background-color: var(--surf-low) !important; }
+  html.dark .bg-surface-container        { background-color: var(--surf-mid) !important; }
+  html.dark .bg-surface-container-high   { background-color: var(--surf-high) !important; }
+  html.dark .border-outline-variant      { border-color: var(--border) !important; }
+  html.dark .text-on-surface             { color: var(--text) !important; }
+  html.dark .text-on-surface-variant     { color: var(--muted) !important; }
+  html.dark .text-primary                { color: var(--primary) !important; }
+  html.dark footer                       { background-color: var(--surface) !important; border-color: var(--border) !important; }
+  html.dark .section-module              { background-color: var(--surface); border-color: var(--border); }
+  html.dark .gauge-track                 { stroke: var(--surf-high); }
+  html.dark .tab-bar                     { background-color: var(--surf-mid); }
+  html.dark .tab-active                  { background-color: var(--surface); }
+  html.dark .custom-scrollbar::-webkit-scrollbar-track { background: var(--surf-low); }
+  html.dark nav a.active-nav             { color: var(--primary) !important; border-color: var(--primary) !important; }
+  html.dark .hero-section                { background: linear-gradient(135deg, #0d1b2e 0%, #111827 50%, #1a1040 100%); }
+
+  /* ─── Gauge ─── */
+  .gauge-track {
+    fill: none; stroke: #e2e8f0;
+    stroke-width: 12; stroke-linecap: round;
+    transition: stroke 0.3s ease;
+  }
+  .gauge-arc {
+    fill: none; stroke-width: 12; stroke-linecap: round;
+    stroke-dasharray: 267.04;
+    stroke-dashoffset: 267.04;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: drop-shadow(0 0 0 transparent);
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.3s ease;
+  }
+  .gauge-arc.glow-error     { filter: drop-shadow(0 0 6px rgba(186,26,26,0.5)); }
+  .gauge-arc.glow-secondary { filter: drop-shadow(0 0 6px rgba(113,42,226,0.5)); }
+  .gauge-arc.glow-teal      { filter: drop-shadow(0 0 6px rgba(0,162,112,0.5)); }
+
+  /* ─── Cards ─── */
+  .premium-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+  }
+  .premium-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  /* ─── Section headers ─── */
+  .section-label-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px;
+  }
+
+  /* ─── Parameter theme system ─── */
+  #param-container {
+    --p: #d97706;
+    --p-bg: rgba(217,119,6,0.08);
+    --p-light: #fef3c7;
+    --p-border: rgba(217,119,6,0.2);
+    --p-text: #92400e;
+    --p-donut: #d97706;
+    transition: all 0.4s ease;
+  }
+  .p-accent       { color: var(--p); }
+  .p-accent-text  { color: var(--p-text); }
+  .p-accent-bg    { background-color: var(--p-bg); }
+  .p-accent-light { background-color: var(--p-light); }
+  .p-accent-border{ border-color: var(--p-border); }
+
+  /* ─── Tabs ─── */
+  .tab-btn {
+    padding: 8px 20px; border-radius: 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.01em;
+    transition: all 0.2s ease; cursor: pointer; border: none;
+    color: var(--muted); background: transparent;
+  }
+  .tab-btn.active {
+    background: var(--surface); color: var(--primary);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+
+  /* ─── Intelligence module transition ─── */
+  #intelligence-content {
+    transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  /* ─── Animations ─── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-8px); }
+  }
+  @keyframes pulse-ring {
+    0%   { box-shadow: 0 0 0 0 rgba(113,42,226,0.15); }
+    70%  { box-shadow: 0 0 0 12px rgba(113,42,226,0); }
+    100% { box-shadow: 0 0 0 0 rgba(113,42,226,0); }
+  }
+  .anim-fade-up   { animation: fadeInUp 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+  .anim-scale-in  { animation: scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+  .anim-float     { animation: float 7s ease-in-out infinite; }
+
+  /* Staggered delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* ─── Scrollbar ─── */
+  ::-webkit-scrollbar              { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track        { background: var(--surf-low); }
+  ::-webkit-scrollbar-thumb        { background: var(--border-strong); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover  { background: var(--primary); }
+
+  /* ─── Intervention sliders ─── */
+  .intervention-bar {
+    transition: width 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  /* ─── Score display ─── */
+  .score-number { font-variant-numeric: tabular-nums; }
+
+  /* ─── Section module ─── */
+  .section-module {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* ─── Dark: hero ─── */
+  html.dark .hero-section {
+    background: linear-gradient(135deg, #0d1b2e 0%, #111827 50%, #1a1040 100%) !important;
+  }
+
+  /* ─── Card color tints & glows ─── */
+  .card-red    { background:rgba(186,26,26,0.04)!important; border-color:rgba(186,26,26,0.22)!important; border-top:3px solid #ba1a1a!important; }
+  .card-purple { background:rgba(113,42,226,0.04)!important; border-color:rgba(113,42,226,0.22)!important; border-top:3px solid #712ae2!important; }
+  .card-teal   { background:rgba(0,162,112,0.04)!important; border-color:rgba(0,162,112,0.22)!important; border-top:3px solid #00a270!important; }
+  .card-red:hover    { transform:translateY(-5px); box-shadow:0 0 32px rgba(186,26,26,0.2),0 20px 40px -8px rgba(0,0,0,0.08)!important; }
+  .card-purple:hover { transform:translateY(-5px); box-shadow:0 0 32px rgba(113,42,226,0.2),0 20px 40px -8px rgba(0,0,0,0.08)!important; }
+  .card-teal:hover   { transform:translateY(-5px); box-shadow:0 0 32px rgba(0,162,112,0.2),0 20px 40px -8px rgba(0,0,0,0.08)!important; }
+  html.dark .card-red, html.dark .card-purple, html.dark .card-teal { background:var(--surface)!important; }
+
+  /* ─── Live pulse dot (matches exec_summary) ─── */
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(1.5); }
+  }
+  .live-pulse-dot { animation: live-pulse 1.8s ease-in-out infinite; }
+
+  /* ─── Ultra soft shadow (matches exec_summary) ─── */
+  .ultra-soft-shadow { box-shadow: 0px 1px 3px rgba(15,39,72,0.05), 0px 10px 15px -3px rgba(15,39,72,0.03); }
+
+  /* ─── Dark mode: header ─── */
+  html.dark header { background-color: rgba(13,17,23,0.97) !important; border-color: rgba(255,255,255,0.08) !important; }
+
+  /* ─── AI glow ─── */
+  .ai-glow { box-shadow: 0 0 60px rgba(113,42,226,0.12); }
+
+  /* ─── Bar chart bars ─── */
+  .bar-fill {
+    transition: width 1.2s cubic-bezier(0.22,1,0.36,1);
+    animation: none;
+  }
+
+  /* ─── Cluster items ─── */
+  .cluster-item {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .cluster-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px -4px rgba(0,0,0,0.1);
+    border-color: rgba(113,42,226,0.3) !important;
+  }
+
+  /* ─── Workforce cards ─── */
+  .workforce-card { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .workforce-card:hover { transform: translateY(-6px); }
+
+  /* ─── Donut chart ─── */
+  .donut-chart { transform: rotate(-90deg); }
+  #donut-fill { transition: stroke-dasharray 0.8s cubic-bezier(0.22,1,0.36,1), stroke 0.4s ease; }
+
+
+  /* ─── Dark mode specific overrides for Intervention section ─── */
+  html.dark .sim-card { background: var(--surf-low); border-color: var(--border); }
+  html.dark .sim-score-card { background: var(--surf-mid); border-color: var(--border); }
+</style>
+</head>
+
+<body class="text-on-surface font-body-md selection:bg-secondary/20">
+
+<!-- ═══════════════════ HEADER (matches index.html) ═══════════════════ -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin-x h-20 bg-surface/95 backdrop-blur-sm border-b border-outline-variant shadow-sm">
+  <div class="flex items-center gap-6">
+    <div class="flex flex-col">
+      <span class="font-display-sm text-display-sm font-bold text-primary">NirogGyan</span>
+      <span class="font-label-md text-label-md tracking-[0.2em] text-on-surface-variant uppercase -mt-1">CORPORATE WELLNESS</span>
+    </div>
+    <!-- Live Data chip -->
+    <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-green-custom/10 border border-green-custom/20 rounded-full">
+      <div class="w-2 h-2 bg-green-custom rounded-full live-pulse-dot"></div>
+      <span class="font-label-md text-label-md text-green-custom font-bold">Live Data</span>
+    </div>
+  </div>
+
+  <!-- Nav links — AI Strategic Insights is active -->
+<nav class="hidden md:flex items-center gap-4">
+    <a class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="index.html">Dashboard</a>
+    <a class="px-4 py-2 text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md transition-all" href="ai_insights.html">AI Strategic Insights</a>
+    <a class="px-4 py-2 text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="workforce.html">Workforce Risk Profiling</a>
+  </nav>
+
+  <div class="flex items-center gap-4">
+    <!-- Company pill -->
+    <div class="hidden lg:flex items-center gap-2 px-4 py-2 bg-surface-container-lowest rounded-full border border-outline-variant ultra-soft-shadow">
+      <span class="material-symbols-outlined text-primary scale-75">analytics</span>
+      <span class="font-label-md text-label-md text-on-surface-variant">Acme Corp Ltd. Q2 Profile</span>
+    </div>
+    <!-- Dark mode toggle -->
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()" class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]" aria-label="Toggle dark mode">
+      <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]">
+      <span class="material-symbols-outlined">present_to_all</span>
+    </button>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all active:scale-[0.98]">
+      <span class="material-symbols-outlined">download</span>
+    </button>
+    <button class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:shadow-lg transition-all active:scale-[0.98]">
+      Start Tour
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<main class="max-w-[1440px] mx-auto px-8 py-10 space-y-10">
+
+  <!-- ─── HERO BANNER ─── -->
+  <section class="hero-section relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#00122c] via-[#0F2748] to-[#1E1B4B] p-12 text-white ai-glow anim-fade-up">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-10" style="background:radial-gradient(circle,#712ae2 0%,transparent 70%);transform:translate(30%,-30%);"></div>
+      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] rounded-full opacity-5" style="background:radial-gradient(circle,#6ffbbe 0%,transparent 70%);transform:translateY(50%);"></div>
+    </div>
+    <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+          <span class="material-symbols-outlined text-[18px] text-[#6ffbbe]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">psychology</span>
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em]">AI Executive Intelligence</span>
+        </div>
+        <h1 class="text-[38px] lg:text-[44px] font-extrabold leading-tight tracking-tight">Strategic Health<br/>Forecast for Q3</h1>
+        <p class="text-[15px] text-white/75 leading-relaxed max-w-lg">The workforce maintains an overall Health Index of 78/100. Lipid Profile abnormalities represent the most significant cardiovascular risk driver, while Vitamin D deficiency shows high prevalence across specific cohorts. Immediate intervention is recommended for the 12% high-risk group.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white/8 backdrop-blur-xl border border-white/12 p-7 rounded-2xl text-center hover:bg-white/12 transition-all anim-scale-in delay-200">
+          <span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] block mb-3">Overall Health</span>
+          <div class="text-[44px] font-extrabold leading-none">78<span class="text-xl font-normal text-white/35">/100</span></div>
+        </div>
+        <div class="bg-white/8 backdrop-blur-xl border border-white/12 p-7 rounded-2xl text-center hover:bg-white/12 transition-all anim-scale-in delay-300">
+          <span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] block mb-3">High Risk</span>
+          <div class="text-[44px] font-extrabold leading-none text-[#ffdad6]">12%</div>
+          <span class="text-[10px] text-white/35 uppercase tracking-tighter">Immediate Action</span>
+        </div>
+        <div class="bg-white/8 backdrop-blur-xl border border-white/12 p-7 rounded-2xl text-center hover:bg-white/12 transition-all anim-scale-in delay-400">
+          <span class="text-[10px] font-bold text-white/50 uppercase tracking-[0.2em] block mb-3">Priority Area</span>
+          <div class="text-[20px] font-bold text-[#b2c7f1] leading-tight mt-1">Lipid Profile</div>
+          <span class="text-[10px] text-white/35 uppercase tracking-tighter">Top Risk Factor</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRIORITY RISK RADAR ─── -->
+  <section class="section-module anim-fade-up delay-100">
+    <!-- Section Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-error/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-error text-[20px]">radar</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Priority Risk Radar</h2>
+            <span class="section-label-chip bg-error/8 text-error hidden sm:inline-flex">Risk Assessment</span>
+          </div>
+          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Health parameters ranked by workforce prevalence. The higher the gauge, the more employees are affected — focus here for the highest-impact interventions.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 flex-shrink-0">
+        <span class="flex items-center gap-1.5 text-[11px] font-semibold" style="color:var(--muted);"><span class="w-2.5 h-2.5 rounded-full bg-error inline-block"></span>Critical</span>
+        <span class="flex items-center gap-1.5 text-[11px] font-semibold" style="color:var(--muted);"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>Moderate</span>
+        <span class="flex items-center gap-1.5 text-[11px] font-semibold" style="color:var(--muted);"><span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container inline-block"></span>Stable</span>
+      </div>
+    </div>
+
+    <!-- Gauge Cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Gauge 1: Vitamin D -->
+      <div class="premium-card card-red rounded-[1.75rem] p-7 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-3xl" style="background:rgba(186,26,26,0.14);"></div>
+        <div class="relative z-10">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="font-semibold text-[17px] flex items-center gap-2.5" style="color:var(--text);">
+              <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(186,26,26,0.1);">
+                <span class="material-symbols-outlined text-error text-[19px]">sunny</span>
+              </span>
+              Vitamin D
+            </h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] bg-error-container text-on-error-container flex-shrink-0">Critical</span>
+          </div>
+          <p class="text-[13px] font-medium text-secondary mb-6">Highest prevalence in Engineering employees</p>
+
+          <!-- Gauge -->
+          <div class="relative mx-auto" style="max-width:220px;">
+            <svg viewBox="0 0 200 110" style="width:100%;height:auto;display:block;overflow:visible;">
+              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track"/>
+              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-arc stroke-error" data-value="68" id="gauge-vd"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center" style="padding-top:28%;">
+              <div class="text-center">
+                <div class="text-[28px] font-extrabold leading-none" style="color:var(--text);">68%</div>
+                <div class="text-[10px] font-bold uppercase tracking-wider mt-1" style="color:var(--muted);">prevalence</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4" style="border-top: 1px solid var(--border);">
+            <p class="text-[12px] text-center" style="color:var(--muted);">420 employees below recommended range</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gauge 2: Lipid Profile -->
+      <div class="premium-card card-purple rounded-[1.75rem] p-7 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-3xl" style="background:rgba(113,42,226,0.14);"></div>
+        <div class="relative z-10">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="font-semibold text-[17px] flex items-center gap-2.5" style="color:var(--text);">
+              <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(113,42,226,0.1);">
+                <span class="material-symbols-outlined text-secondary text-[19px]">heart_check</span>
+              </span>
+              Lipid Profile
+            </h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] flex-shrink-0" style="background:rgba(113,42,226,0.1);color:#5a00c6;">High Priority</span>
+          </div>
+          <p class="text-[13px] font-medium text-secondary mb-6">Strongest contributor to overall workforce risk</p>
+
+          <!-- Gauge -->
+          <div class="relative mx-auto" style="max-width:220px;">
+            <svg viewBox="0 0 200 110" style="width:100%;height:auto;display:block;overflow:visible;">
+              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track"/>
+              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-arc stroke-secondary" data-value="34" id="gauge-lp"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center" style="padding-top:28%;">
+              <div class="text-center">
+                <div class="text-[28px] font-extrabold leading-none" style="color:var(--text);">34%</div>
+                <div class="text-[10px] font-bold uppercase tracking-wider mt-1" style="color:var(--muted);">at risk</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4" style="border-top: 1px solid var(--border);">
+            <p class="text-[12px] text-center" style="color:var(--muted);">Most significant cardiovascular risk driver</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gauge 3: Vitamin B12 -->
+      <div class="premium-card card-teal rounded-[1.75rem] p-7 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-3xl" style="background:rgba(0,162,112,0.14);"></div>
+        <div class="relative z-10">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="font-semibold text-[17px] flex items-center gap-2.5" style="color:var(--text);">
+              <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(0,162,112,0.1);">
+                <span class="material-symbols-outlined text-on-tertiary-container text-[19px]">medication</span>
+              </span>
+              Vitamin B12
+            </h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] flex-shrink-0" style="background:rgba(0,162,112,0.1);color:#005236;">Stable</span>
+          </div>
+          <p class="text-[13px] font-medium text-secondary mb-6">Most common among employees aged 35–45</p>
+
+          <!-- Gauge -->
+          <div class="relative mx-auto" style="max-width:220px;">
+            <svg viewBox="0 0 200 110" style="width:100%;height:auto;display:block;overflow:visible;">
+              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track"/>
+              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-arc stroke-on-tertiary-container" data-value="15" id="gauge-b12"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center" style="padding-top:28%;">
+              <div class="text-center">
+                <div class="text-[28px] font-extrabold leading-none" style="color:var(--text);">15%</div>
+                <div class="text-[10px] font-bold uppercase tracking-wider mt-1" style="color:var(--muted);">at risk</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4" style="border-top: 1px solid var(--border);">
+            <p class="text-[12px] text-center" style="color:var(--muted);">15% workforce currently below optimal levels</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── WORKFORCE SEGMENTATION ─── -->
+  <section class="section-module anim-fade-up delay-200">
+    <!-- Section Header -->
+    <div class="flex items-center gap-3 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,162,112,0.1);">
+        <span class="material-symbols-outlined text-on-tertiary-container text-[20px]">group</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Workforce Segmentation</h2>
+          <span class="section-label-chip hidden sm:inline-flex" style="background:rgba(0,162,112,0.08);color:#005236;">Population Analysis</span>
+        </div>
+        <p class="text-[12px] mt-0.5" style="color:var(--muted);">Employees grouped by clinical risk tier based on the number and severity of abnormal test results — shows where to direct wellness resources.</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+      <!-- Healthy Performers -->
+      <div class="workforce-card card-teal rounded-[1.75rem] p-5 flex flex-col border">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,162,112,0.12);">
+            <span class="material-symbols-outlined text-on-tertiary-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">verified</span>
+          </div>
+          <h3 class="font-semibold text-[16px] leading-tight" style="color:var(--text);">Healthy Performers</h3>
+        </div>
+        <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Low risk profiles across all major biometric markers. Target for wellness advocacy and peer programs.</p>
+        <div class="flex items-center justify-between pt-3" style="border-top: 1px solid var(--border);">
+          <span class="text-[30px] font-extrabold leading-none text-on-tertiary-container">42%</span>
+          <div class="text-right">
+            <div class="text-[11px] font-bold uppercase tracking-wide" style="color:var(--muted);">320 Employees</div>
+            <div class="text-[10px] mt-0.5 text-on-tertiary-container font-semibold">Low Risk</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Silent Risk Group -->
+      <div class="workforce-card card-purple rounded-[1.75rem] p-5 flex flex-col border">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,0.1);">
+            <span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">visibility_off</span>
+          </div>
+          <h3 class="font-semibold text-[16px] leading-tight" style="color:var(--text);">Silent Risk Group</h3>
+        </div>
+        <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Asymptomatic but showing borderline trends in LDL and HbA1c. Critical for prevention-first care.</p>
+        <div class="flex items-center justify-between pt-3" style="border-top: 1px solid var(--border);">
+          <span class="text-[30px] font-extrabold leading-none text-secondary">38%</span>
+          <div class="text-right">
+            <div class="text-[11px] font-bold uppercase tracking-wide" style="color:var(--muted);">288 Employees</div>
+            <div class="text-[10px] mt-0.5 text-secondary font-semibold">Monitor</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- High Intervention -->
+      <div class="workforce-card card-red rounded-[1.75rem] p-5 flex flex-col border">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 bg-error-container">
+            <span class="material-symbols-outlined text-on-error-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">warning</span>
+          </div>
+          <h3 class="font-semibold text-[16px] leading-tight" style="color:var(--text);">High Intervention</h3>
+        </div>
+        <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Multiple markers outside normal ranges. Immediate medical consultation and care coordination required.</p>
+        <div class="flex items-center justify-between pt-3" style="border-top: 1px solid var(--border);">
+          <span class="text-[30px] font-extrabold leading-none text-error">20%</span>
+          <div class="text-right">
+            <div class="text-[11px] font-bold uppercase tracking-wide" style="color:var(--muted);">152 Employees</div>
+            <div class="text-[10px] mt-0.5 text-error font-semibold">Urgent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RISK DRIVERS + AI CLUSTERS ─── -->
+  <div class="grid lg:grid-cols-2 gap-6 anim-fade-up delay-300">
+
+    <!-- Risk Driver Analysis -->
+    <div class="section-module">
+      <div class="flex items-center gap-4 mb-7 pb-6" style="border-bottom: 1px solid var(--border);">
+        <div class="w-1 h-12 rounded-full bg-secondary flex-shrink-0"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,0.1);">
+          <span class="material-symbols-outlined text-secondary text-[22px]">analytics</span>
+        </div>
+        <div>
+          <div class="section-label-chip mb-1" style="background:rgba(113,42,226,0.08);color:#5a00c6;">03 · Attribution</div>
+          <h2 class="font-headline-sm text-headline-sm" style="color:var(--text);">Risk Driver Analysis</h2>
+          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Each parameter's share of the total workforce health burden. The wider the bar, the more employees it affects across the organisation.</p>
+        </div>
+      </div>
+
+      <div class="space-y-5 mb-7">
+        <!-- Lipid Profile -->
+        <div class="group cursor-default">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[13px] font-semibold" style="color:var(--text);">Lipid Profile</span>
+            <span class="text-[13px] font-bold text-secondary">31%</span>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full bg-secondary rounded-full bar-fill group-hover:brightness-110" style="width:0%" data-width="31%" style="box-shadow: 0 0 8px rgba(113,42,226,0.4);"></div>
+          </div>
+        </div>
+        <!-- Vitamin D -->
+        <div class="group cursor-default">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[13px] font-semibold" style="color:var(--text);">Vitamin D</span>
+            <span class="text-[13px] font-bold text-error">26%</span>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full bg-error rounded-full bar-fill group-hover:brightness-110" style="width:0%" data-width="26%"></div>
+          </div>
+        </div>
+        <!-- HbA1c -->
+        <div class="group cursor-default">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[13px] font-semibold" style="color:var(--text);">HbA1c / Metabolic Risk</span>
+            <span class="text-[13px] font-bold" style="color:#b45309;">18%</span>
+          </div>
+          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full bg-amber-500 rounded-full bar-fill group-hover:brightness-110" style="width:0%" data-width="18%"></div>
+          </div>
+        </div>
+        <!-- CBC -->
+        <div class="group cursor-default">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[13px] font-medium" style="color:var(--muted);">CBC Abnormalities</span>
+            <span class="text-[13px] font-bold" style="color:var(--muted);">11%</span>
+          </div>
+          <div class="h-2 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full bar-fill group-hover:brightness-110" style="width:0%;background:var(--border-strong);" data-width="11%"></div>
+          </div>
+        </div>
+        <!-- B12 -->
+        <div class="group cursor-default">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[13px] font-medium" style="color:var(--muted);">Vitamin B12</span>
+            <span class="text-[13px] font-bold" style="color:var(--muted);">8%</span>
+          </div>
+          <div class="h-2 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full bar-fill group-hover:brightness-110" style="width:0%;background:var(--border-strong);" data-width="8%"></div>
+          </div>
+        </div>
+        <!-- Other -->
+        <div class="group cursor-default">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[13px] font-medium" style="color:var(--muted);">Other Factors</span>
+            <span class="text-[13px] font-bold" style="color:var(--muted);">6%</span>
+          </div>
+          <div class="h-2 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
+            <div class="h-full rounded-full bar-fill group-hover:brightness-110" style="width:0%;background:var(--border-strong);" data-width="6%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Insight -->
+      <div class="p-5 rounded-2xl border relative overflow-hidden" style="background:rgba(0,18,44,0.04);border-color:rgba(0,18,44,0.12);">
+        <div class="flex gap-3 items-start">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+            <span class="material-symbols-outlined text-primary text-[16px]">psychology</span>
+          </div>
+          <p class="text-[13px] leading-relaxed" style="color:var(--muted);">
+            <span class="font-bold" style="color:var(--primary);">AI Executive Insight:</span> Lipid Profile and Vitamin D deficiency together account for over 57% of workforce health burden — the highest-impact intervention opportunities this quarter.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI-Discovered Risk Clusters -->
+    <div class="section-module">
+      <div class="flex items-center gap-4 mb-7 pb-6" style="border-bottom: 1px solid var(--border);">
+        <div class="w-1 h-12 rounded-full flex-shrink-0" style="background:var(--primary);"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+          <span class="material-symbols-outlined text-[22px]" style="color:var(--primary);">hub</span>
+        </div>
+        <div>
+          <div class="section-label-chip mb-1" style="background:rgba(0,18,44,0.06);color:var(--primary);">04 · Pattern Detection</div>
+          <h2 class="font-headline-sm text-headline-sm" style="color:var(--text);">AI-Discovered Risk Clusters</h2>
+          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Hidden co-occurrence patterns found by AI — groups of employees sharing multiple risk factors that don't surface in standard department or age filters.</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Cluster 1 -->
+        <div class="cluster-item flex items-center gap-4 p-4 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[20px]">nightlight</span>
+          </div>
+          <div class="flex-grow min-w-0">
+            <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">The "Red-Eye" Hub</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Operations teams showing high Vitamin D deficiency + elevated fasting glucose.</p>
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error/10">
+            <span class="material-symbols-outlined text-error text-[14px]">trending_up</span>
+            <span class="text-[10px] font-bold text-error uppercase">Rising</span>
+          </div>
+        </div>
+
+        <!-- Cluster 2 -->
+        <div class="cluster-item flex items-center gap-4 p-4 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[20px]">chair</span>
+          </div>
+          <div class="flex-grow min-w-0">
+            <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Sedentary Spikes</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Legal dept displaying rising triglycerides despite normal BMI values.</p>
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full" style="background:rgba(113,42,226,0.1);">
+            <span class="material-symbols-outlined text-secondary text-[14px]">insights</span>
+            <span class="text-[10px] font-bold text-secondary uppercase">Watch</span>
+          </div>
+        </div>
+
+        <!-- Cluster 3 -->
+        <div class="cluster-item flex items-center gap-4 p-4 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[20px]">restaurant</span>
+          </div>
+          <div class="flex-grow min-w-0">
+            <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Nutrient Gaps</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Gen-Z workforce subset lacks B12; linked to diet-choice trends.</p>
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full" style="background:rgba(0,162,112,0.1);">
+            <span class="material-symbols-outlined text-on-tertiary-container text-[14px]">check_circle</span>
+            <span class="text-[10px] font-bold text-on-tertiary-container uppercase">Stable</span>
+          </div>
+        </div>
+
+        <!-- AI Methodology Note -->
+        <div class="mt-2 p-4 rounded-2xl flex items-start gap-3" style="background:rgba(113,42,226,0.05);border:1px solid rgba(113,42,226,0.12);">
+          <span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">auto_awesome</span>
+          <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Clusters identified using unsupervised ML on anonymized biometric data. Updated weekly from new checkup cycles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── DEEP DIVE HEALTH INTELLIGENCE ─── -->
+  <section id="param-container" class="section-module anim-fade-up delay-200">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
+      <div class="flex items-center gap-4">
+        <div class="w-1 h-12 rounded-full p-accent flex-shrink-0" style="background:var(--p);"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 p-accent-bg">
+          <span class="material-symbols-outlined text-[22px] p-accent">biotech</span>
+        </div>
+        <div>
+          <div class="section-label-chip mb-1 p-accent" style="background:var(--p-bg);">05 · Clinical Intelligence</div>
+          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Deep Dive Health Intelligence</h2>
+          <p class="text-[13px] mt-0.5" style="color:var(--muted);">In-depth analysis of clinical risk markers and strategic intervention pathways.</p>
+        </div>
+      </div>
+      <!-- Tabs -->
+      <div class="flex p-1.5 rounded-2xl gap-1 tab-bar flex-shrink-0" style="background:var(--surf-mid);">
+        <button class="tab-btn active" data-tab="vitamin-d">Vitamin D</button>
+        <button class="tab-btn" data-tab="lipid-profile">Lipid Profile</button>
+        <button class="tab-btn" data-tab="vitamin-b12">Vitamin B12</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Content -->
+    <div id="intelligence-content">
+      <!-- Hero Row -->
+      <div class="p-8 rounded-2xl mb-6 relative overflow-hidden" style="background:var(--p-bg);border:1px solid var(--p-border);">
+        <div class="absolute right-0 top-0 w-64 h-64 rounded-full opacity-20 blur-3xl" style="background:var(--p);transform:translate(30%,-30%);"></div>
+        <div class="flex flex-col lg:flex-row items-center gap-10 relative z-10">
+          <div class="flex-1 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border" style="background:var(--surface);border-color:var(--p-border);">
+              <span class="material-symbols-outlined text-[16px] p-accent" id="hero-icon">sunny</span>
+              <span class="text-[10px] font-bold uppercase tracking-[0.2em] p-accent" id="hero-label">Micronutrient Focus</span>
+            </div>
+            <h3 class="text-[36px] font-extrabold tracking-tight leading-none" style="color:var(--text);" id="param-name">Vitamin D</h3>
+            <p class="text-[14px] leading-relaxed max-w-lg" style="color:var(--muted);" id="param-desc">Essential for bone health and immune function. Low levels are frequently linked to indoor sedentary work environments and geographical factors.</p>
+            <div class="flex items-center gap-4">
+              <div class="text-[40px] font-extrabold leading-none p-accent" id="critical-pct">5%</div>
+              <div class="text-[11px] font-bold uppercase tracking-wide leading-snug" style="color:var(--muted);">Workforce in<br/>Critical Range</div>
+            </div>
+          </div>
+          <!-- Donut -->
+          <div class="flex-shrink-0 relative w-56 h-56">
+            <svg class="donut-chart w-full h-full" viewBox="0 0 36 36">
+              <circle cx="18" cy="18" fill="none" r="15.92" stroke-width="3.5" style="stroke:var(--surf-high);"></circle>
+              <circle id="donut-fill" cx="18" cy="18" fill="none" r="15.92" stroke-width="3.5"
+                stroke-dasharray="42 58" stroke-dashoffset="25" stroke-linecap="round"></circle>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-[32px] font-extrabold leading-none p-accent" id="at-risk-total">42%</span>
+              <span class="text-[10px] uppercase font-bold mt-1" style="color:var(--muted);">At Risk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-8 space-y-8">
+          <!-- Diet & Lifestyle Tips -->
+          <div>
+            <h4 class="font-semibold text-[15px] mb-5 flex items-center gap-2" style="color:var(--text);">
+              <span class="w-7 h-7 rounded-lg flex items-center justify-center" style="background:var(--surf-mid);">
+                <span class="material-symbols-outlined text-[16px]" style="color:var(--muted);">restaurant</span>
+              </span>
+              Diet &amp; Lifestyle Tips
+            </h4>
+            <div class="grid md:grid-cols-3 gap-4" id="tips-container"></div>
+          </div>
+          <!-- Clinical Complications -->
+          <div>
+            <h4 class="font-semibold text-[15px] mb-5 flex items-center gap-2" style="color:var(--text);">
+              <span class="w-7 h-7 rounded-lg flex items-center justify-center bg-error/10">
+                <span class="material-symbols-outlined text-[16px] text-error">warning</span>
+              </span>
+              Clinical Complications
+            </h4>
+            <div class="flex flex-wrap gap-3" id="complications-container"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-4 space-y-5">
+          <!-- AI Insight Card -->
+          <div class="rounded-2xl p-6 border relative overflow-hidden group" style="background:var(--p-bg);border-color:var(--p-border);">
+            <div class="absolute -right-3 -top-3 opacity-10 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[80px] p-accent">lightbulb</span>
+            </div>
+            <div class="relative z-10">
+              <div class="flex items-center gap-2 mb-3">
+                <div class="w-6 h-6 rounded-lg flex items-center justify-center p-accent-bg">
+                  <span class="material-symbols-outlined text-[13px] p-accent">psychology</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] p-accent">AI Health Insight</span>
+              </div>
+              <p class="text-[13px] leading-relaxed italic" style="color:var(--muted);" id="ai-insight-text">
+                "Employees in the Engineering hub show a 2.4x higher prevalence of Vitamin D deficiency, likely due to longer shift hours and limited natural light exposure."
+              </p>
+            </div>
+          </div>
+
+          <!-- Strategic Interventions -->
+          <div>
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] px-1 mb-3" style="color:var(--muted);">Strategic HR Interventions</h4>
+            <div class="space-y-3" id="actions-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── INTERVENTION SIMULATOR ─── -->
+  <section class="section-module relative overflow-hidden anim-fade-up delay-300">
+    <div class="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl opacity-40" style="background:rgba(0,18,44,0.04);transform:translate(30%,-30%);"></div>
+    <div class="relative z-10">
+      <!-- Section Header -->
+      <div class="flex items-center gap-4 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
+        <div class="w-1 h-12 rounded-full flex-shrink-0" style="background:var(--primary);"></div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+          <span class="material-symbols-outlined text-[22px]" style="color:var(--primary);">tune</span>
+        </div>
+        <div>
+          <div class="section-label-chip mb-1" style="background:rgba(0,18,44,0.06);color:var(--primary);">06 · Scenario Modeling</div>
+          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Intervention Simulator</h2>
+          <p class="text-[13px] mt-0.5" style="color:var(--muted);">Model the impact of targeted wellness initiatives on your workforce's overall health index.</p>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Controls -->
+        <div class="space-y-6">
+          <!-- Intervention 1 -->
+          <div class="sim-card p-5 rounded-2xl border" style="background:var(--surf-low);border-color:var(--border);">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <label class="text-[13px] font-bold" style="color:var(--text);">Address Vitamin D Deficiency</label>
+                <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +3 point health score improvement</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer sim-checkbox" data-value="3" data-index="0"/>
+                <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+              </label>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+              <div class="h-full bg-secondary rounded-full intervention-bar" id="bar-0" style="width:100%;"></div>
+            </div>
+          </div>
+
+          <!-- Intervention 2 -->
+          <div class="sim-card p-5 rounded-2xl border" style="background:var(--surf-low);border-color:var(--border);">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <label class="text-[13px] font-bold" style="color:var(--text);">Improve Lipid Profile (Diet Program)</label>
+                <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +4 point health score improvement</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer sim-checkbox" data-value="4" data-index="1"/>
+                <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+              </label>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+              <div class="h-full bg-secondary rounded-full intervention-bar" id="bar-1" style="width:0%;"></div>
+            </div>
+          </div>
+
+          <!-- Intervention 3 -->
+          <div class="sim-card p-5 rounded-2xl border" style="background:var(--surf-low);border-color:var(--border);">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <label class="text-[13px] font-bold" style="color:var(--text);">Reduce HbA1c (Sugar-free Office)</label>
+                <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +3 point health score improvement</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" checked class="sr-only peer sim-checkbox" data-value="3" data-index="2"/>
+                <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+              </label>
+            </div>
+            <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
+              <div class="h-full bg-secondary rounded-full intervention-bar" id="bar-2" style="width:100%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Score Display -->
+        <div class="sim-score-card flex flex-col items-center justify-center p-10 rounded-2xl border text-center" style="background:var(--surf-low);border-color:var(--border);">
+          <span class="text-[11px] font-bold uppercase tracking-[0.2em] mb-6" style="color:var(--muted);">Projected Health Score</span>
+          <div class="relative">
+            <div class="score-number text-[100px] font-extrabold leading-none" style="color:var(--primary);" id="score-display">84</div>
+            <div id="improvement-badge" class="absolute -top-3 -right-10 px-4 py-1.5 rounded-full text-[15px] font-extrabold shadow-md" style="background:#6ffbbe;color:#002113;">+6 pts</div>
+          </div>
+          <div class="mt-2 text-[11px] font-semibold uppercase tracking-wider text-on-tertiary-container">out of 100</div>
+          <div class="mt-6 pt-6 w-full" style="border-top: 1px solid var(--border);">
+            <p class="text-[13px]" style="color:var(--muted);">Estimated <strong style="color:var(--text);">$12,400</strong> reduction in annual insurance premiums</p>
+            <p class="text-[11px] mt-2" style="color:var(--muted);">Based on 760-employee actuarial model</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="mt-16 border-t bg-white py-12" style="border-color:var(--border);">
+  <div class="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div>
+      <p class="text-[22px] font-extrabold mb-1" style="color:var(--primary);">NirogGyan</p>
+      <p class="text-[12px]" style="color:var(--muted);">© 2024 Corporate Health Intelligence · Data-driven wellness excellence.</p>
+    </div>
+    <div class="flex gap-3">
+      <button class="px-5 py-2.5 border rounded-xl text-[12px] font-semibold transition-all hover:bg-surface-container-low" style="border-color:var(--border);color:var(--text);">
+        Export Raw Data
+      </button>
+      <button class="px-5 py-2.5 rounded-xl text-[12px] font-semibold text-white transition-all flex items-center gap-2 shadow-sm hover:opacity-90 active:scale-[0.98]" style="background:var(--primary-m);">
+        <span class="material-symbols-outlined text-[16px]">auto_graph</span>
+        Generate Leadership Summary
+      </button>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ SCRIPT ═══════════════════ -->
+<script>
+'use strict';
+
+// ─── Dark Mode (matches index.html exactly) ───
+function toggleDarkMode() {
+  const html = document.documentElement;
+  const isDark = html.classList.contains('dark');
+  if (isDark) {
+    html.classList.replace('dark', 'light');
+    localStorage.setItem('theme', 'light');
+    document.getElementById('theme-icon').textContent = 'dark_mode';
+  } else {
+    html.classList.replace('light', 'dark');
+    localStorage.setItem('theme', 'dark');
+    document.getElementById('theme-icon').textContent = 'light_mode';
+  }
+}
+
+// ─── Keyboard Shortcut ───
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'd') { e.preventDefault(); toggleDarkMode(); }
+});
+
+// ─── Intelligence Module Data ───
+const GAUGE_CIRC = 267.04; // π × 85
+
+const intelligenceData = {
+  'vitamin-d': {
+    name: 'Vitamin D',
+    label: 'Micronutrient Focus',
+    icon: 'sunny',
+    desc: 'Essential for bone health and immune function. Low levels are frequently linked to indoor sedentary work environments and geographical factors.',
+    critical: '5%',
+    atRisk: '42%',
+    atRiskVal: 42,
+    insight: 'Employees in the Engineering hub show a 2.4x higher prevalence of Vitamin D deficiency, likely due to longer shift hours and limited natural light exposure.',
+    theme: { main: '#d97706', bg: 'rgba(217,119,6,0.07)', light: '#fef3c7', border: 'rgba(217,119,6,0.2)', text: '#92400e', donut: '#d97706' },
+    tips: [
+      { icon: 'sunny_snowing', title: 'Sun Exposure', text: 'Encourage 15-min sun breaks during peak daylight hours.' },
+      { icon: 'egg', title: 'Dietary Intake', text: 'Increase fatty fish, egg yolks, and fortified cereals.' },
+      { icon: 'pill', title: 'Supplementation', text: 'Guided D3 dosage programs for high-risk cohorts.' }
+    ],
+    complications: [
+      { icon: 'potted_plant', label: 'Muscle Weakness' },
+      { icon: 'mood_bad', label: 'Mood Disorders' },
+      { icon: 'coronavirus', label: 'Immune Fragility' }
+    ],
+    actions: [
+      { title: 'Natural Light Audit', impact: 'Medium Impact', color: 'rgba(217,119,6,0.1)', textColor: '#92400e' },
+      { title: 'Free D3 Screening', impact: 'High Priority', color: 'rgba(186,26,26,0.1)', textColor: '#93000a' }
+    ]
+  },
+  'lipid-profile': {
+    name: 'Lipid Profile',
+    label: 'Cardiovascular Risk',
+    icon: 'heart_check',
+    desc: 'A comprehensive measure of cholesterol levels. Elevated LDL and triglycerides are primary indicators of long-term cardiac health concerns.',
+    critical: '12%',
+    atRisk: '31%',
+    atRiskVal: 31,
+    insight: 'Correlated with high stress in Sales department; elevated cortisol levels appear to impair metabolic lipid processing efficiency across this cohort.',
+    theme: { main: '#dc2626', bg: 'rgba(220,38,38,0.06)', light: '#fee2e2', border: 'rgba(220,38,38,0.18)', text: '#b91c1c', donut: '#dc2626' },
+    tips: [
+      { icon: 'filter_alt', title: 'Soluble Fiber', text: 'Introduce oats and legumes to the office pantry.' },
+      { icon: 'directions_run', title: 'Active Breaks', text: 'Incentivize 10k steps daily across all teams.' },
+      { icon: 'block', title: 'Trans-Fat Reduction', text: 'Curate cafeteria menus to eliminate hydrogenated oils.' }
+    ],
+    complications: [
+      { icon: 'cardiology', label: 'Arterial Plaque' },
+      { icon: 'heart_broken', label: 'Hypertension' },
+      { icon: 'monitor_heart', label: 'Cardiac Stress' }
+    ],
+    actions: [
+      { title: 'Heart-healthy Cafeteria', impact: 'High Impact', color: 'rgba(0,162,112,0.1)', textColor: '#005236' },
+      { title: 'Stress Management', impact: 'Medium Impact', color: 'rgba(220,38,38,0.1)', textColor: '#b91c1c' }
+    ]
+  },
+  'vitamin-b12': {
+    name: 'Vitamin B12',
+    label: 'Neurological Wellness',
+    icon: 'psychology_alt',
+    desc: 'Critical for nerve tissue health, brain function, and red blood cell production. Deficiency often leads to persistent fatigue and reduced cognitive focus.',
+    critical: '8%',
+    atRisk: '15%',
+    atRiskVal: 15,
+    insight: 'High prevalence in Gen-Z cohorts; AI suggests a link to specific urban dietary trends and limited awareness of fortified plant-based alternatives.',
+    theme: { main: '#059669', bg: 'rgba(5,150,105,0.06)', light: '#d1fae5', border: 'rgba(5,150,105,0.18)', text: '#047857', donut: '#059669' },
+    tips: [
+      { icon: 'restaurant_menu', title: 'Animal Proteins', text: 'Encourage lean meats, dairy, and eggs in daily diet.' },
+      { icon: 'set_meal', title: 'Fortified Foods', text: 'Advocate for B12-enriched plant milks and cereals.' },
+      { icon: 'clinical_notes', title: 'Routine Testing', text: 'Annual screening for employees over 40.' }
+    ],
+    complications: [
+      { icon: 'bolt', label: 'Chronic Fatigue' },
+      { icon: 'memory', label: 'Cognitive Decline' },
+      { icon: 'neurology', label: 'Nerve Tingling' }
+    ],
+    actions: [
+      { title: 'B12 Awareness Campaign', impact: 'Low Cost', color: 'rgba(5,150,105,0.1)', textColor: '#047857' },
+      { title: 'Supplement Subsidy', impact: 'High Engagement', color: 'rgba(0,18,44,0.06)', textColor: '#00122c' }
+    ]
+  }
+};
+
+// ─── Update Intelligence Module ───
+function updateIntelligenceModule(key) {
+  const data = intelligenceData[key];
+  const content = document.getElementById('intelligence-content');
+  const container = document.getElementById('param-container');
+
+  // Fade out
+  content.style.opacity = '0';
+  content.style.transform = 'translateY(10px)';
+
+  setTimeout(() => {
+    // Apply parameter theme CSS variables
+    container.style.setProperty('--p', data.theme.main);
+    container.style.setProperty('--p-bg', data.theme.bg);
+    container.style.setProperty('--p-light', data.theme.light);
+    container.style.setProperty('--p-border', data.theme.border);
+    container.style.setProperty('--p-text', data.theme.text);
+
+    // Update section header accent bar
+    const accentBar = container.querySelector('.p-accent.w-1');
+    if (accentBar) accentBar.style.background = data.theme.main;
+    const accentBg = container.querySelector('.p-accent-bg');
+    if (accentBg) accentBg.style.background = data.theme.bg;
+
+    // Update text elements
+    document.getElementById('hero-icon').innerText = data.icon;
+    document.getElementById('hero-label').innerText = data.label;
+    document.getElementById('param-name').innerText = data.name;
+    document.getElementById('param-desc').innerText = data.desc;
+    document.getElementById('critical-pct').innerText = data.critical;
+    document.getElementById('at-risk-total').innerText = data.atRisk;
+    document.getElementById('ai-insight-text').innerText = `"${data.insight}"`;
+
+    // Update donut chart
+    const donutFill = document.getElementById('donut-fill');
+    donutFill.style.stroke = data.theme.donut;
+    const dash = (data.atRiskVal / 100) * 100;
+    donutFill.setAttribute('stroke-dasharray', `${dash} ${100 - dash}`);
+
+    // Rebuild Tips
+    const tipsContainer = document.getElementById('tips-container');
+    tipsContainer.innerHTML = data.tips.map(tip => `
+      <div class="p-5 rounded-2xl border transition-all group hover:-translate-y-1"
+           style="background:var(--surface);border-color:var(--border);">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-colors group-hover:scale-110 transition-transform"
+             style="background:var(--p-bg);">
+          <span class="material-symbols-outlined text-[20px]" style="color:var(--p);">${tip.icon}</span>
+        </div>
+        <h5 class="font-bold text-[13px] mb-1" style="color:var(--text);">${tip.title}</h5>
+        <p class="text-[12px] leading-relaxed" style="color:var(--muted);">${tip.text}</p>
+      </div>
+    `).join('');
+
+    // Rebuild Complications
+    const complicationsContainer = document.getElementById('complications-container');
+    complicationsContainer.innerHTML = data.complications.map(comp => `
+      <div class="flex items-center gap-2 px-4 py-2 rounded-full border text-[12px] font-semibold transition-all hover:-translate-y-0.5"
+           style="background:var(--surface);border-color:var(--border);color:var(--text);">
+        <span class="material-symbols-outlined text-[15px]" style="color:var(--p);">${comp.icon}</span>
+        ${comp.label}
+      </div>
+    `).join('');
+
+    // Rebuild Actions
+    const actionsContainer = document.getElementById('actions-container');
+    actionsContainer.innerHTML = data.actions.map(action => `
+      <div class="p-4 rounded-2xl border flex items-center justify-between transition-all hover:-translate-y-0.5"
+           style="background:var(--surface);border-color:var(--border);">
+        <div>
+          <p class="text-[13px] font-bold" style="color:var(--p);">${action.title}</p>
+          <p class="text-[11px] mt-0.5" style="color:var(--muted);">${action.impact}</p>
+        </div>
+        <span class="px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase"
+              style="background:${action.color};color:${action.textColor};">${action.impact.split(' ')[0]}</span>
+      </div>
+    `).join('');
+
+    // Fade in
+    content.style.opacity = '1';
+    content.style.transform = 'translateY(0)';
+  }, 320);
+}
+
+// ─── Tab System ───
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateIntelligenceModule(btn.dataset.tab);
+  });
+});
+
+// ─── Gauge Animations ───
+const GAUGE_DASH = 267.04;
+
+function animateGauges() {
+  document.querySelectorAll('.gauge-arc').forEach(gauge => {
+    gauge.style.strokeDasharray = GAUGE_DASH;
+    gauge.style.strokeDashoffset = GAUGE_DASH;
+  });
+  // Short delay then animate
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.gauge-arc').forEach(gauge => {
+        const pct = parseFloat(gauge.dataset.value) / 100;
+        setTimeout(() => {
+          gauge.style.strokeDashoffset = GAUGE_DASH * (1 - pct);
+        }, 200);
+      });
+    });
+  });
+}
+
+// ─── Bar Chart Animation (IntersectionObserver) ───
+function initBarCharts() {
+  const bars = document.querySelectorAll('.bar-fill[data-width]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        setTimeout(() => {
+          bar.style.width = bar.dataset.width;
+        }, 150);
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.2 });
+  bars.forEach(bar => observer.observe(bar));
+}
+
+// ─── Simulator Logic ───
+function initSimulator() {
+  const checkboxes = document.querySelectorAll('.sim-checkbox');
+  const scoreEl = document.getElementById('score-display');
+  const badgeEl = document.getElementById('improvement-badge');
+  const BASE = 78;
+
+  function update() {
+    let improvement = 0;
+    checkboxes.forEach((cb, i) => {
+      const bar = document.getElementById(`bar-${i}`);
+      if (cb.checked) {
+        improvement += parseInt(cb.dataset.value);
+        if (bar) bar.style.width = '100%';
+      } else {
+        if (bar) bar.style.width = '0%';
+      }
+    });
+
+    const newScore = BASE + improvement;
+    // Animated counter
+    const startScore = parseInt(scoreEl.innerText);
+    const duration = 600;
+    const startTime = performance.now();
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      scoreEl.innerText = Math.round(startScore + (newScore - startScore) * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    badgeEl.innerText = `+${improvement} pts`;
+    badgeEl.style.display = improvement > 0 ? 'block' : 'none';
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener('change', update));
+}
+
+// ─── Entrance Animations (IntersectionObserver) ───
+function initEntranceAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.anim-fade-up').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
+    observer.observe(el);
+  });
+}
+
+// ─── Initialize ───
+document.addEventListener('DOMContentLoaded', () => {
+  // Sync theme icon with current state (theme may already be set by inline script)
+  const isDark = document.documentElement.classList.contains('dark');
+  document.getElementById('theme-icon').textContent = isDark ? 'light_mode' : 'dark_mode';
+
+  initEntranceAnimations();
+  animateGauges();
+  initBarCharts();
+  updateIntelligenceModule('vitamin-d');
+  initSimulator();
+});
+</script>
+</body>
+</html>
