@@ -427,133 +427,157 @@
     </div>
   </section>
 
-  <!-- ─── PRIORITY RISK RADAR ─── -->
+  <!-- ─── RISK INTELLIGENCE SIGNALS ─── -->
   <section class="section-module anim-fade-up delay-100">
     <!-- Section Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-2xl bg-error/10 flex items-center justify-center flex-shrink-0">
-          <span class="material-symbols-outlined text-error text-[20px]">radar</span>
-        </div>
-        <div>
-          <div class="flex items-center gap-2 flex-wrap">
-            <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Priority Risk Radar</h2>
-            <span class="section-label-chip bg-error/8 text-error hidden sm:inline-flex">Risk Assessment</span>
-          </div>
-          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Health parameters ranked by workforce prevalence. The higher the gauge, the more employees are affected — focus here for the highest-impact interventions.</p>
-        </div>
+    <div class="flex items-center gap-3 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+        <span class="material-symbols-outlined text-[20px]" style="color:var(--primary);">model_training</span>
       </div>
-      <div class="flex items-center gap-4 flex-shrink-0">
-        <span class="flex items-center gap-1.5 text-[11px] font-semibold" style="color:var(--muted);"><span class="w-2.5 h-2.5 rounded-full bg-error inline-block"></span>Critical</span>
-        <span class="flex items-center gap-1.5 text-[11px] font-semibold" style="color:var(--muted);"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>Moderate</span>
-        <span class="flex items-center gap-1.5 text-[11px] font-semibold" style="color:var(--muted);"><span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container inline-block"></span>Stable</span>
+      <div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Risk Intelligence Signals</h2>
+          <span class="section-label-chip hidden sm:inline-flex" style="background:rgba(0,18,44,0.06);color:var(--primary);">AI-Surfaced Findings</span>
+        </div>
+        <p class="text-[12px] mt-0.5" style="color:var(--muted);">Patterns and cross-parameter correlations the AI detected that don't surface in standard single-parameter reporting.</p>
       </div>
     </div>
 
-    <!-- Gauge Cards -->
-    <div class="grid md:grid-cols-3 gap-6">
+    <!-- 4 Finding Cards — 2×2 grid -->
+    <div class="grid md:grid-cols-2 gap-5">
 
-      <!-- Gauge 1: Vitamin D -->
-      <div class="premium-card card-red rounded-[1.75rem] p-7 relative overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-3xl" style="background:rgba(186,26,26,0.14);"></div>
-        <div class="relative z-10">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="font-semibold text-[17px] flex items-center gap-2.5" style="color:var(--text);">
-              <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(186,26,26,0.1);">
-                <span class="material-symbols-outlined text-error text-[19px]">sunny</span>
-              </span>
-              Vitamin D
-            </h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] bg-error-container text-on-error-container flex-shrink-0">Critical</span>
+      <!-- Finding 01: VitD–Lipid Co-occurrence -->
+      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
+        <div class="p-6 flex-1">
+          <div class="flex items-center gap-2 mb-4 flex-wrap">
+            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 01</span>
+            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
           </div>
-          <p class="text-[13px] font-medium text-secondary mb-6">Highest prevalence in Engineering employees</p>
-
-          <!-- Gauge -->
-          <div class="relative mx-auto" style="max-width:220px;">
-            <svg viewBox="0 0 200 110" style="width:100%;height:auto;display:block;overflow:visible;">
-              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track"/>
-              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-arc stroke-error" data-value="68" id="gauge-vd"/>
-            </svg>
-            <div class="absolute inset-0 flex items-center justify-center" style="padding-top:28%;">
-              <div class="text-center">
-                <div class="text-[28px] font-extrabold leading-none" style="color:var(--text);">68%</div>
-                <div class="text-[10px] font-bold uppercase tracking-wider mt-1" style="color:var(--muted);">prevalence</div>
-              </div>
+          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">VitD & Lipid Co-occur at 2× Expected Rate</h3>
+          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Of employees with a Lipid flag, 41% also carry a Vitamin D deficiency — twice the rate statistical independence would predict. These are not two isolated conditions. They share a metabolic root cause that single-parameter screening misses entirely.</p>
+          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">41%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">co-occur</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">63</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">dual-flagged</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">2×</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">expected rate</div>
             </div>
           </div>
-
-          <div class="mt-4 pt-4" style="border-top: 1px solid var(--border);">
-            <p class="text-[12px] text-center" style="color:var(--muted);">~305 employees below recommended range</p>
+        </div>
+        <div class="px-6 pb-6">
+          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
+            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
+            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Deploy a combined VitD + lipid intervention rather than two separate programmes — the root cause is shared.</p>
           </div>
         </div>
       </div>
 
-      <!-- Gauge 2: Lipid Profile -->
-      <div class="premium-card card-purple rounded-[1.75rem] p-7 relative overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-3xl" style="background:rgba(113,42,226,0.14);"></div>
-        <div class="relative z-10">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="font-semibold text-[17px] flex items-center gap-2.5" style="color:var(--text);">
-              <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(113,42,226,0.1);">
-                <span class="material-symbols-outlined text-secondary text-[19px]">heart_check</span>
-              </span>
-              Lipid Profile
-            </h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] flex-shrink-0" style="background:rgba(113,42,226,0.1);color:#5a00c6;">High Priority</span>
+      <!-- Finding 02: Engineering's Silent Risk -->
+      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
+        <div class="p-6 flex-1">
+          <div class="flex items-center gap-2 mb-4 flex-wrap">
+            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 02</span>
+            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
           </div>
-          <p class="text-[13px] font-medium text-secondary mb-6">Strongest contributor to overall workforce risk</p>
-
-          <!-- Gauge -->
-          <div class="relative mx-auto" style="max-width:220px;">
-            <svg viewBox="0 0 200 110" style="width:100%;height:auto;display:block;overflow:visible;">
-              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track"/>
-              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-arc stroke-secondary" data-value="34" id="gauge-lp"/>
-            </svg>
-            <div class="absolute inset-0 flex items-center justify-center" style="padding-top:28%;">
-              <div class="text-center">
-                <div class="text-[28px] font-extrabold leading-none" style="color:var(--text);">34%</div>
-                <div class="text-[10px] font-bold uppercase tracking-wider mt-1" style="color:var(--muted);">at risk</div>
-              </div>
+          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">Engineering: Best Score, Worst Vitamin D</h3>
+          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Engineering holds the organisation's top health score (80/100) yet reports the highest Vitamin D deficiency at 65%. High-performing teams routinely mask nutritional deficits — they surface 2–3 years later as fatigue, immune decline, and productivity loss.</p>
+          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">80</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">health score</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums text-amber-custom">65%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">VitD deficit</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums text-green-custom">#1</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">dept rank</div>
             </div>
           </div>
-
-          <div class="mt-4 pt-4" style="border-top: 1px solid var(--border);">
-            <p class="text-[12px] text-center" style="color:var(--muted);">Most significant cardiovascular risk driver</p>
+        </div>
+        <div class="px-6 pb-6">
+          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
+            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
+            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Proactive Vitamin D screening for Engineering — a high composite score creates a false sense of security.</p>
           </div>
         </div>
       </div>
 
-      <!-- Gauge 3: Vitamin B12 -->
-      <div class="premium-card card-teal rounded-[1.75rem] p-7 relative overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-36 h-36 rounded-full blur-3xl" style="background:rgba(0,162,112,0.14);"></div>
-        <div class="relative z-10">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="font-semibold text-[17px] flex items-center gap-2.5" style="color:var(--text);">
-              <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:rgba(0,162,112,0.1);">
-                <span class="material-symbols-outlined text-on-tertiary-container text-[19px]">medication</span>
-              </span>
-              Vitamin B12
-            </h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] flex-shrink-0" style="background:rgba(0,162,112,0.1);color:#005236;">Stable</span>
+      <!-- Finding 03: Operations Compound Metabolic Risk -->
+      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
+        <div class="p-6 flex-1">
+          <div class="flex items-center gap-2 mb-4 flex-wrap">
+            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 03</span>
+            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
           </div>
-          <p class="text-[13px] font-medium text-secondary mb-6">Most common among employees aged 35–45</p>
-
-          <!-- Gauge -->
-          <div class="relative mx-auto" style="max-width:220px;">
-            <svg viewBox="0 0 200 110" style="width:100%;height:auto;display:block;overflow:visible;">
-              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track"/>
-              <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-arc stroke-on-tertiary-container" data-value="15" id="gauge-b12"/>
-            </svg>
-            <div class="absolute inset-0 flex items-center justify-center" style="padding-top:28%;">
-              <div class="text-center">
-                <div class="text-[28px] font-extrabold leading-none" style="color:var(--text);">15%</div>
-                <div class="text-[10px] font-bold uppercase tracking-wider mt-1" style="color:var(--muted);">at risk</div>
-              </div>
+          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">Operations Carries a Compound Metabolic Burden</h3>
+          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Operations shows both the highest Lipid abnormality (40%) and HbA1c elevation (18%) simultaneously. When Lipid and HbA1c flags co-occur in the same employee, cardiovascular risk compounds — it does not simply add.</p>
+          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums text-error">40%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">lipid flag</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums text-error">18%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">HbA1c flag</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums text-error">23%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">high-risk tier</div>
             </div>
           </div>
+        </div>
+        <div class="px-6 pb-6">
+          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
+            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
+            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Cardiovascular and metabolic interventions must run in parallel for Operations — separate programmes will underperform.</p>
+          </div>
+        </div>
+      </div>
 
-          <div class="mt-4 pt-4" style="border-top: 1px solid var(--border);">
-            <p class="text-[12px] text-center" style="color:var(--muted);">15% workforce currently below optimal levels</p>
+      <!-- Finding 04: Female Anaemia Blind Spot -->
+      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
+        <div class="p-6 flex-1">
+          <div class="flex items-center gap-2 mb-4 flex-wrap">
+            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 04</span>
+            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
+          </div>
+          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">Org-Wide CBC Average Hides a Female Blind Spot</h3>
+          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">CBC/Anaemia affects 34% of female employees versus 11% of males — a 23-point gap. The org-wide average of 21% actively conceals this disparity from standard reporting, meaning female employees are systematically under-screened.</p>
+          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums" style="color:#ec4899;">34%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">female</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums" style="color:#3b82f6;">11%</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">male</div>
+            </div>
+            <div class="w-px" style="background:var(--border);"></div>
+            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
+              <div class="text-[20px] font-extrabold tabular-nums text-purple-custom">23pp</div>
+              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">gap</div>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6">
+          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
+            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
+            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Introduce a female-specific iron and CBC screening protocol. The 21% org-wide figure is misleading and shouldn't drive resource allocation.</p>
           </div>
         </div>
       </div>
@@ -695,6 +719,21 @@
 
         <!-- Insight -->
         <p class="text-[11px] leading-relaxed mt-4 pt-3" style="border-top:1px solid var(--border);color:var(--muted);">1–2 parameters crossing borderline thresholds. Asymptomatic now — early prevention is the highest-ROI window.</p>
+
+        <!-- Escalation Probability -->
+        <div class="mt-3 p-3 rounded-xl flex items-center justify-between" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-amber-custom text-[15px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">trending_up</span>
+            <span class="text-[11px] font-bold" style="color:var(--text);">Escalation Risk</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="h-1.5 w-20 rounded-full overflow-hidden" style="background:var(--surf-high);">
+              <div class="h-full rounded-full bg-amber-custom" style="width:28%;"></div>
+            </div>
+            <span class="text-[12px] font-extrabold text-amber-custom tabular-nums">28%</span>
+          </div>
+        </div>
+        <p class="text-[10px] mt-1.5 leading-relaxed" style="color:var(--muted);">of Monitor employees show 3+ borderline markers — likely to escalate to High Risk without intervention.</p>
       </div>
 
       <!-- ── Tier 3: High Risk ── -->
