@@ -661,8 +661,7 @@
           onclick="startTour()"
           class="px-5 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2"
         >
-          <span class="material-symbols-outlined text-[16px]">tour</span>Start
-          Tour
+          <span class="material-symbols-outlined text-[16px]">tour</span>Walkthrough
         </button>
       </div>
     </header>
@@ -2215,6 +2214,11 @@
 
       window.addEventListener("DOMContentLoaded", () => {
         renderProfiles();
+
+        // Auto-start walkthrough when redirected from another page
+        if (new URLSearchParams(window.location.search).get("tour") === "1") {
+          setTimeout(startTour, 600);
+        }
 
         // Set dark mode icon to match current state
         const isDark = document.documentElement.classList.contains("dark");
