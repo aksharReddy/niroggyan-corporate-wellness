@@ -561,76 +561,201 @@
     </div>
   </section>
 
-  <!-- ─── WORKFORCE SEGMENTATION ─── -->
+  <!-- ─── CLINICAL TIER PROFILES ─── -->
   <section class="section-module anim-fade-up delay-200">
     <!-- Section Header -->
     <div class="flex items-center gap-3 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
       <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,162,112,0.1);">
-        <span class="material-symbols-outlined text-on-tertiary-container text-[20px]">group</span>
+        <span class="material-symbols-outlined text-on-tertiary-container text-[20px]">biotech</span>
       </div>
       <div>
         <div class="flex items-center gap-2 flex-wrap">
-          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Workforce Segmentation</h2>
-          <span class="section-label-chip hidden sm:inline-flex" style="background:rgba(0,162,112,0.08);color:#005236;">Population Analysis</span>
+          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Clinical Tier Profiles</h2>
+          <span class="section-label-chip hidden sm:inline-flex" style="background:rgba(0,162,112,0.08);color:#005236;">Clinical Fingerprint</span>
         </div>
-        <p class="text-[12px] mt-0.5" style="color:var(--muted);">Employees grouped by clinical risk tier based on the number and severity of abnormal test results — shows where to direct wellness resources.</p>
+        <p class="text-[12px] mt-0.5" style="color:var(--muted);">Average biomarker values per risk tier — the clinical signature that defines each cohort and separates one group from another.</p>
       </div>
     </div>
 
     <div class="grid lg:grid-cols-3 gap-6">
-      <!-- Healthy Performers -->
+
+      <!-- ── Tier 1: Low Risk ── -->
       <div class="workforce-card card-teal rounded-[1.75rem] p-5 flex flex-col border">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,162,112,0.12);">
-            <span class="material-symbols-outlined text-on-tertiary-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">verified</span>
+        <!-- Tier header -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,162,112,0.12);">
+              <span class="material-symbols-outlined text-on-tertiary-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">verified</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[15px] leading-tight" style="color:var(--text);">Low Risk</h3>
+              <p class="text-[10px] font-semibold text-on-tertiary-container">42% · 320 employees</p>
+            </div>
           </div>
-          <h3 class="font-semibold text-[16px] leading-tight" style="color:var(--text);">Healthy Performers</h3>
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(0,162,112,0.12);color:#005236;">All Clear</span>
         </div>
-        <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Low risk profiles across all major biometric markers. Target for wellness advocacy and peer programs.</p>
-        <div class="flex items-center justify-between pt-3" style="border-top: 1px solid var(--border);">
-          <span class="text-[30px] font-extrabold leading-none text-on-tertiary-container">42%</span>
-          <div class="text-right">
-            <div class="text-[11px] font-bold uppercase tracking-wide" style="color:var(--muted);">320 Employees</div>
-            <div class="text-[10px] mt-0.5 text-on-tertiary-container font-semibold">Low Risk</div>
+
+        <!-- Biomarkers -->
+        <div class="space-y-2.5 flex-1" style="border-top:1px solid var(--border);padding-top:1rem;">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Vitamin D</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">34 ng/mL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-green-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-green-custom">Normal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">LDL Cholesterol</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">88 mg/dL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-green-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-green-custom">Normal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">HbA1c</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">5.1%</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-green-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-green-custom">Normal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Vitamin B12</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">382 pg/mL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-green-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-green-custom">Normal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Hemoglobin</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">14.2 g/dL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-green-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-green-custom">Normal</span></div>
+            </div>
           </div>
         </div>
+
+        <!-- Insight -->
+        <p class="text-[11px] leading-relaxed mt-4 pt-3" style="border-top:1px solid var(--border);color:var(--muted);">All markers within clinical norms. No immediate intervention required — sustain with wellness advocacy.</p>
       </div>
 
-      <!-- Silent Risk Group -->
+      <!-- ── Tier 2: Monitor ── -->
       <div class="workforce-card card-purple rounded-[1.75rem] p-5 flex flex-col border">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,0.1);">
-            <span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">visibility_off</span>
+        <!-- Tier header -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,0.1);">
+              <span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">visibility_off</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[15px] leading-tight" style="color:var(--text);">Monitor</h3>
+              <p class="text-[10px] font-semibold text-secondary">38% · 288 employees</p>
+            </div>
           </div>
-          <h3 class="font-semibold text-[16px] leading-tight" style="color:var(--text);">Silent Risk Group</h3>
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-bold" style="background:rgba(113,42,226,0.1);color:#5a00c6;">Watch</span>
         </div>
-        <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Asymptomatic but showing borderline trends in LDL and HbA1c. Critical for prevention-first care.</p>
-        <div class="flex items-center justify-between pt-3" style="border-top: 1px solid var(--border);">
-          <span class="text-[30px] font-extrabold leading-none text-secondary">38%</span>
-          <div class="text-right">
-            <div class="text-[11px] font-bold uppercase tracking-wide" style="color:var(--muted);">288 Employees</div>
-            <div class="text-[10px] mt-0.5 text-secondary font-semibold">Monitor</div>
+
+        <!-- Biomarkers -->
+        <div class="space-y-2.5 flex-1" style="border-top:1px solid var(--border);padding-top:1rem;">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Vitamin D</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">17 ng/mL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-amber-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-amber-custom">Borderline</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">LDL Cholesterol</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">114 mg/dL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-amber-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-amber-custom">Borderline</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">HbA1c</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">5.9%</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-amber-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-amber-custom">Borderline</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Vitamin B12</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">241 pg/mL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-amber-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-amber-custom">Borderline</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Hemoglobin</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">13.0 g/dL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-amber-custom flex-shrink-0"></div><span class="text-[10px] font-semibold text-amber-custom">Borderline</span></div>
+            </div>
           </div>
         </div>
+
+        <!-- Insight -->
+        <p class="text-[11px] leading-relaxed mt-4 pt-3" style="border-top:1px solid var(--border);color:var(--muted);">1–2 parameters crossing borderline thresholds. Asymptomatic now — early prevention is the highest-ROI window.</p>
       </div>
 
-      <!-- High Intervention -->
+      <!-- ── Tier 3: High Risk ── -->
       <div class="workforce-card card-red rounded-[1.75rem] p-5 flex flex-col border">
-        <div class="flex items-center gap-3 mb-3">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 bg-error-container">
-            <span class="material-symbols-outlined text-on-error-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">warning</span>
+        <!-- Tier header -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 bg-error-container">
+              <span class="material-symbols-outlined text-on-error-container text-[18px]" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">warning</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-[15px] leading-tight" style="color:var(--text);">High Risk</h3>
+              <p class="text-[10px] font-semibold text-error">20% · 152 employees</p>
+            </div>
           </div>
-          <h3 class="font-semibold text-[16px] leading-tight" style="color:var(--text);">High Intervention</h3>
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-error-container text-on-error-container">Urgent</span>
         </div>
-        <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Multiple markers outside normal ranges. Immediate medical consultation and care coordination required.</p>
-        <div class="flex items-center justify-between pt-3" style="border-top: 1px solid var(--border);">
-          <span class="text-[30px] font-extrabold leading-none text-error">20%</span>
-          <div class="text-right">
-            <div class="text-[11px] font-bold uppercase tracking-wide" style="color:var(--muted);">152 Employees</div>
-            <div class="text-[10px] mt-0.5 text-error font-semibold">Urgent</div>
+
+        <!-- Biomarkers -->
+        <div class="space-y-2.5 flex-1" style="border-top:1px solid var(--border);padding-top:1rem;">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Vitamin D</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">8 ng/mL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-error flex-shrink-0"></div><span class="text-[10px] font-semibold text-error">Abnormal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">LDL Cholesterol</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">152 mg/dL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-error flex-shrink-0"></div><span class="text-[10px] font-semibold text-error">Abnormal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">HbA1c</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">6.8%</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-error flex-shrink-0"></div><span class="text-[10px] font-semibold text-error">Abnormal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Vitamin B12</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">164 pg/mL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-error flex-shrink-0"></div><span class="text-[10px] font-semibold text-error">Abnormal</span></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[11px]" style="color:var(--muted);">Hemoglobin</span>
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-bold tabular-nums" style="color:var(--text);">11.4 g/dL</span>
+              <div class="flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-error flex-shrink-0"></div><span class="text-[10px] font-semibold text-error">Abnormal</span></div>
+            </div>
           </div>
         </div>
+
+        <!-- Insight -->
+        <p class="text-[11px] leading-relaxed mt-4 pt-3" style="border-top:1px solid var(--border);color:var(--muted);">3+ parameters clinically abnormal across all major panels. Multi-protocol intervention and specialist referral required.</p>
       </div>
+
     </div>
   </section>
 
