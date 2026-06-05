@@ -427,157 +427,210 @@
     </div>
   </section>
 
-  <!-- ─── RISK INTELLIGENCE SIGNALS ─── -->
+  <!-- ─── AI PRIORITY QUEUE ─── -->
   <section class="section-module anim-fade-up delay-100">
     <!-- Section Header -->
-    <div class="flex items-center gap-3 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
-      <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
-        <span class="material-symbols-outlined text-[20px]" style="color:var(--primary);">model_training</span>
-      </div>
-      <div>
-        <div class="flex items-center gap-2 flex-wrap">
-          <h2 class="font-headline-md text-headline-md" style="color:var(--text);">Risk Intelligence Signals</h2>
-          <span class="section-label-chip hidden sm:inline-flex" style="background:rgba(0,18,44,0.06);color:var(--primary);">AI-Surfaced Findings</span>
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6" style="border-bottom: 1px solid var(--border);">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+          <span class="material-symbols-outlined text-[20px]" style="color:var(--primary);">model_training</span>
         </div>
-        <p class="text-[12px] mt-0.5" style="color:var(--muted);">Patterns and cross-parameter correlations the AI detected that don't surface in standard single-parameter reporting.</p>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h2 class="font-headline-md text-headline-md" style="color:var(--text);">AI Priority Queue</h2>
+            <span class="section-label-chip hidden sm:inline-flex" style="background:rgba(0,18,44,0.06);color:var(--primary);">Ranked Interventions</span>
+          </div>
+          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Interventions ranked by AI composite score — weighing projected health lift, workforce reach, and implementation effort.</p>
+        </div>
+      </div>
+      <!-- Sort controls -->
+      <div class="flex items-center p-1 rounded-xl gap-0.5 flex-shrink-0" style="background:var(--surf-mid);">
+        <button class="pq-sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="background:var(--surface);color:var(--primary);box-shadow:0 1px 3px rgba(0,0,0,0.1);" data-sort="Ai" onclick="sortQueue('Ai')">AI Score</button>
+        <button class="pq-sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="color:var(--muted);" data-sort="Impact" onclick="sortQueue('Impact')">Max Impact</button>
+        <button class="pq-sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="color:var(--muted);" data-sort="Reach" onclick="sortQueue('Reach')">Most Reach</button>
+        <button class="pq-sort-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="color:var(--muted);" data-sort="Effort" onclick="sortQueue('Effort')">Low Effort</button>
       </div>
     </div>
 
-    <!-- 4 Finding Cards — 2×2 grid -->
-    <div class="grid md:grid-cols-2 gap-5">
+    <!-- 3 Priority Cards -->
+    <div id="priority-queue" class="grid md:grid-cols-3 gap-5">
 
-      <!-- Finding 01: VitD–Lipid Co-occurrence -->
-      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
-        <div class="p-6 flex-1">
-          <div class="flex items-center gap-2 mb-4 flex-wrap">
-            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 01</span>
-            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
-          </div>
-          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">VitD & Lipid Co-occur at 2× Expected Rate</h3>
-          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Of employees with a Lipid flag, 41% also carry a Vitamin D deficiency — twice the rate statistical independence would predict. These are not two isolated conditions. They share a metabolic root cause that single-parameter screening misses entirely.</p>
-          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">41%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">co-occur</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">63</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">dual-flagged</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">2×</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">expected rate</div>
-            </div>
-          </div>
+      <!-- Card 1: Vitamin D Programme (AI rank 1) -->
+      <div class="pq-card rounded-[1.5rem] border overflow-hidden flex flex-col"
+           style="background:var(--surface);border-color:var(--border);"
+           data-rankAi="1" data-rankImpact="2" data-rankReach="1" data-rankEffort="1">
+        <!-- Composite score bar -->
+        <div class="h-1 w-full" style="background:var(--surf-high);">
+          <div class="h-full rounded-r-full" style="width:91%;background:#10B981;transition:width .6s ease;"></div>
         </div>
-        <div class="px-6 pb-6">
-          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
-            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
-            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Deploy a combined VitD + lipid intervention rather than two separate programmes — the root cause is shared.</p>
+        <div class="p-5 flex-1 flex flex-col">
+          <!-- Rank + name + effort -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(16,185,129,.1);">
+                <span class="pq-rank text-[16px] font-extrabold text-green-custom">01</span>
+              </div>
+              <div>
+                <h3 class="text-[14px] font-bold leading-tight" style="color:var(--text);">Vitamin D Programme</h3>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">Low Effort</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold uppercase tracking-[.15em] px-2 py-1 rounded-full flex-shrink-0" style="background:rgba(0,18,44,.05);color:var(--muted);">AI Score 91%</span>
+          </div>
+
+          <!-- Metrics -->
+          <div class="space-y-3 flex-1">
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Score Lift</span>
+                <span class="text-[13px] font-extrabold text-green-custom tabular-nums">+3.2 pts</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);">
+                <div class="pq-bar h-full rounded-full bg-green-custom" style="width:0%;" data-w="78%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Employees Reached</span>
+                <span class="text-[13px] font-extrabold tabular-nums" style="color:var(--text);">230 / 449</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);">
+                <div class="pq-bar h-full rounded-full" style="width:0%;background:var(--primary-m);" data-w="51%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Response Time</span>
+              <span class="text-[11px] font-semibold" style="color:var(--text);">6–8 weeks</span>
+            </div>
+          </div>
+
+          <!-- Expand button -->
+          <button class="pq-expand-btn w-full flex items-center justify-between mt-4 pt-3 text-[11px] font-semibold" style="border-top:1px solid var(--border);color:var(--muted);">
+            <span>AI Rationale</span>
+            <span class="material-symbols-outlined text-[16px] pq-chevron" style="transition:transform .3s ease;">expand_more</span>
+          </button>
+          <div class="pq-rationale overflow-hidden" style="max-height:0;transition:max-height .3s ease;">
+            <p class="text-[11px] leading-relaxed pt-3" style="color:var(--muted);">Ranked #1 on the balanced composite. Highest workforce reach (51%) with the lowest implementation effort — oral D₃ supplementation requires no physical infrastructure. Clinical response is measurable within 6–8 weeks, the fastest path to org-wide score improvement.</p>
           </div>
         </div>
       </div>
 
-      <!-- Finding 02: Engineering's Silent Risk -->
-      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
-        <div class="p-6 flex-1">
-          <div class="flex items-center gap-2 mb-4 flex-wrap">
-            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 02</span>
-            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
-          </div>
-          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">Engineering: Best Score, Worst Vitamin D</h3>
-          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Engineering holds the organisation's top health score (80/100) yet reports the highest Vitamin D deficiency at 65%. High-performing teams routinely mask nutritional deficits — they surface 2–3 years later as fatigue, immune decline, and productivity loss.</p>
-          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums" style="color:var(--primary);">80</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">health score</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums text-amber-custom">65%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">VitD deficit</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums text-green-custom">#1</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">dept rank</div>
-            </div>
-          </div>
+      <!-- Card 2: Lipid Wellness Programme (AI rank 2) -->
+      <div class="pq-card rounded-[1.5rem] border overflow-hidden flex flex-col"
+           style="background:var(--surface);border-color:var(--border);"
+           data-rankAi="2" data-rankImpact="1" data-rankReach="2" data-rankEffort="3">
+        <!-- Composite score bar -->
+        <div class="h-1 w-full" style="background:var(--surf-high);">
+          <div class="h-full rounded-r-full" style="width:73%;background:#712ae2;transition:width .6s ease;"></div>
         </div>
-        <div class="px-6 pb-6">
-          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
-            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
-            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Proactive Vitamin D screening for Engineering — a high composite score creates a false sense of security.</p>
+        <div class="p-5 flex-1 flex flex-col">
+          <!-- Rank + name + effort -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(113,42,226,.1);">
+                <span class="pq-rank text-[16px] font-extrabold text-secondary">02</span>
+              </div>
+              <div>
+                <h3 class="text-[14px] font-bold leading-tight" style="color:var(--text);">Lipid Wellness Programme</h3>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-error-container text-on-error-container">High Effort</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold uppercase tracking-[.15em] px-2 py-1 rounded-full flex-shrink-0" style="background:rgba(0,18,44,.05);color:var(--muted);">AI Score 73%</span>
+          </div>
+
+          <!-- Metrics -->
+          <div class="space-y-3 flex-1">
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Score Lift</span>
+                <span class="text-[13px] font-extrabold text-secondary tabular-nums">+4.1 pts</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);">
+                <div class="pq-bar h-full rounded-full bg-secondary" style="width:0%;" data-w="100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Employees Reached</span>
+                <span class="text-[13px] font-extrabold tabular-nums" style="color:var(--text);">153 / 449</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);">
+                <div class="pq-bar h-full rounded-full" style="width:0%;background:var(--primary-m);" data-w="34%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Response Time</span>
+              <span class="text-[11px] font-semibold" style="color:var(--text);">90 days</span>
+            </div>
+          </div>
+
+          <!-- Expand button -->
+          <button class="pq-expand-btn w-full flex items-center justify-between mt-4 pt-3 text-[11px] font-semibold" style="border-top:1px solid var(--border);color:var(--muted);">
+            <span>AI Rationale</span>
+            <span class="material-symbols-outlined text-[16px] pq-chevron" style="transition:transform .3s ease;">expand_more</span>
+          </button>
+          <div class="pq-rationale overflow-hidden" style="max-height:0;transition:max-height .3s ease;">
+            <p class="text-[11px] leading-relaxed pt-3" style="color:var(--muted);">Highest per-employee score improvement (+4.1 pts) but requires a structured 90-day dietary programme. AI identifies Operations (40%) and Sales (35%) as the priority cohorts. Ranked below Vitamin D overall due to higher implementation effort and longer clinical response window.</p>
           </div>
         </div>
       </div>
 
-      <!-- Finding 03: Operations Compound Metabolic Risk -->
-      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
-        <div class="p-6 flex-1">
-          <div class="flex items-center gap-2 mb-4 flex-wrap">
-            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 03</span>
-            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
-          </div>
-          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">Operations Carries a Compound Metabolic Burden</h3>
-          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">Operations shows both the highest Lipid abnormality (40%) and HbA1c elevation (18%) simultaneously. When Lipid and HbA1c flags co-occur in the same employee, cardiovascular risk compounds — it does not simply add.</p>
-          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums text-error">40%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">lipid flag</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums text-error">18%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">HbA1c flag</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums text-error">23%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">high-risk tier</div>
-            </div>
-          </div>
+      <!-- Card 3: HbA1c Pre-diabetic Protocol (AI rank 3) -->
+      <div class="pq-card rounded-[1.5rem] border overflow-hidden flex flex-col"
+           style="background:var(--surface);border-color:var(--border);"
+           data-rankAi="3" data-rankImpact="3" data-rankReach="3" data-rankEffort="2">
+        <!-- Composite score bar -->
+        <div class="h-1 w-full" style="background:var(--surf-high);">
+          <div class="h-full rounded-r-full" style="width:54%;background:#F59E0B;transition:width .6s ease;"></div>
         </div>
-        <div class="px-6 pb-6">
-          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
-            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
-            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Cardiovascular and metabolic interventions must run in parallel for Operations — separate programmes will underperform.</p>
+        <div class="p-5 flex-1 flex flex-col">
+          <!-- Rank + name + effort -->
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,.1);">
+                <span class="pq-rank text-[16px] font-extrabold text-amber-custom">03</span>
+              </div>
+              <div>
+                <h3 class="text-[14px] font-bold leading-tight" style="color:var(--text);">HbA1c Pre-diabetic Protocol</h3>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,.12);color:#b45309;">Medium Effort</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold uppercase tracking-[.15em] px-2 py-1 rounded-full flex-shrink-0" style="background:rgba(0,18,44,.05);color:var(--muted);">AI Score 54%</span>
           </div>
-        </div>
-      </div>
 
-      <!-- Finding 04: Female Anaemia Blind Spot -->
-      <div class="rounded-[1.5rem] border flex flex-col" style="background:var(--surf-low);border-color:var(--border);">
-        <div class="p-6 flex-1">
-          <div class="flex items-center gap-2 mb-4 flex-wrap">
-            <span class="text-[9px] font-bold uppercase tracking-[.2em] px-2.5 py-1 rounded-full" style="background:rgba(0,18,44,.06);color:var(--primary);">Signal 04</span>
-            <span class="text-[9px] font-bold uppercase tracking-[.12em] px-2.5 py-1 rounded-full" style="background:rgba(16,185,129,.1);color:#047857;">High Confidence</span>
+          <!-- Metrics -->
+          <div class="space-y-3 flex-1">
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Score Lift</span>
+                <span class="text-[13px] font-extrabold text-amber-custom tabular-nums">+3.0 pts</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);">
+                <div class="pq-bar h-full rounded-full bg-amber-custom" style="width:0%;" data-w="73%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Employees Reached</span>
+                <span class="text-[13px] font-extrabold tabular-nums" style="color:var(--text);">66 / 449</span>
+              </div>
+              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);">
+                <div class="pq-bar h-full rounded-full" style="width:0%;background:var(--primary-m);" data-w="15%"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span class="text-[10px] font-bold uppercase tracking-[.1em]" style="color:var(--muted);">Response Time</span>
+              <span class="text-[11px] font-semibold" style="color:var(--text);">3–6 months</span>
+            </div>
           </div>
-          <h3 class="text-[15px] font-bold mb-2" style="color:var(--text);">Org-Wide CBC Average Hides a Female Blind Spot</h3>
-          <p class="text-[12px] leading-relaxed mb-4" style="color:var(--muted);">CBC/Anaemia affects 34% of female employees versus 11% of males — a 23-point gap. The org-wide average of 21% actively conceals this disparity from standard reporting, meaning female employees are systematically under-screened.</p>
-          <div class="flex rounded-xl overflow-hidden" style="border:1px solid var(--border);">
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums" style="color:#ec4899;">34%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">female</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums" style="color:#3b82f6;">11%</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">male</div>
-            </div>
-            <div class="w-px" style="background:var(--border);"></div>
-            <div class="flex-1 text-center py-3 px-2" style="background:rgba(0,18,44,.03);">
-              <div class="text-[20px] font-extrabold tabular-nums text-purple-custom">23pp</div>
-              <div class="text-[9px] font-bold uppercase tracking-[.08em] mt-0.5" style="color:var(--muted);">gap</div>
-            </div>
-          </div>
-        </div>
-        <div class="px-6 pb-6">
-          <div class="flex items-start gap-2 p-3 rounded-xl" style="background:rgba(113,42,226,.05);border:1px solid rgba(113,42,226,.12);">
-            <span class="material-symbols-outlined text-secondary text-[14px] mt-0.5 flex-shrink-0">arrow_forward</span>
-            <p class="text-[11px] leading-relaxed" style="color:var(--muted);"><span class="font-bold" style="color:var(--text);">HR Action:</span> Introduce a female-specific iron and CBC screening protocol. The 21% org-wide figure is misleading and shouldn't drive resource allocation.</p>
+
+          <!-- Expand button -->
+          <button class="pq-expand-btn w-full flex items-center justify-between mt-4 pt-3 text-[11px] font-semibold" style="border-top:1px solid var(--border);color:var(--muted);">
+            <span>AI Rationale</span>
+            <span class="material-symbols-outlined text-[16px] pq-chevron" style="transition:transform .3s ease;">expand_more</span>
+          </button>
+          <div class="pq-rationale overflow-hidden" style="max-height:0;transition:max-height .3s ease;">
+            <p class="text-[11px] leading-relaxed pt-3" style="color:var(--muted);">Smallest reach but highest urgency per employee. Employees aged >45 in the pre-diabetic range are escalating to diabetic classification at 2× the rate of younger cohorts. Intervening here prevents a significantly more intensive High Risk reclassification.</p>
           </div>
         </div>
       </div>
@@ -1388,13 +1441,69 @@ function initEntranceAnimations() {
 }
 
 // ─── Initialize ───
+// ─── Priority Queue ───
+function initPriorityQueue() {
+  function animatePQBars() {
+    document.querySelectorAll('.pq-bar').forEach((bar, i) => {
+      bar.style.width = '0%';
+      bar.style.transition = 'none';
+      setTimeout(() => {
+        bar.style.transition = 'width 1s cubic-bezier(.22,1,.36,1)';
+        bar.style.width = bar.dataset.w;
+      }, 100 + i * 80);
+    });
+  }
+  animatePQBars();
+
+  window.sortQueue = function(by) {
+    const container = document.getElementById('priority-queue');
+    const cards = Array.from(container.querySelectorAll('.pq-card'));
+
+    cards.forEach(c => {
+      c.style.transition = 'opacity .18s ease, transform .18s ease';
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(8px)';
+    });
+
+    setTimeout(() => {
+      cards.sort((a, b) => parseInt(a.dataset['rank' + by]) - parseInt(b.dataset['rank' + by]));
+      cards.forEach((card, i) => {
+        card.querySelector('.pq-rank').textContent = String(i + 1).padStart(2, '0');
+        container.appendChild(card);
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 80);
+      });
+      animatePQBars();
+    }, 220);
+
+    document.querySelectorAll('.pq-sort-btn').forEach(b => {
+      const active = b.dataset.sort === by;
+      b.style.background = active ? 'var(--surface)' : '';
+      b.style.color = active ? 'var(--primary)' : 'var(--muted)';
+      b.style.boxShadow = active ? '0 1px 3px rgba(0,0,0,0.1)' : '';
+    });
+  };
+
+  document.querySelectorAll('.pq-expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling;
+      const chevron = btn.querySelector('.pq-chevron');
+      const open = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+      panel.style.maxHeight = open ? '0px' : '120px';
+      chevron.style.transform = open ? '' : 'rotate(180deg)';
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Sync theme icon with current state (theme may already be set by inline script)
   const isDark = document.documentElement.classList.contains('dark');
   document.getElementById('theme-icon').textContent = isDark ? 'light_mode' : 'dark_mode';
 
   initEntranceAnimations();
-  animateGauges();
+  initPriorityQueue();
   initBarCharts();
   updateIntelligenceModule('vitamin-d');
   initSimulator();
