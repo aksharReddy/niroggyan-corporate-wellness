@@ -811,102 +811,259 @@ html.dark .matrix-quad{border-color:var(--border);}
   <!-- ─── SECTION 5: Clinical Risk + Intervention Matrix ─── -->
   <div class="grid lg:grid-cols-2 gap-6 anim-fade-up">
 
-    <!-- Clinical Risk Breakdown -->
+    <!-- Parameter Risk Intelligence -->
     <div class="section-module">
-      <div class="flex items-center gap-3 pb-5 mb-5" style="border-bottom:1px solid var(--border);">
-        <div class="w-1 h-10 rounded-full bg-error flex-shrink-0"></div>
-        <div>
-          <div class="section-chip mb-0.5" style="background:rgba(186,26,26,.08);color:#93000a;">06 · CLINICAL</div>
-          <h2 class="text-[18px] font-bold" style="color:var(--text);">Clinical Risk Breakdown</h2>
-          <p class="text-[12px]" style="color:var(--muted);">% of workforce with abnormal readings per parameter</p>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 mb-5" style="border-bottom:1px solid var(--border);">
+        <div class="flex items-center gap-3">
+          <div class="w-1 h-10 rounded-full bg-error flex-shrink-0"></div>
+          <div>
+            <div class="section-chip mb-0.5" style="background:rgba(186,26,26,.08);color:#93000a;">06 · CLINICAL</div>
+            <h2 class="text-[18px] font-bold" style="color:var(--text);">Parameter Risk Intelligence</h2>
+            <p class="text-[12px]" style="color:var(--muted);">Dept breakdown · Gender split · Co-occurrence</p>
+          </div>
+        </div>
+        <div class="flex items-center p-1 rounded-xl gap-0.5 flex-shrink-0" style="background:var(--surf-mid);">
+          <button class="risk-tab-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="background:var(--surface);color:var(--primary);box-shadow:0 1px 3px rgba(0,0,0,0.1);" onclick="switchRiskTab('dept',this)">By Dept</button>
+          <button class="risk-tab-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="color:var(--muted);" onclick="switchRiskTab('gender',this)">By Gender</button>
+          <button class="risk-tab-btn px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all" style="color:var(--muted);" onclick="switchRiskTab('cooccur',this)">Co-occurrence</button>
         </div>
       </div>
-      <div class="space-y-5">
+
+      <!-- ── Tab 1: By Department ── -->
+      <div id="risk-tab-dept" class="risk-tab-pane space-y-4">
+
         <!-- Vitamin D -->
-        <div class="risk-bar-row">
+        <div>
           <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-amber-custom flex-shrink-0"></div>
-              <span class="text-[13px] font-semibold" style="color:var(--text);">Vitamin D Deficiency</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-[11px]" style="color:var(--muted);">~230 employees</span>
-              <span class="text-[14px] font-bold text-amber-custom tabular-nums">42%</span>
-            </div>
+            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-amber-custom flex-shrink-0"></div><span class="text-[12px] font-bold" style="color:var(--text);">Vitamin D</span></div>
+            <span class="text-[10px] font-semibold text-amber-custom">42% org avg</span>
           </div>
-          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
-            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:42%;background:linear-gradient(90deg,#F59E0B,#fbbf24);" data-w="42%"></div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">ENG</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#F59E0B;" data-w="65%"></div></div><span class="text-[11px] font-extrabold tabular-nums w-8 flex-shrink-0 text-amber-custom">65%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">OPS</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fbbf24;" data-w="58%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">58%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">SALES</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fcd34d;" data-w="31%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">31%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">HR/LGL</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fde68a;" data-w="22%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">22%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">MKT</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fef3c7;" data-w="18%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">18%</span></div>
           </div>
-          <p class="text-[11px] mt-1" style="color:var(--muted);">↑ Highest in Engineering (65%) and Operations (58%)</p>
         </div>
+        <div style="border-top:1px dashed var(--border);"></div>
+
         <!-- Lipid Profile -->
-        <div class="risk-bar-row">
+        <div>
           <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-error flex-shrink-0"></div>
-              <span class="text-[13px] font-semibold" style="color:var(--text);">Lipid Profile Abnormalities</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-[11px]" style="color:var(--muted);">~153 employees</span>
-              <span class="text-[14px] font-bold text-error tabular-nums">28%</span>
-            </div>
+            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-error flex-shrink-0"></div><span class="text-[12px] font-bold" style="color:var(--text);">Lipid Profile</span></div>
+            <span class="text-[10px] font-semibold text-error">28% org avg</span>
           </div>
-          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
-            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:28%;background:linear-gradient(90deg,#ba1a1a,#ef4444);" data-w="28%"></div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">OPS</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ba1a1a;" data-w="40%"></div></div><span class="text-[11px] font-extrabold tabular-nums w-8 flex-shrink-0 text-error">40%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">SALES</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ef4444;" data-w="35%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">35%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">ENG</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#f87171;" data-w="22%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">22%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">MKT</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fca5a5;" data-w="14%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">14%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">HR/LGL</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fecaca;" data-w="8%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">8%</span></div>
           </div>
-          <p class="text-[11px] mt-1" style="color:var(--muted);">Priority intervention · Highest cardiovascular impact</p>
         </div>
-        <!-- Anemia / CBC -->
-        <div class="risk-bar-row">
+        <div style="border-top:1px dashed var(--border);"></div>
+
+        <!-- CBC -->
+        <div>
           <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-purple-custom flex-shrink-0"></div>
-              <span class="text-[13px] font-semibold" style="color:var(--text);">Anemia / CBC Anomalies</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-[11px]" style="color:var(--muted);">~115 employees</span>
-              <span class="text-[14px] font-bold text-purple-custom tabular-nums">21%</span>
-            </div>
+            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-purple-custom flex-shrink-0"></div><span class="text-[12px] font-bold" style="color:var(--text);">CBC / Anaemia</span></div>
+            <span class="text-[10px] font-semibold text-purple-custom">21% org avg</span>
           </div>
-          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
-            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:21%;background:linear-gradient(90deg,#7C3AED,#a78bfa);" data-w="21%"></div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">OPS</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#7C3AED;" data-w="24%"></div></div><span class="text-[11px] font-extrabold tabular-nums w-8 flex-shrink-0 text-purple-custom">24%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">SALES</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#8b5cf6;" data-w="21%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">21%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">ENG</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#a78bfa;" data-w="19%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">19%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">MKT</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#c4b5fd;" data-w="15%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">15%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">HR/LGL</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ddd6fe;" data-w="11%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">11%</span></div>
           </div>
-          <p class="text-[11px] mt-1" style="color:var(--muted);">Higher in female cohorts &lt;35 · Iron supplementation recommended</p>
         </div>
+        <div style="border-top:1px dashed var(--border);"></div>
+
         <!-- Vitamin B12 -->
-        <div class="risk-bar-row">
+        <div>
           <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container flex-shrink-0"></div>
-              <span class="text-[13px] font-semibold" style="color:var(--text);">Vitamin B12 Deficiency</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-[11px]" style="color:var(--muted);">~82 employees</span>
-              <span class="text-[14px] font-bold text-on-tertiary-container tabular-nums">15%</span>
-            </div>
+            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full bg-on-tertiary-container flex-shrink-0"></div><span class="text-[12px] font-bold" style="color:var(--text);">Vitamin B12</span></div>
+            <span class="text-[10px] font-semibold text-on-tertiary-container">15% org avg</span>
           </div>
-          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
-            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:15%;background:linear-gradient(90deg,#00a270,#34d399);" data-w="15%"></div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">ENG</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#00a270;" data-w="24%"></div></div><span class="text-[11px] font-extrabold tabular-nums w-8 flex-shrink-0 text-on-tertiary-container">24%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">MKT</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#10b981;" data-w="18%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">18%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">SALES</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#34d399;" data-w="16%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">16%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">OPS</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#6ee7b7;" data-w="12%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">12%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">HR/LGL</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#a7f3d0;" data-w="10%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">10%</span></div>
           </div>
-          <p class="text-[11px] mt-1" style="color:var(--muted);">Predominantly Gen-Z cohort · Diet-linked deficiency pattern</p>
         </div>
+        <div style="border-top:1px dashed var(--border);"></div>
+
         <!-- HbA1c -->
-        <div class="risk-bar-row">
+        <div>
           <div class="flex items-center justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#ea580c;"></div>
-              <span class="text-[13px] font-semibold" style="color:var(--text);">HbA1c Elevation (Pre-diabetic)</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-[11px]" style="color:var(--muted);">~66 employees</span>
-              <span class="text-[14px] font-bold tabular-nums" style="color:#ea580c;">12%</span>
-            </div>
+            <div class="flex items-center gap-1.5"><div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#ea580c;"></div><span class="text-[12px] font-bold" style="color:var(--text);">HbA1c</span></div>
+            <span class="text-[10px] font-semibold" style="color:#ea580c;">12% org avg</span>
           </div>
-          <div class="h-2.5 w-full rounded-full overflow-hidden" style="background:var(--surf-mid);">
-            <div class="h-full rounded-full risk-bar-fill bar-animated" style="--tw:12%;background:linear-gradient(90deg,#ea580c,#fb923c);" data-w="12%"></div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">OPS</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ea580c;" data-w="18%"></div></div><span class="text-[11px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#ea580c;">18%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">SALES</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#f97316;" data-w="15%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">15%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">ENG</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fb923c;" data-w="8%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">8%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">MKT</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fdba74;" data-w="6%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">6%</span></div>
+            <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-14 text-right flex-shrink-0" style="color:var(--muted);">HR/LGL</span><div class="flex-1 h-1.5 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#fed7aa;" data-w="4%"></div></div><span class="text-[11px] font-bold tabular-nums w-8 flex-shrink-0" style="color:var(--text);">4%</span></div>
           </div>
-          <p class="text-[11px] mt-1" style="color:var(--muted);">CGM pilot recommended for borderline cases in Sales dept</p>
         </div>
+
+      </div>
+
+      <!-- ── Tab 2: By Gender ── -->
+      <div id="risk-tab-gender" class="risk-tab-pane hidden">
+
+        <div class="flex items-center justify-between mb-4 px-1">
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#ec4899;"></div><span class="text-[11px] font-bold uppercase tracking-wider" style="color:#ec4899;">Female</span></div>
+            <div class="flex items-center gap-1.5"><div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:#3b82f6;"></div><span class="text-[11px] font-bold uppercase tracking-wider" style="color:#3b82f6;">Male</span></div>
+          </div>
+          <span class="text-[10px]" style="color:var(--muted);">% with abnormal result</span>
+        </div>
+
+        <div class="space-y-3">
+
+          <!-- Vitamin D -->
+          <div class="p-3 rounded-xl" style="background:var(--surf-low);">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-[12px] font-bold" style="color:var(--text);">Vitamin D</span>
+              <span class="text-[10px] font-semibold" style="color:#ec4899;">F +10pp vs M</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#ec4899;">F</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ec4899;" data-w="48%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#ec4899;">48%</span></div>
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#3b82f6;">M</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#3b82f6;" data-w="38%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#3b82f6;">38%</span></div>
+            </div>
+          </div>
+
+          <!-- Lipid Profile -->
+          <div class="p-3 rounded-xl" style="background:var(--surf-low);">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-[12px] font-bold" style="color:var(--text);">Lipid Profile</span>
+              <span class="text-[10px] font-semibold" style="color:#3b82f6;">M +11pp vs F</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#ec4899;">F</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ec4899;" data-w="22%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#ec4899;">22%</span></div>
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#3b82f6;">M</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#3b82f6;" data-w="33%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#3b82f6;">33%</span></div>
+            </div>
+          </div>
+
+          <!-- CBC — highlighted as biggest gap -->
+          <div class="p-3 rounded-xl border" style="background:rgba(124,58,237,0.04);border-color:rgba(124,58,237,0.18);">
+            <div class="flex items-center justify-between mb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="text-[12px] font-bold" style="color:var(--text);">CBC / Anaemia</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] font-bold text-white bg-purple-custom">Biggest gap</span>
+              </div>
+              <span class="text-[10px] font-bold text-purple-custom">F +23pp vs M</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#ec4899;">F</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ec4899;" data-w="34%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#ec4899;">34%</span></div>
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#3b82f6;">M</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#3b82f6;" data-w="11%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#3b82f6;">11%</span></div>
+            </div>
+          </div>
+
+          <!-- Vitamin B12 -->
+          <div class="p-3 rounded-xl" style="background:var(--surf-low);">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-[12px] font-bold" style="color:var(--text);">Vitamin B12</span>
+              <span class="text-[10px] font-semibold" style="color:#ec4899;">F +5pp vs M</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#ec4899;">F</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ec4899;" data-w="18%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#ec4899;">18%</span></div>
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#3b82f6;">M</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#3b82f6;" data-w="13%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#3b82f6;">13%</span></div>
+            </div>
+          </div>
+
+          <!-- HbA1c -->
+          <div class="p-3 rounded-xl" style="background:var(--surf-low);">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-[12px] font-bold" style="color:var(--text);">HbA1c</span>
+              <span class="text-[10px] font-semibold" style="color:#3b82f6;">M +6pp vs F</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#ec4899;">F</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#ec4899;" data-w="9%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#ec4899;">9%</span></div>
+              <div class="flex items-center gap-2"><span class="text-[10px] font-bold w-4 flex-shrink-0" style="color:#3b82f6;">M</span><div class="flex-1 h-2 rounded-full overflow-hidden" style="background:var(--surf-mid);"><div class="h-full rounded-full bar-animated" style="width:0%;background:#3b82f6;" data-w="15%"></div></div><span class="text-[12px] font-extrabold tabular-nums w-8 flex-shrink-0" style="color:#3b82f6;">15%</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-4 p-3 rounded-xl flex items-start gap-2" style="background:rgba(124,58,237,0.05);border:1px solid rgba(124,58,237,0.12);">
+          <span class="material-symbols-outlined text-secondary text-[15px] mt-0.5" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">insights</span>
+          <p class="text-[11px] leading-relaxed" style="color:var(--muted);">CBC / Anaemia shows the largest gender gap (F 34% vs M 11%). Female-specific iron screening and supplementation protocols should be prioritised in Q3.</p>
+        </div>
+      </div>
+
+      <!-- ── Tab 3: Co-occurrence ── -->
+      <div id="risk-tab-cooccur" class="risk-tab-pane hidden">
+
+        <p class="text-[11px] mb-4 leading-relaxed" style="color:var(--muted);">Of employees flagged for the <strong style="color:var(--text);">row parameter</strong>, what % are also flagged for the column? Darker cell = stronger co-occurrence.</p>
+
+        <div class="overflow-x-auto -mx-1">
+          <table class="w-full text-center" style="border-collapse:separate;border-spacing:3px;min-width:280px;">
+            <thead>
+              <tr>
+                <th class="text-left text-[9px] font-bold uppercase tracking-[.12em] pb-2" style="color:var(--muted);width:52px;"></th>
+                <th class="text-[9px] font-bold uppercase pb-2" style="color:var(--muted);">VitD</th>
+                <th class="text-[9px] font-bold uppercase pb-2" style="color:var(--muted);">Lipid</th>
+                <th class="text-[9px] font-bold uppercase pb-2" style="color:var(--muted);">CBC</th>
+                <th class="text-[9px] font-bold uppercase pb-2" style="color:var(--muted);">B12</th>
+                <th class="text-[9px] font-bold uppercase pb-2" style="color:var(--muted);">HbA1c</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left text-[11px] font-bold py-0.5 pr-1" style="color:var(--text);">Vit D</td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:var(--surf-mid);color:var(--muted);">—</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.26);color:#5a00c6;">41%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.10);color:var(--text);">19%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.20);color:var(--text);">33%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.16);color:var(--text);">29%</div></td>
+              </tr>
+              <tr>
+                <td class="text-left text-[11px] font-bold py-0.5 pr-1" style="color:var(--text);">Lipid</td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.26);color:#5a00c6;">41%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:var(--surf-mid);color:var(--muted);">—</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.08);color:var(--text);">16%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.06);color:var(--muted);">12%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.24);color:#5a00c6;">38%</div></td>
+              </tr>
+              <tr>
+                <td class="text-left text-[11px] font-bold py-0.5 pr-1" style="color:var(--text);">CBC</td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.10);color:var(--text);">19%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.08);color:var(--text);">16%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:var(--surf-mid);color:var(--muted);">—</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.13);color:var(--text);">24%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.07);color:var(--muted);">14%</div></td>
+              </tr>
+              <tr>
+                <td class="text-left text-[11px] font-bold py-0.5 pr-1" style="color:var(--text);">B12</td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.20);color:var(--text);">33%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.06);color:var(--muted);">12%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.13);color:var(--text);">24%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:var(--surf-mid);color:var(--muted);">—</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.06);color:var(--muted);">11%</div></td>
+              </tr>
+              <tr>
+                <td class="text-left text-[11px] font-bold py-0.5 pr-1" style="color:var(--text);">HbA1c</td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.16);color:var(--text);">29%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.24);color:#5a00c6;">38%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.07);color:var(--muted);">14%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:rgba(113,42,226,0.06);color:var(--muted);">11%</div></td>
+                <td class="py-0.5"><div class="h-9 rounded-lg flex items-center justify-center text-[11px] font-bold" style="background:var(--surf-mid);color:var(--muted);">—</div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 p-3 rounded-xl flex items-start gap-2" style="background:rgba(15,39,72,0.04);border:1px solid rgba(15,39,72,0.10);">
+          <span class="material-symbols-outlined text-[15px] mt-0.5" style="color:var(--primary);font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24;">lightbulb</span>
+          <p class="text-[11px] leading-relaxed" style="color:var(--muted);">Strongest links: <strong style="color:var(--primary);">Vit D ↔ Lipid (41%)</strong> and <strong style="color:var(--primary);">Lipid ↔ HbA1c (38%)</strong>. Employees with lipid flags carry compounded metabolic risk and need multi-protocol interventions.</p>
+        </div>
+
       </div>
     </div>
 
@@ -1140,6 +1297,22 @@ function toggleDarkMode() {
 document.addEventListener('keydown', e => {
   if ((e.metaKey||e.ctrlKey) && e.key==='d') { e.preventDefault(); toggleDarkMode(); }
 });
+
+// ── Parameter Risk Intelligence tabs ──
+function switchRiskTab(tab, btn) {
+  document.querySelectorAll('.risk-tab-pane').forEach(p => p.classList.add('hidden'));
+  document.querySelectorAll('.risk-tab-btn').forEach(b => {
+    b.style.background = '';
+    b.style.color = 'var(--muted)';
+    b.style.boxShadow = '';
+  });
+  const pane = document.getElementById('risk-tab-' + tab);
+  pane.classList.remove('hidden');
+  btn.style.background = 'var(--surface)';
+  btn.style.color = 'var(--primary)';
+  btn.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+  animateBars(pane);
+}
 
 // ── Export ──
 function exportPage() {
