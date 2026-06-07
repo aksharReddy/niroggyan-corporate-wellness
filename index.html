@@ -350,6 +350,51 @@
         background: rgba(0, 0, 0, 0.72);
       }
 
+      /* ── KPI department tab strip ── */
+      .kpi-dept-tab {
+        padding: 6px 14px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #44474e;
+        border: none;
+        border-bottom: 2px solid transparent;
+        background: transparent;
+        cursor: pointer;
+        transition: color 0.2s, border-color 0.2s;
+        white-space: nowrap;
+        line-height: 1.5;
+      }
+      .kpi-dept-tab:hover { color: #0F2748; border-bottom-color: rgba(15,39,72,0.25); }
+      .kpi-dept-tab.active { color: #0F2748; border-bottom-color: #0F2748; }
+      .dark .kpi-dept-tab { color: #94a3b8; }
+      .dark .kpi-dept-tab:hover,
+      .dark .kpi-dept-tab.active { color: #c5d8f6; border-bottom-color: #c5d8f6; }
+
+      /* ── Clinical Health category chips ── */
+      .cat-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(196,198,207,0.8);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: #44474e;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .cat-chip:hover { border-color: #44474e; background: rgba(68,71,78,0.05); }
+      .cat-chip.active { background: rgba(15,39,72,0.07); border-color: #0F2748; color: #0F2748; font-weight: 800; }
+      .dark .cat-chip { color: #94a3b8; border-color: rgba(255,255,255,0.15); }
+      .dark .cat-chip:hover { color: #c5d8f6; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+      .dark .cat-chip.active { background: rgba(197,216,246,0.1); border-color: #c5d8f6; color: #c5d8f6; }
+
       /* ── NEW STYLES ── */
 
       /* Live data pulse */
@@ -675,62 +720,37 @@
           Here is the health snapshot of your workforce based on the latest
           wellness assessment.
         </p>
-        <div class="mt-8 flex flex-wrap items-center gap-4">
-          <select
-            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-40 transition-all"
-          >
-            <option>Location</option>
-          </select>
-          <select
-            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-40 transition-all"
-            id="deptFilterSelect"
-            onchange="handleMainFilters()"
-          >
-            <option value="All Departments">Department</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Sales">Sales</option>
-            <option value="Operations">Operations</option>
-          </select>
-          <select
-            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-32 transition-all"
-            id="genderFilterSelect"
-            onchange="handleMainFilters()"
-          >
-            <option value="All Genders">Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <select
-            class="bg-surface-container-lowest border-outline-variant rounded-lg font-label-md text-label-md px-4 py-2.5 focus:border-primary focus:ring-0 w-40 transition-all"
-            id="ageFilterSelect"
-            onchange="handleMainFilters()"
-          >
-            <option value="All Ages">Age Group</option>
-            <option value="&lt;35 Years">&lt;35 Years</option>
-            <option value="35-45 Years">35-45 Years</option>
-            <option value="&gt;45 Years">&gt;45 Years</option>
-          </select>
-          <!-- Apply Filters with badge -->
-          <div class="relative inline-block">
-            <button
-              class="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold hover:shadow-lg transition-all active:scale-[0.98]"
-              onclick="handleMainFilters()"
-            >
-              Apply Filters
-            </button>
-            <span
-              id="filter-badge"
-              class="hidden absolute -top-2 -right-2 min-w-[20px] h-5 bg-red-custom text-white text-[10px] font-bold rounded-full flex items-center justify-center px-1"
-              >0</span
-            >
-          </div>
-        </div>
       </section>
 
       <!-- KPI Section -->
-      <section
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-10"
-      >
+      <section class="mb-10" id="kpi-section">
+        <!-- KPI filter bar -->
+        <div class="flex flex-wrap items-center justify-between gap-y-2 gap-x-4 mb-5 pb-3 border-b border-outline-variant/40">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-on-surface-variant" style="font-size:15px;line-height:1">bar_chart_4_bars</span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.07em] text-on-surface-variant">Key Performance Indicators</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <select id="kpi-dept-select" onchange="filterKPI()" class="border border-outline-variant/70 rounded-full px-3 py-1.5 pr-8 text-[11px] font-semibold bg-surface-container-lowest text-on-surface-variant hover:border-outline focus:border-primary focus:outline-none cursor-pointer transition-colors">
+              <option value="All">All Departments</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Sales">Sales</option>
+              <option value="Operations">Operations</option>
+              <option value="Marketing">Marketing</option>
+            </select>
+            <select id="kpi-age-select" onchange="filterKPI()" class="border border-outline-variant/70 rounded-full px-3 py-1.5 pr-8 text-[11px] font-semibold bg-surface-container-lowest text-on-surface-variant hover:border-outline focus:border-primary focus:outline-none cursor-pointer transition-colors">
+              <option value="All Ages">All Ages</option>
+              <option value="&lt;35 Years">&lt;35 Years</option>
+              <option value="35-45 Years">35-45 Years</option>
+              <option value="&gt;45 Years">&gt;45 Years</option>
+            </select>
+            <div class="w-px h-4 bg-outline-variant/60"></div>
+            <button onclick="downloadKPIcsv()" title="Export KPI data as CSV" class="flex items-center gap-1 px-3 py-1.5 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container text-[11px] font-bold transition-all whitespace-nowrap">
+              <span class="material-symbols-outlined" style="font-size:14px;line-height:1">download</span>CSV
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
         <!-- KPI 1: Health Index — green glow -->
         <div
           id="tour-kpi-health"
@@ -748,6 +768,7 @@
               >
             </div>
             <span
+              id="kpi-health-grade"
               class="bg-green-custom text-white rounded-full text-[10px] font-bold px-3 py-1 uppercase"
               >A-Grade</span
             >
@@ -767,6 +788,7 @@
                 stroke-width="8"
               ></circle>
               <circle
+                id="kpi-health-gauge"
                 class="text-green-custom animate-gauge"
                 cx="50"
                 cy="50"
@@ -851,6 +873,7 @@
                   stroke-width="12"
                 ></circle>
                 <circle
+                  id="kpi-eval-gauge"
                   class="text-navy-custom animate-gauge"
                   cx="50"
                   cy="50"
@@ -897,6 +920,7 @@
                   class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden"
                 >
                   <div
+                    id="kpi-eval-bar-full"
                     class="h-full bg-navy-custom rounded-full"
                     style="width: 82%"
                   ></div>
@@ -918,6 +942,7 @@
                   class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden"
                 >
                   <div
+                    id="kpi-eval-bar-not"
                     class="h-full rounded-full"
                     style="width:18%;background:var(--border-strong);opacity:0.45;"
                   ></div>
@@ -929,7 +954,7 @@
             <span class="material-symbols-outlined text-sm font-bold"
               >north_east</span
             >
-            <span class="text-[10px] font-bold uppercase tabular-nums"
+            <span id="kpi-eval-gap" class="text-[10px] font-bold uppercase tabular-nums"
               >13% gap to participation target</span
             >
           </div>
@@ -966,6 +991,7 @@
                 stroke-width="8"
               ></path>
               <path
+                id="kpi-risk-gauge"
                 class="animate-gauge"
                 d="M 10,45 A 40,40 0 0 1 90,45"
                 fill="none"
@@ -986,7 +1012,7 @@
                 </lineargradient>
               </defs>
               <!-- Needle: design-system navy color -->
-              <g class="animate-needle" style="--target-rotate: -18deg">
+              <g id="kpi-risk-needle" class="animate-needle" style="--target-rotate: -18deg">
                 <line
                   stroke="#0F2748"
                   stroke-linecap="round"
@@ -1008,14 +1034,14 @@
             </div>
           </div>
           <div class="text-center mt-2">
-            <span class="font-title-lg text-primary font-semibold block"
+            <span id="kpi-risk-label" class="font-title-lg text-primary font-semibold block"
               >Metabolic Health</span
             >
             <span
               class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tight"
               >Highest workforce-wide risk factor</span
             >
-            <div class="flex justify-center gap-2 mt-4">
+            <div id="kpi-risk-breakdown" class="flex justify-center gap-2 mt-4">
               <div
                 class="flex-1 bg-red-custom/5 border border-red-custom/10 rounded-xl py-2 px-3 text-center"
               >
@@ -1099,6 +1125,7 @@
                   stroke-width="12"
                 ></circle>
                 <circle
+                  id="kpi-prio-gauge"
                   class="text-amber-custom animate-gauge"
                   cx="50"
                   cy="50"
@@ -1133,7 +1160,7 @@
                 ></div>
               </div>
             </div>
-            <h4 class="font-title-lg text-primary font-bold">Lipid Profile</h4>
+            <h4 id="kpi-prio-label" class="font-title-lg text-primary font-bold">Lipid Profile</h4>
             <p
               class="text-[10px] text-on-surface-variant text-center font-medium mb-4"
             >
@@ -1165,200 +1192,58 @@
             >
           </div>
         </div>
+        </div>
       </section>
 
       <!-- Department Health Ranking -->
       <section class="mb-stack-lg">
-        <div
-          id="tour-dept-ranking"
-          class="bg-surface-container-lowest p-8 rounded-[24px] border border-outline-variant ultra-soft-shadow"
-        >
-          <h2 class="font-headline-sm text-headline-sm text-primary mb-1">
-            Department Health Ranking
-          </h2>
-          <p class="font-body-md text-on-surface-variant mb-8">Composite wellness score — overall health grade per team.</p>
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"
-          >
+        <div id="tour-dept-ranking" class="bg-surface-container-lowest px-6 py-5 rounded-[24px] border border-outline-variant ultra-soft-shadow">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="font-headline-sm text-headline-sm text-primary">Department Health Ranking</h2>
+              <p class="text-xs text-on-surface-variant mt-0.5">Composite wellness score · dashed line = org benchmark (75)</p>
+            </div>
+          </div>
+          <div class="space-y-3">
             <!-- #1 Marketing -->
-            <div
-              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
-            >
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-base leading-none">🏆</span>
-                  <span class="font-title-lg text-primary">Marketing</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span
-                    class="bg-green-custom/15 text-green-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
-                    >#1</span
-                  >
-                  <span
-                    class="font-display-sm text-green-custom font-bold tabular-nums"
-                    >84</span
-                  >
-                </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px] font-bold text-on-surface-variant w-5 flex-shrink-0">#1</span>
+              <span class="text-[13px] font-semibold text-primary w-28 flex-shrink-0 flex items-center gap-1.5"><span class="text-sm">🏆</span>Marketing</span>
+              <div class="flex-1 relative h-2 bg-surface-container-high rounded-full overflow-visible">
+                <div class="h-full bg-green-custom w-[84%] rounded-full"></div>
+                <span class="absolute top-1/2 -translate-y-1/2 w-[2px] h-3.5 rounded-sm" title="Benchmark: 75" style="left:75%;background:repeating-linear-gradient(to bottom,rgba(68,71,78,0.6) 0,rgba(68,71,78,0.6) 2px,transparent 2px,transparent 4px)"></span>
               </div>
-              <div
-                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
-              >
-                <div
-                  class="h-full bg-green-custom w-[84%] rounded-full shadow-[0_0_8px_rgba(16,185,129,0.2)]"
-                ></div>
-                <span
-                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-                  title="Org. Benchmark: 75%"
-                  style="
-                    left: 75%;
-                    width: 2px;
-                    height: 14px;
-                    background: repeating-linear-gradient(
-                      to bottom,
-                      rgba(68, 71, 78, 0.7) 0px,
-                      rgba(68, 71, 78, 0.7) 3px,
-                      transparent 3px,
-                      transparent 6px
-                    );
-                    border-radius: 1px;
-                  "
-                ></span>
-              </div>
+              <span class="text-[13px] font-extrabold text-green-custom tabular-nums w-7 text-right flex-shrink-0">84</span>
             </div>
-
             <!-- #2 Engineering -->
-            <div
-              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
-            >
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <span class="font-title-lg text-primary">Engineering</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span
-                    class="bg-navy-custom/10 text-navy-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
-                    >#2</span
-                  >
-                  <span
-                    class="font-display-sm text-green-custom font-bold tabular-nums"
-                    >80</span
-                  >
-                </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px] font-bold text-on-surface-variant w-5 flex-shrink-0">#2</span>
+              <span class="text-[13px] font-semibold text-primary w-28 flex-shrink-0">Engineering</span>
+              <div class="flex-1 relative h-2 bg-surface-container-high rounded-full overflow-visible">
+                <div class="h-full bg-green-custom w-[80%] rounded-full"></div>
+                <span class="absolute top-1/2 -translate-y-1/2 w-[2px] h-3.5 rounded-sm" style="left:75%;background:repeating-linear-gradient(to bottom,rgba(68,71,78,0.6) 0,rgba(68,71,78,0.6) 2px,transparent 2px,transparent 4px)"></span>
               </div>
-              <div
-                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
-              >
-                <div
-                  class="h-full bg-green-custom w-[80%] rounded-full shadow-[0_0_8px_rgba(16,185,129,0.2)]"
-                ></div>
-                <span
-                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-                  title="Org. Benchmark: 75%"
-                  style="
-                    left: 75%;
-                    width: 2px;
-                    height: 14px;
-                    background: repeating-linear-gradient(
-                      to bottom,
-                      rgba(68, 71, 78, 0.7) 0px,
-                      rgba(68, 71, 78, 0.7) 3px,
-                      transparent 3px,
-                      transparent 6px
-                    );
-                    border-radius: 1px;
-                  "
-                ></span>
-              </div>
+              <span class="text-[13px] font-extrabold text-green-custom tabular-nums w-7 text-right flex-shrink-0">80</span>
             </div>
-
             <!-- #3 Sales -->
-            <div
-              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
-            >
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <span class="font-title-lg text-primary">Sales</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span
-                    class="bg-purple-custom/10 text-purple-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
-                    >#3</span
-                  >
-                  <span
-                    class="font-display-sm text-purple-custom font-bold tabular-nums"
-                    >76</span
-                  >
-                </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px] font-bold text-on-surface-variant w-5 flex-shrink-0">#3</span>
+              <span class="text-[13px] font-semibold text-primary w-28 flex-shrink-0">Sales</span>
+              <div class="flex-1 relative h-2 bg-surface-container-high rounded-full overflow-visible">
+                <div class="h-full bg-purple-custom w-[76%] rounded-full"></div>
+                <span class="absolute top-1/2 -translate-y-1/2 w-[2px] h-3.5 rounded-sm" style="left:75%;background:repeating-linear-gradient(to bottom,rgba(68,71,78,0.6) 0,rgba(68,71,78,0.6) 2px,transparent 2px,transparent 4px)"></span>
               </div>
-              <div
-                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
-              >
-                <div
-                  class="h-full bg-purple-custom w-[76%] rounded-full shadow-[0_0_8px_rgba(124,58,237,0.2)]"
-                ></div>
-                <span
-                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-                  title="Org. Benchmark: 75%"
-                  style="
-                    left: 75%;
-                    width: 2px;
-                    height: 14px;
-                    background: repeating-linear-gradient(
-                      to bottom,
-                      rgba(68, 71, 78, 0.7) 0px,
-                      rgba(68, 71, 78, 0.7) 3px,
-                      transparent 3px,
-                      transparent 6px
-                    );
-                    border-radius: 1px;
-                  "
-                ></span>
-              </div>
+              <span class="text-[13px] font-extrabold text-purple-custom tabular-nums w-7 text-right flex-shrink-0">76</span>
             </div>
-
             <!-- #4 Operations -->
-            <div
-              class="p-6 bg-surface-container rounded-2xl hover:bg-surface-container-high transition-all"
-            >
-              <div class="flex justify-between items-center mb-1">
-                <div class="flex items-center gap-2">
-                  <span class="font-title-lg text-primary">Operations</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span
-                    class="bg-red-custom/10 text-red-custom text-[10px] font-bold px-2 py-0.5 rounded-full"
-                    >#4</span
-                  >
-                  <span
-                    class="font-display-sm text-red-custom font-bold tabular-nums"
-                    >68</span
-                  >
-                </div>
+            <div class="flex items-center gap-3">
+              <span class="text-[11px] font-bold text-on-surface-variant w-5 flex-shrink-0">#4</span>
+              <span class="text-[13px] font-semibold text-primary w-28 flex-shrink-0">Operations</span>
+              <div class="flex-1 relative h-2 bg-surface-container-high rounded-full overflow-visible">
+                <div class="h-full bg-red-custom w-[68%] rounded-full"></div>
+                <span class="absolute top-1/2 -translate-y-1/2 w-[2px] h-3.5 rounded-sm" style="left:75%;background:repeating-linear-gradient(to bottom,rgba(68,71,78,0.6) 0,rgba(68,71,78,0.6) 2px,transparent 2px,transparent 4px)"></span>
               </div>
-              <div
-                class="h-2 w-full bg-surface-container-high rounded-full relative mt-4"
-              >
-                <div
-                  class="h-full bg-red-custom w-[68%] rounded-full shadow-[0_0_8px_rgba(239,68,68,0.2)]"
-                ></div>
-                <span
-                  class="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-                  title="Org. Benchmark: 75%"
-                  style="
-                    left: 75%;
-                    width: 2px;
-                    height: 14px;
-                    background: repeating-linear-gradient(
-                      to bottom,
-                      rgba(68, 71, 78, 0.7) 0px,
-                      rgba(68, 71, 78, 0.7) 3px,
-                      transparent 3px,
-                      transparent 6px
-                    );
-                    border-radius: 1px;
-                  "
-                ></span>
-              </div>
+              <span class="text-[13px] font-extrabold text-red-custom tabular-nums w-7 text-right flex-shrink-0">68</span>
             </div>
           </div>
         </div>
@@ -1438,11 +1323,72 @@
                 interventions.
               </p>
             </div>
+            <button onclick="downloadClinicalCSV()" class="flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container text-[12px] font-bold transition-all">
+              <span class="material-symbols-outlined" style="font-size:16px;line-height:1">download</span>
+              Download CSV
+            </button>
           </div>
           <div
-            class="flex flex-wrap gap-2 mb-6 min-h-[32px]"
+            class="flex flex-wrap gap-2 mb-4 min-h-[32px]"
             id="activeFilterRow"
           ></div>
+          <!-- Clinical Health filters -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 mb-5 pb-4 border-b border-outline-variant/25">
+            <div>
+              <span class="block text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mb-1.5">Location</span>
+              <select id="ch-loc-select" onchange="handleCHFilters()" class="w-full border-0 border-b border-outline-variant bg-transparent text-on-surface text-[13px] rounded-none px-0 py-1 pr-6 focus:border-primary focus:outline-none cursor-pointer transition-colors">
+                <option value="All Locations">All</option>
+                <option value="Surat">Surat</option>
+                <option value="Vadodara">Vadodara</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Pune">Pune</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mb-1.5">Department</span>
+              <select id="ch-dept-select" onchange="handleCHFilters()" class="w-full border-0 border-b border-outline-variant bg-transparent text-on-surface text-[13px] rounded-none px-0 py-1 pr-6 focus:border-primary focus:outline-none cursor-pointer transition-colors">
+                <option value="All Departments">All</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Sales">Sales</option>
+                <option value="Operations">Operations</option>
+                <option value="Marketing">Marketing</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mb-1.5">Gender</span>
+              <select id="ch-gender-select" onchange="handleCHFilters()" class="w-full border-0 border-b border-outline-variant bg-transparent text-on-surface text-[13px] rounded-none px-0 py-1 pr-6 focus:border-primary focus:outline-none cursor-pointer transition-colors">
+                <option value="All Genders">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div>
+              <span class="block text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mb-1.5">Age Group</span>
+              <select id="ch-age-select" onchange="handleCHFilters()" class="w-full border-0 border-b border-outline-variant bg-transparent text-on-surface text-[13px] rounded-none px-0 py-1 pr-6 focus:border-primary focus:outline-none cursor-pointer transition-colors">
+                <option value="All Ages">All</option>
+                <option value="&lt;35 Years">&lt;35 Years</option>
+                <option value="35-45 Years">35-45 Years</option>
+                <option value="&gt;45 Years">&gt;45 Years</option>
+              </select>
+            </div>
+          </div>
+          <!-- Lifestyle / dietary risk lens -->
+          <div class="flex flex-wrap items-center gap-2 mb-5">
+            <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mr-1">Risk type:</span>
+            <button class="cat-chip active" data-cat="all" onclick="setCategoryFilter('all')">All</button>
+            <button class="cat-chip" data-cat="deficiency" onclick="setCategoryFilter('deficiency')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">nutrition</span>Nutritional
+            </button>
+            <button class="cat-chip" data-cat="metabolic" onclick="setCategoryFilter('metabolic')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">restaurant</span>Metabolic
+            </button>
+            <button class="cat-chip" data-cat="hematology" onclick="setCategoryFilter('hematology')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">bloodtype</span>Blood
+            </button>
+            <button class="cat-chip" data-cat="organ" onclick="setCategoryFilter('organ')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">health_and_safety</span>Organ
+            </button>
+          </div>
           <div
             class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 pb-4 border-b border-outline-variant/30"
           >
@@ -1508,9 +1454,9 @@
           <div class="flex flex-col gap-gutter flex-grow">
             <!-- Low Risk Card -->
             <div
-              class="risk-card-low flex-1 bg-[#F0FDF4] px-8 py-8 rounded-[24px] border-t-[8px] border-green-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
+              class="risk-card-low flex-1 bg-[#F0FDF4] px-5 py-5 rounded-[24px] border-t-[6px] border-green-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
             >
-              <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-green-custom text-xl"
@@ -1524,7 +1470,7 @@
                 </div>
                 <div class="text-right">
                   <span
-                    class="text-[36px] font-extrabold text-primary leading-none block tabular-nums"
+                    class="text-2xl font-extrabold text-primary leading-none block tabular-nums"
                     >62%</span
                   >
                   <p class="text-label-sm text-on-surface-variant font-medium">
@@ -1537,7 +1483,7 @@
                   </p>
                 </div>
               </div>
-              <div class="space-y-4">
+              <div class="space-y-3">
                 <div
                   class="flex justify-between items-center pb-3 border-b border-green-custom/10"
                 >
@@ -1574,9 +1520,9 @@
 
             <!-- Monitoring Card -->
             <div
-              class="risk-card-medium flex-1 bg-[#FFFBEB] px-8 py-8 rounded-[24px] border-t-[8px] border-amber-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
+              class="risk-card-medium flex-1 bg-[#FFFBEB] px-5 py-5 rounded-[24px] border-t-[6px] border-amber-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
             >
-              <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-amber-custom text-xl"
@@ -1590,7 +1536,7 @@
                 </div>
                 <div class="text-right">
                   <span
-                    class="text-[36px] font-extrabold text-primary leading-none block tabular-nums"
+                    class="text-2xl font-extrabold text-primary leading-none block tabular-nums"
                     >26%</span
                   >
                   <p class="text-label-sm text-on-surface-variant font-medium">
@@ -1603,7 +1549,7 @@
                   </p>
                 </div>
               </div>
-              <div class="space-y-4">
+              <div class="space-y-3">
                 <div
                   class="flex justify-between items-center pb-3 border-b border-amber-custom/10"
                 >
@@ -1640,9 +1586,9 @@
 
             <!-- High Risk Card -->
             <div
-              class="risk-card-high flex-1 bg-[#FEF2F2] px-8 py-8 rounded-[24px] border-t-[8px] border-red-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
+              class="risk-card-high flex-1 bg-[#FEF2F2] px-5 py-5 rounded-[24px] border-t-[6px] border-red-custom border border-outline-variant/30 ultra-soft-shadow hover:translate-x-1 transition-all flex flex-col justify-center"
             >
-              <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2">
                   <span
                     class="material-symbols-outlined text-red-custom text-xl"
@@ -1656,7 +1602,7 @@
                 </div>
                 <div class="text-right">
                   <span
-                    class="text-[36px] font-extrabold text-primary leading-none block tabular-nums"
+                    class="text-2xl font-extrabold text-primary leading-none block tabular-nums"
                     >12%</span
                   >
                   <p class="text-label-sm text-on-surface-variant font-medium">
@@ -1669,7 +1615,7 @@
                   </p>
                 </div>
               </div>
-              <div class="space-y-4">
+              <div class="space-y-3">
                 <div
                   class="flex justify-between items-center pb-3 border-b border-red-custom/10"
                 >
@@ -1705,7 +1651,7 @@
         </div>
       </section>
 
-      <footer class="mt-stack-lg pt-12 border-t border-outline-variant pb-20">
+      <footer class="mt-stack-lg pt-8 border-t border-outline-variant pb-12">
         <div
           class="flex flex-col md:flex-row justify-between items-center gap-6"
         >
@@ -1801,77 +1747,39 @@
         requestAnimationFrame(tick);
       }
 
-      // ── Filter count badge ─────────────────────────────────────────────────
-      function updateFilterBadge() {
-        const dept = document.getElementById("deptFilterSelect").value;
-        const gender = document.getElementById("genderFilterSelect").value;
-        const age = document.getElementById("ageFilterSelect").value;
-        let count = 0;
-        if (dept !== "All Departments") count++;
-        if (gender !== "All Genders") count++;
-        if (age !== "All Ages") count++;
-        const badge = document.getElementById("filter-badge");
-        badge.textContent = count;
-        count > 0
-          ? badge.classList.remove("hidden")
-          : badge.classList.add("hidden");
+      // ── Clinical Health section filters ───────────────────────────────────
+      function handleCHFilters() {
+        const loc    = document.getElementById("ch-loc-select").value;
+        const dept   = document.getElementById("ch-dept-select").value;
+        const gender = document.getElementById("ch-gender-select").value;
+        const age    = document.getElementById("ch-age-select").value;
+
+        const pills = [];
+        if (loc    !== "All Locations")   pills.push({ label: loc,    type: "loc"    });
+        if (dept   !== "All Departments") pills.push({ label: dept,   type: "dept"   });
+        if (gender !== "All Genders")     pills.push({ label: gender, type: "gender" });
+        if (age    !== "All Ages")        pills.push({ label: age,    type: "age"    });
+
+        document.getElementById("activeFilterRow").innerHTML = pills.map((p) => `
+          <div class="flex items-center gap-1.5 px-3 py-1 bg-navy-custom/5 border border-navy-custom/20 rounded-full text-[11px] font-bold text-navy-custom fade-update">
+            ${p.label}
+            <button onclick="removeCHFilter('${p.type}')" class="flex items-center justify-center hover:bg-navy-custom/10 rounded-full p-0.5">
+              <span class="material-symbols-outlined text-[14px]">close</span>
+            </button>
+          </div>`).join("");
       }
 
-      // ── Filters ────────────────────────────────────────────────────────────
-      function handleMainFilters() {
-        updateFilterBadge();
-        const dept = document.getElementById("deptFilterSelect").value;
-        const gender = document.getElementById("genderFilterSelect").value;
-        const age = document.getElementById("ageFilterSelect").value;
-
-        const container = document.getElementById("activeFilterRow");
-        let pills = [];
-        if (dept !== "All Departments")
-          pills.push({ label: dept, type: "dept" });
-        if (gender !== "All Genders")
-          pills.push({ label: gender, type: "gender" });
-        if (age !== "All Ages") pills.push({ label: age, type: "age" });
-
-        container.innerHTML = pills
-          .map(
-            (p) => `
-            <div class="flex items-center gap-1.5 px-3 py-1 bg-navy-custom/5 border border-navy-custom/20 rounded-full text-[11px] font-bold text-navy-custom fade-update">
-                ${p.label}
-                <button onclick="removeFilter('${p.type}')" class="flex items-center justify-center hover:bg-navy-custom/10 rounded-full p-0.5">
-                    <span class="material-symbols-outlined text-[14px]">close</span>
-                </button>
-            </div>
-        `,
-          )
-          .join("");
-
-        const priorityText = document.getElementById("priority-text");
-        if (
-          dept === "Engineering" &&
-          gender === "Male" &&
-          age === "<35 Years"
-        ) {
-          priorityText.innerText = "Vitamin D Optimization";
-        } else {
-          priorityText.innerText = "Lipid Profile Optimization";
-        }
-      }
-
-      function removeFilter(type) {
-        const selectId =
-          type === "dept"
-            ? "deptFilterSelect"
-            : type === "gender"
-              ? "genderFilterSelect"
-              : "ageFilterSelect";
-        document.getElementById(selectId).selectedIndex = 0;
-        handleMainFilters();
+      function removeCHFilter(type) {
+        const map = { loc: "ch-loc-select", dept: "ch-dept-select", gender: "ch-gender-select", age: "ch-age-select" };
+        document.getElementById(map[type]).selectedIndex = 0;
+        handleCHFilters();
       }
 
       // ── Diagnostic profiles with AI interventions ─────────────────────────
       const diagnosticProfiles = [
         {
           id: "vitd",
+          category: "deficiency",
           name: "Vitamin D",
           desc: "Essential for bone health and immune function.",
           pct: 42,
@@ -1883,6 +1791,7 @@
         },
         {
           id: "lipid",
+          category: "metabolic",
           name: "Lipid Profile",
           desc: "Measures cholesterol and triglycerides in blood.",
           pct: 28,
@@ -1894,6 +1803,7 @@
         },
         {
           id: "cbc",
+          category: "hematology",
           name: "Blood Counts (CBC)",
           desc: "Evaluates overall health and detects anemia/infection.",
           pct: 21,
@@ -1905,6 +1815,7 @@
         },
         {
           id: "hba1c",
+          category: "metabolic",
           name: "Diabetes Monitoring (HbA1c)",
           desc: "Measures average blood sugar levels over 3 months.",
           pct: 12,
@@ -1916,6 +1827,7 @@
         },
         {
           id: "vitb12",
+          category: "deficiency",
           name: "Vitamin B12",
           desc: "Crucial for nerve tissue and red blood cell production.",
           pct: 15,
@@ -1927,6 +1839,7 @@
         },
         {
           id: "kidney",
+          category: "organ",
           name: "Kidney Function",
           desc: "Evaluates organ function and mineral balance.",
           pct: 3,
@@ -1938,6 +1851,7 @@
         },
         {
           id: "thyroid",
+          category: "organ",
           name: "Thyroid Profile",
           desc: "Screening for metabolic and hormonal imbalances.",
           pct: 4,
@@ -1949,6 +1863,7 @@
         },
         {
           id: "liver",
+          category: "organ",
           name: "Liver Function",
           desc: "Tests for enzymes and proteins to assess liver health.",
           pct: 5,
@@ -1961,14 +1876,25 @@
       ];
 
       let currentStatusFilter = "all";
+      let currentCategoryFilter = "all";
       let openProfileId = null;
+
+      function setCategoryFilter(cat) {
+        currentCategoryFilter = cat;
+        document.querySelectorAll(".cat-chip").forEach((c) =>
+          c.classList.toggle("active", c.dataset.cat === cat)
+        );
+        openProfileId = null;
+        renderProfiles();
+      }
 
       function renderProfiles() {
         const container = document.getElementById("profile-list");
         if (!container) return;
         const filtered = diagnosticProfiles.filter(
           (p) =>
-            currentStatusFilter === "all" || p.status === currentStatusFilter,
+            (currentStatusFilter === "all" || p.status === currentStatusFilter) &&
+            (currentCategoryFilter === "all" || p.category === currentCategoryFilter),
         );
 
         container.innerHTML = filtered
@@ -2047,6 +1973,91 @@
           }
         });
         renderProfiles();
+      }
+
+      // ── KPI department filter ─────────────────────────────────────────────
+      const kpiDeptData = {
+        "All":         { healthIdx: 78, grade: "A-Grade", gradeColor: "green", evalPct: 82, evalTotal: 449, evalNot: 99, evalGap: "13% gap to participation target", riskPct: 40, riskLabel: "Metabolic Health",  prioLabel: "Lipid Profile",   prioPct: 28, riskBreakdown: [{pct:"18%",dept:"OPS",c:"red"},{pct:"12%",dept:"SALES",c:"red"},{pct:"10%",dept:"ENG",c:"amber"}] },
+        "Engineering": { healthIdx: 80, grade: "A-Grade", gradeColor: "green", evalPct: 85, evalTotal: 95,  evalNot: 17, evalGap: "15% gap to participation target", riskPct: 65, riskLabel: "Vitamin D",          prioLabel: "Vitamin D",       prioPct: 65, riskBreakdown: [{pct:"72%",dept:">45",c:"red"},{pct:"65%",dept:"MALE",c:"red"},{pct:"58%",dept:"FEM",c:"amber"}] },
+        "Sales":       { healthIdx: 76, grade: "A-Grade", gradeColor: "green", evalPct: 79, evalTotal: 110, evalNot: 29, evalGap: "21% gap to participation target", riskPct: 32, riskLabel: "Lipid Profile",      prioLabel: "Lipid Profile",   prioPct: 32, riskBreakdown: [{pct:"38%",dept:">45",c:"red"},{pct:"30%",dept:"MALE",c:"red"},{pct:"22%",dept:"FEM",c:"amber"}] },
+        "Operations":  { healthIdx: 68, grade: "B-Grade", gradeColor: "amber", evalPct: 76, evalTotal: 85,  evalNot: 27, evalGap: "24% gap to participation target", riskPct: 48, riskLabel: "Cardiovascular",    prioLabel: "Cardiovascular",  prioPct: 23, riskBreakdown: [{pct:"48%",dept:"MALE",c:"red"},{pct:"38%",dept:">45",c:"red"},{pct:"25%",dept:"FEM",c:"amber"}] },
+        "Marketing":   { healthIdx: 84, grade: "A-Grade", gradeColor: "green", evalPct: 90, evalTotal: 55,  evalNot: 6,  evalGap: "10% gap to participation target", riskPct: 22, riskLabel: "Blood Counts",       prioLabel: "Bone Health",     prioPct: 18, riskBreakdown: [{pct:"22%",dept:"FEM",c:"amber"},{pct:"18%",dept:">45",c:"amber"},{pct:"12%",dept:"MALE",c:"amber"}] },
+      };
+
+      function filterKPI() {
+        const dept = document.getElementById("kpi-dept-select")?.value || "All";
+        const age  = document.getElementById("kpi-age-select")?.value || "All Ages";
+        const d = kpiDeptData[dept] || kpiDeptData["All"];
+
+        // Health Index
+        animateCountUp(document.getElementById("kpi-health-num"), d.healthIdx, "", 700);
+        const hg = document.getElementById("kpi-health-gauge");
+        if (hg) { hg.style.animation = "none"; hg.style.transition = "stroke-dashoffset 0.7s cubic-bezier(0.65,0,0.35,1)"; requestAnimationFrame(() => { hg.style.strokeDashoffset = 251.2 - (251.2 * d.healthIdx / 100); }); }
+        const hBadge = document.getElementById("kpi-health-grade");
+        if (hBadge) { hBadge.textContent = d.grade; hBadge.className = `bg-${d.gradeColor}-custom text-white rounded-full text-[10px] font-bold px-3 py-1 uppercase`; }
+
+        // Evaluated
+        animateCountUp(document.getElementById("kpi-eval-pct"), d.evalPct, "%", 700);
+        animateCountUp(document.getElementById("kpi-eval-total"), d.evalTotal, "", 700);
+        animateCountUp(document.getElementById("kpi-eval-not"), d.evalNot, "", 700);
+        const eg = document.getElementById("kpi-eval-gauge");
+        if (eg) { eg.style.animation = "none"; eg.style.transition = "stroke-dashoffset 0.7s cubic-bezier(0.65,0,0.35,1)"; requestAnimationFrame(() => { eg.style.strokeDashoffset = 263.8 - (263.8 * d.evalPct / 100); }); }
+        const eb = document.getElementById("kpi-eval-bar-full");
+        if (eb) { eb.style.transition = "width 0.7s ease"; eb.style.width = d.evalPct + "%"; }
+        const en = document.getElementById("kpi-eval-bar-not");
+        if (en) { en.style.transition = "width 0.7s ease"; en.style.width = (100 - d.evalPct) + "%"; }
+        const egap = document.getElementById("kpi-eval-gap");
+        if (egap) egap.textContent = d.evalGap;
+
+        // Largest Risk
+        animateCountUp(document.getElementById("kpi-risk-num"), d.riskPct, "%", 700);
+        const rg = document.getElementById("kpi-risk-gauge");
+        if (rg) { rg.style.animation = "none"; rg.style.transition = "stroke-dashoffset 0.7s cubic-bezier(0.65,0,0.35,1)"; requestAnimationFrame(() => { rg.style.strokeDashoffset = 125.6 - (125.6 * d.riskPct / 100); }); }
+        const rn = document.getElementById("kpi-risk-needle");
+        if (rn) { const angle = -90 + (d.riskPct / 100 * 180); rn.style.animation = "none"; rn.style.transformOrigin = "50% 90%"; rn.style.transition = "transform 0.7s cubic-bezier(0.65,0,0.35,1)"; requestAnimationFrame(() => { rn.style.transform = `rotate(${angle}deg)`; }); }
+        const rl = document.getElementById("kpi-risk-label");
+        if (rl) rl.textContent = d.riskLabel;
+        const rb = document.getElementById("kpi-risk-breakdown");
+        if (rb) rb.innerHTML = d.riskBreakdown.map((b) => `<div class="flex-1 bg-${b.c}-custom/5 border border-${b.c}-custom/10 rounded-xl py-2 px-3 text-center"><div class="text-${b.c}-custom font-extrabold text-sm tabular-nums">${b.pct}</div><div class="text-[9px] text-on-surface-variant font-bold uppercase tracking-wider">${b.dept}</div></div>`).join("");
+
+        // Priority Action — special case for Eng + <35
+        const prioPct   = (dept === "Engineering" && age === "<35 Years") ? 65 : d.prioPct;
+        const prioLabel = (dept === "Engineering" && age === "<35 Years") ? "Vitamin D" : d.prioLabel;
+        animateCountUp(document.getElementById("kpi-prio-num"), prioPct, "%", 700);
+        const pg = document.getElementById("kpi-prio-gauge");
+        if (pg) { pg.style.animation = "none"; pg.style.transition = "stroke-dashoffset 0.7s cubic-bezier(0.65,0,0.35,1)"; requestAnimationFrame(() => { pg.style.strokeDashoffset = 251.2 - (251.2 * prioPct / 100); }); }
+        const pl = document.getElementById("kpi-prio-label");
+        if (pl) pl.textContent = prioLabel;
+      }
+
+      function downloadKPIcsv() {
+        const dept2 = document.getElementById("kpi-dept-select")?.value || "All";
+        const d2 = kpiDeptData[dept2] || kpiDeptData["All"];
+        const rows = [
+          ["Metric", "Value", "Department", "Age Group"],
+          ["Health Index",       d2.healthIdx,                          dept2, document.getElementById("kpi-age-select")?.value],
+          ["Participation Rate", d2.evalPct + "%",                         dept2, ""],
+          ["Total Tested",       d2.evalTotal,                           dept2, ""],
+          ["Not Tested",         d2.evalNot,                             dept2, ""],
+          ["Largest Risk",       d2.riskLabel + " — " + d2.riskPct + "%", dept2, ""],
+          ["Priority Action",    d2.prioLabel + " — " + d2.prioPct + "%", dept2, ""],
+        ];
+        const csv = rows.map((r) => r.map((v) => '"' + String(v || "").replace(/"/g, '""') + '"').join(",")).join("\n");
+        const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(new Blob([csv], { type: "text/csv" })), download: "kpi_" + dept2.toLowerCase().replace(/\s+/g, "_") + ".csv" });
+        a.click();
+      }
+
+      function downloadClinicalCSV() {
+        const visible = diagnosticProfiles.filter(
+          (p) =>
+            (currentStatusFilter === "all" || p.status === currentStatusFilter) &&
+            (currentCategoryFilter === "all" || p.category === currentCategoryFilter)
+        );
+        const rows = [["Parameter", "Category", "Status", "Abnormal %", "Description", "AI Recommendation"]];
+        visible.forEach((p) => rows.push([p.name, p.category, p.status, p.pct + "%", p.desc, p.intervention]));
+        const csv = rows.map((r) => r.map((v) => '"' + String(v).replace(/"/g, '""') + '"').join(",")).join("\n");
+        const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(new Blob([csv], { type: "text/csv" })), download: "clinical_health_profiles.csv" });
+        a.click();
       }
 
       // ── Init ───────────────────────────────────────────────────────────────
