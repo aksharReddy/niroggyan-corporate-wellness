@@ -325,7 +325,7 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .cluster-item:hover {
-    transform: translateY(-3px);
+    transform: translateX(4px);
     box-shadow: 0 4px 16px -4px rgba(0,0,0,0.1);
     border-color: rgba(113,42,226,0.3) !important;
   }
@@ -921,7 +921,7 @@
   </section>
 
   <!-- ─── INTERVENTION SIMULATOR + AI CLUSTERS ─── -->
-  <div class="grid lg:grid-cols-2 gap-6 anim-fade-up delay-300">
+  <div class="grid lg:grid-cols-2 gap-6 anim-fade-up delay-300 items-start">
 
     <!-- Intervention Simulator -->
     <div class="section-module relative overflow-hidden">
@@ -1010,50 +1010,50 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div class="space-y-3">
         <!-- Cluster 1 -->
-        <div class="cluster-item p-3.5 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
-          <div class="flex items-center justify-between mb-2.5">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
-              <span class="material-symbols-outlined text-[16px]">nightlight</span>
-            </div>
-            <div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-error/10">
-              <span class="material-symbols-outlined text-error text-[12px]">trending_up</span>
-              <span class="text-[9px] font-bold text-error uppercase">Rising</span>
-            </div>
+        <div class="cluster-item flex items-center gap-3 p-3.5 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[18px]">nightlight</span>
           </div>
-          <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">The "Red-Eye" Hub</p>
-          <p class="text-[11px] leading-relaxed" style="color:var(--muted);">Operations teams showing high Vitamin D deficiency + elevated fasting glucose.</p>
+          <div class="flex-grow min-w-0">
+            <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">The "Red-Eye" Hub</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Operations teams showing high Vitamin D deficiency + elevated fasting glucose.</p>
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error/10">
+            <span class="material-symbols-outlined text-error text-[14px]">trending_up</span>
+            <span class="text-[10px] font-bold text-error uppercase">Rising</span>
+          </div>
         </div>
 
         <!-- Cluster 2 -->
-        <div class="cluster-item p-3.5 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
-          <div class="flex items-center justify-between mb-2.5">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
-              <span class="material-symbols-outlined text-[16px]">chair</span>
-            </div>
-            <div class="flex items-center gap-1 px-2 py-0.5 rounded-full" style="background:rgba(113,42,226,0.1);">
-              <span class="material-symbols-outlined text-secondary text-[12px]">insights</span>
-              <span class="text-[9px] font-bold text-secondary uppercase">Watch</span>
-            </div>
+        <div class="cluster-item flex items-center gap-3 p-3.5 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[18px]">chair</span>
           </div>
-          <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Sedentary Spikes</p>
-          <p class="text-[11px] leading-relaxed" style="color:var(--muted);">Legal dept displaying rising triglycerides despite normal BMI values.</p>
+          <div class="flex-grow min-w-0">
+            <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Sedentary Spikes</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Legal dept displaying rising triglycerides despite normal BMI values.</p>
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full" style="background:rgba(113,42,226,0.1);">
+            <span class="material-symbols-outlined text-secondary text-[14px]">insights</span>
+            <span class="text-[10px] font-bold text-secondary uppercase">Watch</span>
+          </div>
         </div>
 
         <!-- Cluster 3 -->
-        <div class="cluster-item p-3.5 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
-          <div class="flex items-center justify-between mb-2.5">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
-              <span class="material-symbols-outlined text-[16px]">restaurant</span>
-            </div>
-            <div class="flex items-center gap-1 px-2 py-0.5 rounded-full" style="background:rgba(0,162,112,0.1);">
-              <span class="material-symbols-outlined text-on-tertiary-container text-[12px]">check_circle</span>
-              <span class="text-[9px] font-bold text-on-tertiary-container uppercase">Stable</span>
-            </div>
+        <div class="cluster-item flex items-center gap-3 p-3.5 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[18px]">restaurant</span>
           </div>
-          <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Nutrient Gaps</p>
-          <p class="text-[11px] leading-relaxed" style="color:var(--muted);">Gen-Z workforce subset lacks B12; linked to diet-choice trends.</p>
+          <div class="flex-grow min-w-0">
+            <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Nutrient Gaps</p>
+            <p class="text-[12px] leading-relaxed" style="color:var(--muted);">Gen-Z workforce subset lacks B12; linked to diet-choice trends.</p>
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full" style="background:rgba(0,162,112,0.1);">
+            <span class="material-symbols-outlined text-on-tertiary-container text-[14px]">check_circle</span>
+            <span class="text-[10px] font-bold text-on-tertiary-container uppercase">Stable</span>
+          </div>
         </div>
       </div>
     </div>
