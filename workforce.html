@@ -430,10 +430,10 @@ html.dark .matrix-quad{border-color:var(--border);}
   </section>
 
   <!-- ─── SECTION 3: Priority Interventions + Bubble Chart ─── -->
-  <div class="grid lg:grid-cols-3 gap-6 anim-fade-up items-start">
+  <div class="grid lg:grid-cols-3 gap-6 anim-fade-up items-stretch">
 
     <!-- Priority Interventions -->
-    <div class="section-module flex flex-col gap-5">
+    <div class="section-module flex flex-col gap-5 h-full">
       <div class="flex items-center gap-3 pb-5" style="border-bottom:1px solid var(--border);">
         <div class="w-1 h-10 rounded-full bg-error flex-shrink-0"></div>
         <div>
@@ -1083,7 +1083,7 @@ html.dark .matrix-quad{border-color:var(--border);}
         <!-- 4 quadrants -->
         <div class="grid grid-cols-2 grid-rows-2 gap-0 border rounded-2xl overflow-hidden" style="border-color:var(--border);height:220px;">
           <!-- Q1: High Impact, Low Effort → Quick Wins (top-left) -->
-          <div class="matrix-quad p-4 border-r border-b relative" style="border-color:var(--border);background:rgba(16,185,129,.04);">
+          <div class="matrix-quad p-4 border-r border-b relative flex flex-col justify-center" style="border-color:var(--border);background:rgba(16,185,129,.04);">
             <div class="text-[9px] font-bold uppercase tracking-[.15em] text-green-custom mb-3">⚡ Quick Wins</div>
             <div class="space-y-2">
               <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(16,185,129,.3);color:var(--text);">
@@ -1097,7 +1097,7 @@ html.dark .matrix-quad{border-color:var(--border);}
             </div>
           </div>
           <!-- Q2: High Impact, High Effort → Strategic Bets (top-right) -->
-          <div class="matrix-quad p-4 border-b relative" style="border-color:var(--border);background:rgba(59,130,246,.04);">
+          <div class="matrix-quad p-4 border-b relative flex flex-col justify-center" style="border-color:var(--border);background:rgba(59,130,246,.04);">
             <div class="text-[9px] font-bold uppercase tracking-[.15em] mb-3" style="color:#3b82f6;">🎯 Strategic Bets</div>
             <div class="space-y-2">
               <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(59,130,246,.3);color:var(--text);">
@@ -1111,7 +1111,7 @@ html.dark .matrix-quad{border-color:var(--border);}
             </div>
           </div>
           <!-- Q3: Low Impact, Low Effort → Minor Tasks (bottom-left) -->
-          <div class="matrix-quad p-4 border-r relative" style="border-color:var(--border);background:rgba(245,158,11,.03);">
+          <div class="matrix-quad p-4 border-r relative flex flex-col justify-center" style="border-color:var(--border);background:rgba(245,158,11,.03);">
             <div class="text-[9px] font-bold uppercase tracking-[.15em] text-amber-custom mb-3">✓ Minor Tasks</div>
             <div class="space-y-2">
               <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(245,158,11,.25);color:var(--text);">
@@ -1121,7 +1121,7 @@ html.dark .matrix-quad{border-color:var(--border);}
             </div>
           </div>
           <!-- Q4: Low Impact, High Effort → Large Scale (bottom-right) -->
-          <div class="matrix-quad p-4 relative" style="background:rgba(239,68,68,.03);">
+          <div class="matrix-quad p-4 relative flex flex-col justify-center" style="background:rgba(239,68,68,.03);">
             <div class="text-[9px] font-bold uppercase tracking-[.15em] text-red-custom mb-3">⚠ De-prioritize</div>
             <div class="space-y-2">
               <div class="matrix-item px-3 py-2 rounded-xl text-[11px] font-bold cursor-default" style="background:var(--surface);border:1px solid rgba(239,68,68,.2);color:var(--text);">

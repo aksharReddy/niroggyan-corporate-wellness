@@ -928,10 +928,10 @@
       <div class="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl opacity-40" style="background:rgba(0,18,44,0.04);transform:translate(30%,-30%);"></div>
       <div class="relative z-10">
         <!-- Section Header -->
-        <div class="flex items-center gap-4 mb-8 pb-6" style="border-bottom: 1px solid var(--border);">
-          <div class="w-1 h-12 rounded-full flex-shrink-0" style="background:var(--primary);"></div>
-          <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
-            <span class="material-symbols-outlined text-[22px]" style="color:var(--primary);">tune</span>
+        <div class="flex items-center gap-3 mb-5 pb-4" style="border-bottom: 1px solid var(--border);">
+          <div class="w-1 h-9 rounded-full flex-shrink-0" style="background:var(--primary);"></div>
+          <div class="w-9 h-9 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+            <span class="material-symbols-outlined text-[18px]" style="color:var(--primary);">tune</span>
           </div>
           <div>
             <div class="section-label-chip mb-1" style="background:rgba(0,18,44,0.06);color:var(--primary);">04 · Scenario Modeling</div>
@@ -940,58 +940,43 @@
           </div>
         </div>
 
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-5">
           <!-- Controls -->
-          <div class="space-y-4">
+          <div class="space-y-3">
             <!-- Intervention 1 -->
-            <div class="sim-card p-5 rounded-2xl border" style="background:var(--surf-low);border-color:var(--border);">
-              <div class="flex items-center justify-between mb-3">
-                <div>
-                  <label class="text-[13px] font-bold" style="color:var(--text);">Address Vitamin D Deficiency</label>
-                  <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +3 point health score improvement</p>
-                </div>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" checked class="sr-only peer sim-checkbox" data-value="3" data-index="0"/>
-                  <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
-                </label>
+            <div class="sim-card p-4 rounded-2xl border flex items-center justify-between gap-3" style="background:var(--surf-low);border-color:var(--border);">
+              <div>
+                <label class="text-[13px] font-bold" style="color:var(--text);">Address Vitamin D Deficiency</label>
+                <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +3 point health score improvement</p>
               </div>
-              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
-                <div class="h-full bg-secondary rounded-full intervention-bar" id="bar-0" style="width:100%;"></div>
-              </div>
+              <label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+                <input type="checkbox" checked class="sr-only peer sim-checkbox" data-value="3" data-index="0"/>
+                <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+              </label>
             </div>
 
             <!-- Intervention 2 -->
-            <div class="sim-card p-5 rounded-2xl border" style="background:var(--surf-low);border-color:var(--border);">
-              <div class="flex items-center justify-between mb-3">
-                <div>
-                  <label class="text-[13px] font-bold" style="color:var(--text);">Improve Lipid Profile (Diet Program)</label>
-                  <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +4 point health score improvement</p>
-                </div>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" class="sr-only peer sim-checkbox" data-value="4" data-index="1"/>
-                  <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
-                </label>
+            <div class="sim-card p-4 rounded-2xl border flex items-center justify-between gap-3" style="background:var(--surf-low);border-color:var(--border);">
+              <div>
+                <label class="text-[13px] font-bold" style="color:var(--text);">Improve Lipid Profile (Diet Program)</label>
+                <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +4 point health score improvement</p>
               </div>
-              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
-                <div class="h-full bg-secondary rounded-full intervention-bar" id="bar-1" style="width:0%;"></div>
-              </div>
+              <label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+                <input type="checkbox" class="sr-only peer sim-checkbox" data-value="4" data-index="1"/>
+                <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+              </label>
             </div>
 
             <!-- Intervention 3 -->
-            <div class="sim-card p-5 rounded-2xl border" style="background:var(--surf-low);border-color:var(--border);">
-              <div class="flex items-center justify-between mb-3">
-                <div>
-                  <label class="text-[13px] font-bold" style="color:var(--text);">Reduce HbA1c (Sugar-free Office)</label>
-                  <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +3 point health score improvement</p>
-                </div>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" checked class="sr-only peer sim-checkbox" data-value="3" data-index="2"/>
-                  <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
-                </label>
+            <div class="sim-card p-4 rounded-2xl border flex items-center justify-between gap-3" style="background:var(--surf-low);border-color:var(--border);">
+              <div>
+                <label class="text-[13px] font-bold" style="color:var(--text);">Reduce HbA1c (Sugar-free Office)</label>
+                <p class="text-[11px] mt-0.5" style="color:var(--muted);">Estimated +3 point health score improvement</p>
               </div>
-              <div class="h-1.5 rounded-full overflow-hidden" style="background:var(--surf-high);">
-                <div class="h-full bg-secondary rounded-full intervention-bar" id="bar-2" style="width:100%;"></div>
-              </div>
+              <label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+                <input type="checkbox" checked class="sr-only peer sim-checkbox" data-value="3" data-index="2"/>
+                <div class="w-11 h-6 rounded-full peer-checked:bg-secondary bg-surface-container-high peer-focus:ring-2 peer-focus:ring-secondary/30 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
+              </label>
             </div>
           </div>
 
@@ -1013,23 +998,23 @@
 
     <!-- AI-Discovered Risk Clusters -->
     <div class="section-module">
-      <div class="flex items-center gap-4 mb-7 pb-6" style="border-bottom: 1px solid var(--border);">
-        <div class="w-1 h-12 rounded-full flex-shrink-0" style="background:var(--primary);"></div>
-        <div class="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
-          <span class="material-symbols-outlined text-[22px]" style="color:var(--primary);">hub</span>
+      <div class="flex items-center gap-3 mb-5 pb-4" style="border-bottom: 1px solid var(--border);">
+        <div class="w-1 h-9 rounded-full flex-shrink-0" style="background:var(--primary);"></div>
+        <div class="w-9 h-9 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(0,18,44,0.08);">
+          <span class="material-symbols-outlined text-[18px]" style="color:var(--primary);">hub</span>
         </div>
         <div>
           <div class="section-label-chip mb-1" style="background:rgba(0,18,44,0.06);color:var(--primary);">05 · Pattern Detection</div>
           <h2 class="font-headline-sm text-headline-sm" style="color:var(--text);">AI-Discovered Risk Clusters</h2>
-          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Hidden co-occurrence patterns found by AI — groups of employees sharing multiple risk factors that don't surface in standard department or age filters.</p>
+          <p class="text-[12px] mt-0.5" style="color:var(--muted);">Hidden co-occurrence patterns found by AI — groups sharing multiple risk factors that don't surface in standard filters.</p>
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-2.5">
         <!-- Cluster 1 -->
-        <div class="cluster-item flex items-center gap-4 p-4 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
-            <span class="material-symbols-outlined text-[20px]">nightlight</span>
+        <div class="cluster-item flex items-center gap-3 p-3 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[18px]">nightlight</span>
           </div>
           <div class="flex-grow min-w-0">
             <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">The "Red-Eye" Hub</p>
@@ -1042,9 +1027,9 @@
         </div>
 
         <!-- Cluster 2 -->
-        <div class="cluster-item flex items-center gap-4 p-4 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
-            <span class="material-symbols-outlined text-[20px]">chair</span>
+        <div class="cluster-item flex items-center gap-3 p-3 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[18px]">chair</span>
           </div>
           <div class="flex-grow min-w-0">
             <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Sedentary Spikes</p>
@@ -1057,9 +1042,9 @@
         </div>
 
         <!-- Cluster 3 -->
-        <div class="cluster-item flex items-center gap-4 p-4 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
-            <span class="material-symbols-outlined text-[20px]">restaurant</span>
+        <div class="cluster-item flex items-center gap-3 p-3 rounded-2xl border transition-all" style="background:var(--surf-low);border-color:transparent;">
+          <div class="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center shadow-sm" style="background:var(--surface);color:var(--primary);">
+            <span class="material-symbols-outlined text-[18px]">restaurant</span>
           </div>
           <div class="flex-grow min-w-0">
             <p class="text-[13px] font-bold mb-0.5" style="color:var(--text);">Nutrient Gaps</p>
