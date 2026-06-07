@@ -1376,34 +1376,22 @@
           <div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/30">
             <h3 class="font-title-lg text-primary font-bold">Aggregated Diagnostic Profiles</h3>
           </div>
-          <!-- Combined risk-type + status lens (secondary filters) -->
-          <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mb-5">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mr-1">Risk type:</span>
-              <button class="cat-chip active" data-cat="all" onclick="setCategoryFilter('all')">All</button>
-              <button class="cat-chip" data-cat="deficiency" onclick="setCategoryFilter('deficiency')">
-                <span class="material-symbols-outlined" style="font-size:12px;line-height:1">nutrition</span>Nutritional
-              </button>
-              <button class="cat-chip" data-cat="metabolic" onclick="setCategoryFilter('metabolic')">
-                <span class="material-symbols-outlined" style="font-size:12px;line-height:1">restaurant</span>Metabolic
-              </button>
-              <button class="cat-chip" data-cat="hematology" onclick="setCategoryFilter('hematology')">
-                <span class="material-symbols-outlined" style="font-size:12px;line-height:1">bloodtype</span>Blood
-              </button>
-              <button class="cat-chip" data-cat="organ" onclick="setCategoryFilter('organ')">
-                <span class="material-symbols-outlined" style="font-size:12px;line-height:1">health_and_safety</span>Organ
-              </button>
-            </div>
-            <div class="hidden sm:block w-px h-5 bg-outline-variant/40"></div>
-            <div class="flex items-center gap-2">
-              <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55">Status:</span>
-              <div class="inline-flex p-1 bg-surface-container rounded-lg border border-outline-variant/30">
-                <button class="status-btn active px-2.5 py-1 rounded-md font-label-md bg-primary text-on-primary transition-all" data-status="all" onclick="setStatusFilter('all')">All</button>
-                <button class="status-btn px-2.5 py-1 rounded-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-all" data-status="Healthy" onclick="setStatusFilter('Healthy')">Healthy</button>
-                <button class="status-btn px-2.5 py-1 rounded-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-all" data-status="Monitor" onclick="setStatusFilter('Monitor')">Monitor</button>
-                <button class="status-btn px-2.5 py-1 rounded-md font-label-md text-on-surface-variant hover:bg-red-custom/5 transition-all" data-status="At Risk" onclick="setStatusFilter('At Risk')">At Risk</button>
-              </div>
-            </div>
+          <!-- Risk-type lens -->
+          <div class="flex flex-wrap items-center gap-2 mb-5">
+            <span class="text-[9px] font-bold uppercase tracking-widest text-on-surface-variant/55 mr-1">Risk type:</span>
+            <button class="cat-chip active" data-cat="all" onclick="setCategoryFilter('all')">All</button>
+            <button class="cat-chip" data-cat="deficiency" onclick="setCategoryFilter('deficiency')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">nutrition</span>Nutritional
+            </button>
+            <button class="cat-chip" data-cat="metabolic" onclick="setCategoryFilter('metabolic')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">restaurant</span>Metabolic
+            </button>
+            <button class="cat-chip" data-cat="hematology" onclick="setCategoryFilter('hematology')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">bloodtype</span>Blood
+            </button>
+            <button class="cat-chip" data-cat="organ" onclick="setCategoryFilter('organ')">
+              <span class="material-symbols-outlined" style="font-size:12px;line-height:1">health_and_safety</span>Organ
+            </button>
           </div>
           <div class="space-y-6 flex-grow" id="profile-list">
             <!-- Profiles rendered by JS -->
@@ -1847,7 +1835,6 @@
         },
       ];
 
-      let currentStatusFilter = "all";
       let currentCategoryFilter = "all";
       let openProfileId = null;
 
@@ -1864,9 +1851,7 @@
         const container = document.getElementById("profile-list");
         if (!container) return;
         const filtered = diagnosticProfiles.filter(
-          (p) =>
-            (currentStatusFilter === "all" || p.status === currentStatusFilter) &&
-            (currentCategoryFilter === "all" || p.category === currentCategoryFilter),
+          (p) => currentCategoryFilter === "all" || p.category === currentCategoryFilter,
         );
 
         container.innerHTML = filtered
@@ -1931,20 +1916,6 @@
           if (acc) acc.style.maxHeight = "200px";
           if (chv) chv.style.transform = "rotate(180deg)";
         }
-      }
-
-      function setStatusFilter(status) {
-        currentStatusFilter = status;
-        openProfileId = null;
-        document.querySelectorAll(".status-btn").forEach((btn) => {
-          btn.classList.remove("active", "bg-primary", "text-on-primary");
-          btn.classList.add("text-on-surface-variant");
-          if (btn.getAttribute("data-status") === status) {
-            btn.classList.add("active", "bg-primary", "text-on-primary");
-            btn.classList.remove("text-on-surface-variant");
-          }
-        });
-        renderProfiles();
       }
 
       // ── KPI department filter ─────────────────────────────────────────────
@@ -2021,9 +1992,7 @@
 
       function downloadClinicalCSV() {
         const visible = diagnosticProfiles.filter(
-          (p) =>
-            (currentStatusFilter === "all" || p.status === currentStatusFilter) &&
-            (currentCategoryFilter === "all" || p.category === currentCategoryFilter)
+          (p) => currentCategoryFilter === "all" || p.category === currentCategoryFilter
         );
         const rows = [["Parameter", "Category", "Status", "Abnormal %", "Description", "AI Recommendation"]];
         visible.forEach((p) => rows.push([p.name, p.category, p.status, p.pct + "%", p.desc, p.intervention]));
